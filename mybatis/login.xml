@@ -6,6 +6,6 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<select id="getLoginUser" parameterType="Map" resultType="user">
 		SELECT * FROM USER WHERE LOCKED = 0 AND 
-			USERNAME = #{username} AND password=MD5(#{password})
+			(USERNAME = #{username} OR EMAIL = #{username}) AND password=MD5(#{password})
 	</select>
 </mapper>

@@ -139,18 +139,36 @@ public class MenuTagSupport extends TagSupport {
 	
 	
 	private void initNavbarEnd(StringBuffer buffer, User user) {
+		
+		buffer.append("<ul class='nav navbar-nav navbar-right'>");
 		if (user != null) {
-			
+			buffer.append("<li><a href='search.jsp'>&nbsp;我的课程</a></li>");
+			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-search'></span>&nbsp;搜索</a></li>");
+			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-bullhorn'></span>&nbsp;通知</a></li>");
+			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-envelope'></span>&nbsp;私信</a></li>");
+			buffer.append("<li class='dropdown'>");
+			buffer.append("<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>");
+			buffer.append(user.getName()).append("<span class='caret'></span></a>");
+			buffer.append("<ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>");
+			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'>&nbsp;我的主页</a></li>");
+			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 
+			buffer.append("<li role='presentation' class='divider'></li>");
+			if ("ADMIN".equals(user.getRole())) {
+				buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-cog'>&nbsp;后台管理</a></li>");
+				buffer.append("<li role='presentation' class='divider'></li>");
+			}
+			buffer.append("<li role='presentation'><a role='menuitem' href='");
+			buffer.append(context).append("/logout");
+			buffer.append("'><span class='glyphicon glyphicon-off'>&nbsp;退出</a></li>");
 			
 		}else {
-			buffer.append("<ul class='nav navbar-nav navbar-right'>");
 			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-search'></span>&nbsp;搜索</a></li>");
 			buffer.append("<li><a href='").append(context).append("/").append("toLogin").append("'>");
 			buffer.append("<span class='glyphicon glyphicon-hand-right'></span>&nbsp;登录</a></li>");
 			buffer.append("<li><a href='addUser.jsp'><span class='glyphicon glyphicon-user'></span>&nbsp;注册</a></li>");
-			buffer.append("</ul>");
 		}
 		
+		buffer.append("</ul>");
 		buffer.append("</div></div></div>");
 	}
 

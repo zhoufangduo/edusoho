@@ -126,7 +126,6 @@ public abstract class BaseController {
 	}
 	
 	
-	
 	protected String getName(){
 		
 		User user = getUser();

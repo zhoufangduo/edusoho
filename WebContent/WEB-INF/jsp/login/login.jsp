@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib prefix="nav" uri="/WEB-INF/navbar.tld" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <%String basePath = request.getContextPath();%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -66,7 +67,7 @@
 					    <div class="col-sm-offset-2 col-sm-9">
 					      <div class="checkbox">
 					        <label style="width: 220px;">
-					          <input type="checkbox"> 记住密码
+					          <input type="checkbox" name="remeber" id="remeber" value="true"> 记住密码
 					        </label>
 					        <button type="submit" class="btn btn-primary" style="width: 100px;">登&nbsp;&nbsp;录</button>
 					      </div>
@@ -82,11 +83,19 @@
 					    </div>
 					  </div>
 			      </form>
-			       
 			 </div>
 			</div>
 		</div>
 	</center>
+	
+		<c:forEach items="${pageContext.request.cookies}" var="cookie"> 
+		  <c:if test="${fn:contains(cookie.name,'username')}">
+		    <c:set var="username" value="${cookie.value}"/>
+		  </c:if>
+		  <c:if test="${fn:contains(cookie.name,'password')}">
+		    <c:set var="password" value="${cookie.value}"/>
+		  </c:if>
+		</c:forEach>
 	
 	<script type="text/javascript">
 		$(function(){
@@ -94,6 +103,7 @@
 			    checkboxClass: 'icheckbox_flat-blue',
 			    radioClass: 'iradio_flat'
 			});
+			
 			
 			$("#loginForm").validate({
 				success:success,

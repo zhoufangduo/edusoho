@@ -10,5 +10,9 @@ public interface CONSTANTCONTEXT {
 	
 	public String APP_INSTALLED = "isInstalled";
 	
+	public String LOGIN_COOKIE_USERNAME = "login_cookie_username";
+	
+	public String LOGIN_COOKIE_PASSWORD = "login_cookie_password";
+	
 	
 }

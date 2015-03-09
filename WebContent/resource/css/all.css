@@ -61,6 +61,10 @@ body,div,form,ul,li,a{
 	width: 800px;
 }
 
+.container-fluid{
+	padding-right: 50px;
+	padding-left: 50px;
+}
 
 .dropdown:hover .menu-top {
     display: block;

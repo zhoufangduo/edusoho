@@ -2,23 +2,25 @@ package com.et.edusoho.login.bean;
 
 public class User {
 
-	private String id;//用户ID
+	private String id;// 用户ID
 
-	private String username; //用户账号
+	private String username; // 用户账号
 
-	private String password; //用户登录的密码
+	private String password; // 用户登录的密码
 
-	private String name; //用户姓名
+	private String name; // 用户姓名
 
-	private String sex; //用户性别
+	private String sex; // 用户性别
 
-	private String email; //用户的email
+	private String role; // 用户角色
 
-	private String avatar; //用户头像
+	private String email; // 用户的email
 
-	private String locked; //用户是否被锁
+	private String avatar; // 用户头像
 
-	private String createTime; //用户创建的时间
+	private String locked; // 用户是否被锁
+
+	private String createTime; // 用户创建的时间
 
 	public String getId() {
 		return id;
@@ -90,5 +92,13 @@ public class User {
 
 	public void setCreateTime(String createTime) {
 		this.createTime = createTime;
+	}
+
+	public String getRole() {
+		return role;
+	}
+
+	public void setRole(String role) {
+		this.role = role;
 	}
 }
