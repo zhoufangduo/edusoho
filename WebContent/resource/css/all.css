@@ -1,0 +1,165 @@
+@CHARSET "UTF-8";
+
+body{
+	margin: 0px;
+	padding: 0px;
+	background-color: #eeeff0;
+}
+
+body,div,form,ul,li,a{
+	font-family: "微软雅黑", "Courier New";
+}
+.container{
+	margin-top: 30px;
+}
+
+.navbar-nav > li:HOVER {
+	background-color:#3a485d;
+}
+
+.thumbnail{
+	height:120px;
+}
+.thumbnail:HOVER{
+	border-color: #339900;
+}
+
+.course{
+	margin-left: 180px;
+	padding-top: 5px;
+	text-overflow:ellipsis;
+    white-space:nowrap;
+    overflow:hidden;
+}
+
+.course-title{
+	font-weight: bold;
+	font-size: 18px;
+}
+
+.status-list{
+	border-bottom: 1px #bce8f1 solid;
+	padding-bottom: 5px;
+	margin-bottom: 5px;
+}
+
+.form-panel{
+	width: 480px;
+	text-align: left;
+	margin-top: 10%;
+}
+.right-tip{
+	margin-left: 5px;
+}
+
+.form-control{
+	font-weight: bold;
+}
+
+.w8-panel{
+	margin-top: 80px;
+	width: 800px;
+}
+
+
+.dropdown:hover .menu-top {
+    display: block;
+}
+
+.dropdown-submenu{
+    position:relative;
+}
+
+.dropdown-submenu > .dropdown-menu{
+    top:0;
+    left:100%;
+    margin-top:-6px;
+    margin-left:-1px;
+    -webkit-border-radius:0 6px 6px 6px;
+    -moz-border-radius:0 6px 6px 6px;
+    border-radius:0 6px 6px 6px;
+}
+
+.dropdown-submenu:hover > .dropdown-menu{
+    display:block;
+}
+
+.dropdown-submenu > a:after{
+    display:block;
+    content:" ";
+    float:right;
+    width:0;
+    height:0;
+    border-color:transparent;
+    border-style:solid;
+    border-width:5px 0 5px 5px;
+    border-left-color:#cccccc;
+    margin-top:5px;
+    margin-right:-10px;
+}
+
+.dropdown-submenu:hover > a:after{
+    border-left-color:#ffffff;
+}
+
+.dropdown-submenu .pull-left{
+    float:none;
+}
+
+.dropdown-submenu.pull-left > .dropdown-menu{
+    left:-100%;
+    margin-left:10px;
+    -webkit-border-radius:6px 0 6px 6px;
+    -moz-border-radius:6px 0 6px 6px;
+    border-radius:6px 0 6px 6px;
+}
+
+.install{
+	width: 900px;
+	text-align:left;
+	background-color: #FFF;
+}
+.install_title{
+	color: #6699FF;
+}
+
+.tooltips{
+    position:absolute;
+    width:auto;
+    height:auto;
+    z-index:10000;
+    background:#d9534f;
+    border:1px solid #d43f3a;
+    border-radius:4px;
+    color: #FFFFFF;
+    margin-top: 5px;
+}
+
+.tipstext{
+	 padding:3px 5px;
+	 margin-top:-1px;
+	 font-size: 5px;
+}
+
+.arrow{
+    position:absolute;
+    width: 0px;
+    height:0px;
+    line-height: 0px;
+    border-width: 0 5px 5px;
+    border-style: solid dashed dashed dashed;
+    border-left-color: transparent;
+    border-right-color: transparent;
+}
+.arrow-border{
+   color:#d43f3a;
+   left: 50%;
+   margin-left: -5px;
+   margin-top: -6px;
+}
+.arrow-bg{
+    color: #d9534f;
+    left: 50%;
+    margin-top: -5px;
+   	margin-left: -5px;
+}
