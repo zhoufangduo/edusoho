@@ -2,7 +2,6 @@ package com.et.edusoho.login.controller;
 
 import java.util.Map;
 
-import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -38,10 +37,6 @@ public class LoginController extends BaseController{
 			
 			if (params.size() > 0) {
 				
-				if ("true".equals(params.get("remeber"))) {
-					setLoginToCookie(params, request, response);  
-				}
-				
 				User user = loginService.login(params);
 				if (user != null) {
 					session.setAttribute(CONSTANTCONTEXT.USER, user);
@@ -60,22 +55,11 @@ public class LoginController extends BaseController{
 		return "forward:toLogin";
 	}
 
-	private void setLoginToCookie(Map<String, String> params,
-			HttpServletRequest request, HttpServletResponse response) {
-		String host = request.getServerName();  
-		Cookie cookie = new Cookie(CONSTANTCONTEXT.LOGIN_COOKIE_USERNAME, params.get("username")); 
-		cookie.setPath("/");  
-		cookie.setDomain(host);  
-		response.addCookie(cookie);  
-		cookie = new Cookie(CONSTANTCONTEXT.LOGIN_COOKIE_PASSWORD, params.get("password"));   
-		cookie.setPath("/");  
-		cookie.setDomain(host);  
-		response.addCookie(cookie);
-	}
+	
 	
 	@RequestMapping("/toLogin")
-	public String toLogin(final ModelMap modelMap,
-			@RequestParam Map<String, String> params){
+	public String toLogin(final ModelMap modelMap,@RequestParam Map<String, String> params
+			,HttpServletRequest request){
 		
 		return "login/login";
 	}

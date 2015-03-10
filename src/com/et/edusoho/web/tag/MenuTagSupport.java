@@ -154,8 +154,7 @@ public class MenuTagSupport extends TagSupport {
 			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 
 			buffer.append("<li role='presentation' class='divider'></li>");
 			if ("ADMIN".equals(user.getRole())) {
-				buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-cog'>&nbsp;后台管理</a></li>");
-				buffer.append("<li role='presentation' class='divider'></li>");
+				addAdminMenu(buffer);
 			}
 			buffer.append("<li role='presentation'><a role='menuitem' href='");
 			buffer.append(context).append("/logout");
@@ -170,6 +169,14 @@ public class MenuTagSupport extends TagSupport {
 		
 		buffer.append("</ul>");
 		buffer.append("</div></div></div>");
+	}
+
+
+	private void addAdminMenu(StringBuffer buffer) {
+		buffer.append("<li role='presentation'><a role='menuitem' href='").append(context);
+		buffer.append("/").append("admin").append("'>");
+		buffer.append("<span class='glyphicon glyphicon-cog'>&nbsp;后台管理</a></li>");
+		buffer.append("<li role='presentation' class='divider'></li>");
 	}
 
 	@Override

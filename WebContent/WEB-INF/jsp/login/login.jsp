@@ -19,6 +19,8 @@
 	<link href="<%=basePath%>/resource/iCheck/skins/all.css" rel="stylesheet">
 	<script src="<%=basePath%>/resource/iCheck/icheck.min.js"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
+	<script src="<%=basePath%>/resource/jquery/jquery.cookie.js" type="text/javascript"></script>
+	
 	<style type="text/css">
 		.alert{
 			width: 100%;
@@ -67,7 +69,7 @@
 					    <div class="col-sm-offset-2 col-sm-9">
 					      <div class="checkbox">
 					        <label style="width: 220px;">
-					          <input type="checkbox" name="remeber" id="remeber" value="true"> 记住密码
+					          <input type="checkbox" id="remeber" name="remeber" value="true"> 记住密码
 					        </label>
 					        <button type="submit" class="btn btn-primary" style="width: 100px;">登&nbsp;&nbsp;录</button>
 					      </div>
@@ -88,22 +90,14 @@
 		</div>
 	</center>
 	
-		<c:forEach items="${pageContext.request.cookies}" var="cookie"> 
-		  <c:if test="${fn:contains(cookie.name,'username')}">
-		    <c:set var="username" value="${cookie.value}"/>
-		  </c:if>
-		  <c:if test="${fn:contains(cookie.name,'password')}">
-		    <c:set var="password" value="${cookie.value}"/>
-		  </c:if>
-		</c:forEach>
-	
 	<script type="text/javascript">
 		$(function(){
-			$('input[type=checkbox]').iCheck({
-			    checkboxClass: 'icheckbox_flat-blue',
-			    radioClass: 'iradio_flat'
-			});
 			
+			if($.cookie("remeber")){
+				 $("#username").val($.cookie("username"));
+				 $("#password").val($.cookie("password"));
+				 $("#remeber").attr("checked","checked");
+			}
 			
 			$("#loginForm").validate({
 				success:success,
@@ -124,9 +118,33 @@
 					"password": {required : "密码不能为空!", minlength:"长度至少为6个字符!"}
 				},
 				submitHandler: function(form) {
+					
+					if($("#remeber").attr("checked")){
+						$.cookie("username", $("#username").val() , { path: '/',expires: 365});
+						$.cookie("password", $("#password").val() , { path: '/',expires: 365}); 
+						$.cookie("remeber", true , { path: '/',expires: 365});
+					}else{
+						$.cookie("username", null, { path: '/',expires: 0});
+						$.cookie("password", null, { path: '/',expires: 0}); 
+						$.cookie("remeber", false, { path: '/',expires: 0});
+					}
+					
 					$("#password").val($.md5($("#password").val()));
 					form.submit();
 				}
+			});
+			
+			$('#remeber').iCheck({
+			    checkboxClass: 'icheckbox_flat-blue',
+			    radioClass: 'iradio_flat'
+			});
+			
+			$('#remeber').on('ifChecked', function(event){
+				$('#remeber').attr("checked",true);
+			});
+			
+			$('#remeber').on('ifUnchecked', function(event){
+				$('#remeber').attr("checked",false);
 			});
 		});
 	</script>

@@ -17,6 +17,10 @@ body,div,form,ul,li,a{
 	background-color:#3a485d;
 }
 
+.navbar-inverse .navbar-brand{
+	color: #FFFFFF;
+}
+
 .thumbnail{
 	height:120px;
 }
@@ -166,4 +170,8 @@ body,div,form,ul,li,a{
     left: 50%;
     margin-top: -5px;
    	margin-left: -5px;
+}
+.no_data{
+	text-align: center;
+	padding: 20px 0px;
 }
