@@ -17,6 +17,10 @@ body,div,form,ul,li,a{
 	background-color:#3a485d;
 }
 
+.active_nav{
+	background-color:#6699CC;
+}
+
 .navbar-inverse .navbar-brand{
 	color: #FFFFFF;
 }
@@ -174,4 +178,8 @@ body,div,form,ul,li,a{
 .no_data{
 	text-align: center;
 	padding: 20px 0px;
+}
+
+.list-group{
+	width: 160px;
 }

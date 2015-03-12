@@ -12,7 +12,7 @@
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
 </head>
 <body>
-	<jsp:include page="admin-head.jsp"></jsp:include>
+	<jsp:include page="navigation.jsp"></jsp:include>
 	<div class="container">
 		<div class="panel panel-default">
 			<div class="panel-body">

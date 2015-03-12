@@ -11,7 +11,14 @@ public class AppController extends BaseController {
 	@RequestMapping("/admin")
 	public String toAdmin(){
 		
-		
 		return "admin/index";
 	}
+	
+	
+	@RequestMapping("admin/navigation")
+	public String toNavigation(){
+		
+		return "admin/navigation";
+	}
+	
 }
