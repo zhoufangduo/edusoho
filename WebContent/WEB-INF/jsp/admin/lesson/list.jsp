@@ -14,7 +14,37 @@
 <body>
 	<jsp:include page="../navigation.jsp"></jsp:include>
 	<div class="container">
-		<jsp:include page="menu.jsp"></jsp:include>
+		<div class="row">
+			<div class="col-md-2">
+				<jsp:include page="menu.jsp"></jsp:include>
+			</div>
+			<div class="col-md-10">
+				<div class="panel panel-default">
+				  <div class="panel-body">
+				  	<div>
+						<ol class="breadcrumb">
+						  <li><a href="#">课程</a></li>
+						  <li class="active">课程管理</li>
+						</ol>
+					</div>
+				    <form action="">
+						<div class="input-group">
+						  <span class="input-group-addon" id="sizing-addon2">@
+						  </span>
+						  <select class="form-control">
+							  <option value="">课程分类</option>
+							  <option>默认分类</option>
+						  	</select>
+						  	<select class="form-control">
+							  <option value="">课程分类</option>
+							  <option>默认分类</option>
+						  	</select>
+						</div>
+				    </form>
+				  </div>
+			   </div>
+			</div>
+		</div>
 	</div>
 </body>
 </html>
