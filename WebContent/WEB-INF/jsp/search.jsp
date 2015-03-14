@@ -24,7 +24,7 @@
 		  <div class="panel-body">
 		      <div class="input-group input-group-lg">
 				  <div class="input-group-btn">
-				   	 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
+				   	  <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1"
 				   	 	 data-toggle="dropdown" aria-expanded="true">分类<span class="caret"></span>
 					  </button>
 					  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
@@ -46,7 +46,6 @@
 			 <div style="text-align: center;">
 			 	 目前没有内容!
 			 </div>
-				
 		  </div>
 		</div>
 	</div>

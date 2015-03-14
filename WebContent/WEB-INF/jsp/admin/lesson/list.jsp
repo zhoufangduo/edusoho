@@ -29,18 +29,44 @@
 					</div>
 				    <form action="">
 						<div class="input-group">
-						  <span class="input-group-addon" id="sizing-addon2">@
-						  </span>
-						  <select class="form-control">
-							  <option value="">课程分类</option>
-							  <option>默认分类</option>
-						  	</select>
-						  	<select class="form-control">
-							  <option value="">课程分类</option>
-							  <option>默认分类</option>
-						  	</select>
+							  <span class="input-group-addon" >&nbsp;搜索项 &nbsp;</span>
+							  <select class="form-control" style="width: 120px;">
+								  <option value="">课程分类</option>
+								  <option>默认分类</option>
+							  </select>
+							  <select class="form-control" style="width: 120px;">
+								  <option value="">课程状态</option>
+								  <option>默认分类</option>
+							  </select>
+							  <input type="text" class="form-control" placeholder="标题" style="width: 200px;">
+							  <input type="text" class="form-control" placeholder="创建者" style="width: 180px;">
+							  <span class="input-group-btn" style="float: left;">
+        						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
+      						  </span>
 						</div>
+						 <span style="margin-left: 100px;">
+      						  <button class="btn btn-info" type="submit">创建课程</button>
+      					</span>
 				    </form>
+				    <br/>
+				    <table class="table table-hover">
+  						<tr>
+  							<th>编号</th>
+  							<th>名称</th>
+  							<th>学员数</th>
+  							<th>状态</th>
+  							<th>创建者</th>
+  							<th>创建时间</th>
+  						</tr>
+  						<tr>
+  							<td></td>
+  							<td></td>
+  							<td></td>
+  							<td></td>
+  							<td></td>
+  							<td></td>
+  						</tr>
+					</table>
 				  </div>
 			   </div>
 			</div>
