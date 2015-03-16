@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
-<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<!DOCTYPE html PUBLIC "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -28,15 +28,17 @@
 						</ol>
 					</div>
 				    <form action="">
-						<div class="input-group">
+						<div class="input-group" style="float: left;width: 80%;">
 							  <span class="input-group-addon" >&nbsp;搜索项 &nbsp;</span>
-							  <select class="form-control" style="width: 120px;">
+							  <select class="form-control" style="width: 125px;">
 								  <option value="">课程分类</option>
 								  <option>默认分类</option>
 							  </select>
-							  <select class="form-control" style="width: 120px;">
+							  <select class="form-control" style="width: 125px;">
 								  <option value="">课程状态</option>
-								  <option>默认分类</option>
+								  <option>未发布</option>
+								  <option>已发布</option>
+								  <option>已关闭</option>
 							  </select>
 							  <input type="text" class="form-control" placeholder="标题" style="width: 200px;">
 							  <input type="text" class="form-control" placeholder="创建者" style="width: 180px;">
@@ -57,16 +59,43 @@
   							<th>状态</th>
   							<th>创建者</th>
   							<th>创建时间</th>
+  							<th>操作</th>
   						</tr>
   						<tr>
-  							<td></td>
-  							<td></td>
-  							<td></td>
-  							<td></td>
-  							<td></td>
-  							<td></td>
+  							<td>对方是否打算<br/>dsfdsfdsfdsfdsf</td>
+  							<td>第三方斯蒂芬</td>
+  							<td>斯蒂芬森的</td>
+  							<td>斯蒂芬斯多夫</td>
+  							<td>斯蒂芬森的</td>
+  							<td>斯蒂芬斯多夫</td>
+  							<td>
+  								<div class="btn-group">
+								  <button type="button" class="btn btn-sm btn-default">管理</button>
+								  <button type="button" class="btn btn-sm btn-default  dropdown-toggle" data-toggle="dropdown">
+								    <span class="caret"></span>
+								    <span class="sr-only">Toggle Dropdown</span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="#">
+								    	<span class="glyphicon glyphicon-star"></span>&nbsp;推荐课程
+								    </a> </li>
+								    <li><a href="#">
+								    	<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;关闭课程
+								    </a></li>
+								    <li><a href="#">
+								    	<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;发布课程
+								    </a></li>
+								    <li><a href="#">
+								    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除课程
+								    </a></li>
+								    
+								    
+								  </ul>
+								</div>
+  							</td>
   						</tr>
 					</table>
+					
 				  </div>
 			   </div>
 			</div>
