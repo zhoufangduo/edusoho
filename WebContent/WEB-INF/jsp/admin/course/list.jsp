@@ -47,7 +47,7 @@
       						  </span>
 						</div>
 						 <span style="margin-left: 100px;">
-      						  <button class="btn btn-info" type="submit">创建课程</button>
+      						  <a href="http://www.hao123.com" class="btn btn-info" target="_blank" >创建课程</a>
       					</span>
 				    </form>
 				    <br/>
@@ -88,8 +88,6 @@
 								    <li><a href="#">
 								    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除课程
 								    </a></li>
-								    
-								    
 								  </ul>
 								</div>
   							</td>

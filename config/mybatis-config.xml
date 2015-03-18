@@ -7,6 +7,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias alias="menu" type="com.et.edusoho.admin.menu.bean.Menu"/>
 		<typeAlias alias="user" type="com.et.edusoho.login.bean.User"/>
+		<typeAlias alias="category" type="com.et.edusoho.admin.course.bean.Category"/>
 	</typeAliases>
 	
 	<mappers>

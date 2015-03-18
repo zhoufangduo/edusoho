@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.lesson;
+package com.et.edusoho.admin.course.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -7,13 +7,13 @@ import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
 @RequestMapping("/admin/*")
-public class LessonController extends BaseController {
+public class CourseController extends BaseController {
 	
-	public LessonController(){
-		super("admin/lesson");
+	public CourseController(){
+		super("admin/course");
 	}
 	
-	@RequestMapping("lesson")
+	@RequestMapping("course")
 	public String toLesson(){
 		return getContext("/list");
 	}
