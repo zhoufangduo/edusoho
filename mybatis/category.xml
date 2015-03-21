@@ -9,4 +9,13 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		VALUES(#{name},#{pId},#{description})
 	</insert>
 	
+	<select id="list" parameterType="map" resultType="category">
+		SELECT * FROM CATEGORY 
+		<where>
+			<if test="name != null and name != ''">
+				NAME LIKE CONCAT(CONCAT('%', #{name}),'%')    
+			</if>
+		</where>
+	</select>
+	
 </mapper>

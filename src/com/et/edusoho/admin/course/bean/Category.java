@@ -8,6 +8,8 @@ public class Category {
 
 	private String pId;
 
+	private String sort;
+
 	private String description;
 
 	public String getId() {
@@ -32,6 +34,14 @@ public class Category {
 
 	public void setpId(String pId) {
 		this.pId = pId;
+	}
+
+	public String getSort() {
+		return sort;
+	}
+
+	public void setSort(String sort) {
+		this.sort = sort;
 	}
 
 	public String getDescription() {

@@ -1,5 +1,6 @@
 package com.et.edusoho.admin.course.controller;
 
+import java.util.List;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.course.bean.Category;
 import com.et.edusoho.admin.course.service.CategoryService;
 import com.et.edusoho.support.constroller.BaseController;
 
@@ -31,7 +33,7 @@ public class CategoryController extends BaseController{
 	
 	
 	@RequestMapping("add")
-	public void add(final ModelMap modelMap, @RequestParam Map<String, String> params,
+	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params,
 			HttpServletResponse response,HttpServletRequest request){
 		
 		try {
@@ -43,13 +45,19 @@ public class CategoryController extends BaseController{
 			}
 			
 		} catch (Exception e) {
-			write("");
 			logger.warn(e.getMessage(), e);
 		}
+		
+		return "redirect:category?active=course&menu=category";
 	}
 	
 	@RequestMapping("category")
-	public String toLesson(){
+	public String toCategory(final ModelMap modelMap, @RequestParam Map<String, Object> params){
+		
+		List<Category> list = categoryService.list(params);
+		
+		modelMap.addAttribute("list", list);
+		
 		return getContext("/list");
 	}
 }

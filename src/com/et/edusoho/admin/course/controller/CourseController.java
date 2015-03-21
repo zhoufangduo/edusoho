@@ -14,7 +14,7 @@ public class CourseController extends BaseController {
 	}
 	
 	@RequestMapping("course")
-	public String toLesson(){
+	public String toCourse(){
 		return getContext("/list");
 	}
 }

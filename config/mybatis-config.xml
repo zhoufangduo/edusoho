@@ -13,5 +13,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<mappers>
 		<mapper resource="context.xml"/>
 		<mapper resource="login.xml"/>
+		<mapper resource="category.xml"/>
 	</mappers>
 </configuration>
