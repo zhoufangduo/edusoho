@@ -4,7 +4,7 @@
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>易通软件教育后台管理</title>
+	<title>课程管理-易通软件教育后台管理</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
@@ -92,8 +92,7 @@
 								</div>
   							</td>
   						</tr>
-					</table>
-					
+					 </table>
 				  </div>
 			   </div>
 			</div>

@@ -18,7 +18,7 @@
         	<a href="<%=basePath%>/admin/course?active=course">课程 </a>
         </li>
         <li <c:if test="${param.active == 'user'}">class="active_nav"</c:if>>
-        	<a href="#" >用户</a>
+        	<a href="<%=basePath%>/admin/user?active=user" >用户</a>
         </li>
         <li><a href="#">内容</a></li>
         <li><a href="#">系统</a></li>
