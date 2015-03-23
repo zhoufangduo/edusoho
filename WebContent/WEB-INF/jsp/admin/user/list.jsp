@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html PUBLIC "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -34,8 +35,8 @@
 					</div>
 				    <form action="">
 						<div class="input-group" style="float: left;width: 80%;">
-							  <span class="input-group-addon" >&nbsp;搜索项 &nbsp;</span>
-							  <select class="form-control" style="width: 120px;">
+							  <span class="input-group-addon">搜索项 </span>
+							  <select class="form-control" style="width: 110px;">
 								  <option value="">所有角色</option>
 								  <option>学员</option>
 								  <option>教师</option>
@@ -49,13 +50,13 @@
 								  <option>邮件</option>
 								  <option>姓名</option>
 							  </select>
-							  <input type="text" class="form-control" placeholder="关键字" style="width: 250px;">
+							  <input type="text" class="form-control" placeholder="关键字" style="width: 240px;">
 							  
 							  <span class="input-group-btn" style="float: left;">
         						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
       						  </span>
 						</div>
-						 <span style="margin-left: 100px;">
+						 <span style="margin-left: 65px;">
       						  <a href="javascript:showAddForm()" class="btn btn-info" target="_blank" >创建课程</a>
       					</span>
 				    </form>
@@ -68,9 +69,33 @@
   							<th>状态</th>
   							<th>操作</th>
   						</tr>
-  						
-  						
-  						
+  						<c:forEach items="${list}" var="user">
+  							<tr>
+  								<td>${user.username}</td>
+  								<td>${user.email}</td>
+  								<td>${user.createTime}</td>
+  								<td>
+  									<c:if test="${user.locked == 1}">已锁定</c:if>
+  									<c:if test="${user.locked == 0}">可使用</c:if>
+								</td>
+								<td>
+									<div class="btn-group">
+									  <button type="button" class="btn btn-default btn-sm">管理</button>
+									  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+									    <span class="caret"></span>
+									    <span class="sr-only">Toggle Dropdown</span>
+									  </button>
+									  <ul class="dropdown-menu" role="menu">
+									    <li><a href="#">Action</a></li>
+									    <li><a href="#">Another action</a></li>
+									    <li><a href="#">Something else here</a></li>
+									    <li class="divider"></li>
+									    <li><a href="#">Separated link</a></li>
+									  </ul>
+									</div>
+								</td>
+  							</tr>
+  						</c:forEach>
 					</table>
 				  </div>
 			   </div>

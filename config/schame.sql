@@ -32,7 +32,7 @@ CREATE TABLE `USER`(
 	PRIMARY KEY  (`ID`)
 )ENGINE=INNODB DEFAULT CHARSET=UTF8 COMMENT='导航数据表';
 
-INSERT INTO `user` VALUES ('1', 'admin', '14e1b600b1fd579f47433b88e8d85291', '初始化管理员', 'ADMIN','', 'admin@email.com', '', '0', NOW());
+INSERT INTO `user` VALUES ('1', 'admin', '14e1b600b1fd579f47433b88e8d85291', '初始化管理员', 'SUPERADMIN','', 'admin@email.com', '', '0', NOW());
 
 DROP TABLE IF EXISTS `USER`;
 CREATE TABLE `USER`(

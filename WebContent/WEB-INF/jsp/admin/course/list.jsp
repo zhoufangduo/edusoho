@@ -29,7 +29,7 @@
 					</div>
 				    <form action="">
 						<div class="input-group" style="float: left;width: 80%;">
-							  <span class="input-group-addon" >&nbsp;搜索项 &nbsp;</span>
+							  <span class="input-group-addon" >搜索项 </span>
 							  <select class="form-control" style="width: 125px;">
 								  <option value="">课程分类</option>
 								  <option>默认分类</option>
@@ -46,7 +46,7 @@
         						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
       						  </span>
 						</div>
-						 <span style="margin-left: 100px;">
+						 <span style="margin-left: 65px;">
       						  <a href="http://www.hao123.com" class="btn btn-info" target="_blank" >创建课程</a>
       					</span>
 				    </form>

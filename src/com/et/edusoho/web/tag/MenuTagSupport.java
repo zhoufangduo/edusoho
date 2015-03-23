@@ -153,7 +153,7 @@ public class MenuTagSupport extends TagSupport {
 			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'>&nbsp;我的主页</a></li>");
 			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 
 			buffer.append("<li role='presentation' class='divider'></li>");
-			if ("ADMIN".equals(user.getRole())) {
+			if ("ADMIN".equals(user.getRole()) || "SUPERADMIN".equals(user.getRole())) {
 				addAdminMenu(buffer);
 			}
 			buffer.append("<li role='presentation'><a role='menuitem' href='");

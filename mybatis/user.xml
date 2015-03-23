@@ -6,7 +6,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="add" parameterType="map">
 		INSERT INTO USER(`USERNAME`,`PASSWORD`,`ROLE`,`EMAIL`,`CREATETIME`) 
-		VALUES(#{username},#{password},#{role},#{email},NOW())
+		VALUES(#{username},MD5(MD5(#{password})),#{role},#{email},NOW())
 	</insert>
+	
+	<select id="list" parameterType="map" resultType="user">
+		select * from  user
+	</select>
 	
 </mapper>

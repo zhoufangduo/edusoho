@@ -34,13 +34,13 @@
 					
 					<form action="<%=basePath%>/admin/course/category?active=course&menu=category" method="post">
 						<div class="input-group" style="float: left;width: 80%;">
-							  <span class="input-group-addon" >&nbsp;搜索项 &nbsp;</span>
-							  <input type="text" class="form-control" placeholder="分类名称" name="name" style="width: 95%;">
+							  <span class="input-group-addon" >搜索项</span>
+							  <input type="text" class="form-control" placeholder="分类名称" name="name" style="width: 90%;">
 							  <span class="input-group-btn" style="float: left;">
 	       						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
 	     				      </span>
 						</div>
-						<span style="margin-left: 100px;">
+						<span style="margin-left: 65px;">
       						  <button type="button" class="btn btn-info" onclick="showAddForm(0)" >创建课程</button>
       					</span>
 				    </form>

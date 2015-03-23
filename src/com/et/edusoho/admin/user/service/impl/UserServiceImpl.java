@@ -21,8 +21,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<User> getList(Map<String, String> params) {
-		// TODO Auto-generated method stub
-		return null;
+		return userDao.getList(params);
 	}
 
 }
