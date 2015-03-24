@@ -31,8 +31,12 @@ public class CategoryController extends BaseController{
 		super("admin/course/category");
 	}
 	
+	@RequestMapping("category/toAdd")
+	public String toAdd(){
+		return getContext("/add");
+	}
 	
-	@RequestMapping("add")
+	@RequestMapping("category/add")
 	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params,
 			HttpServletResponse response,HttpServletRequest request){
 		
@@ -48,7 +52,7 @@ public class CategoryController extends BaseController{
 			logger.warn(e.getMessage(), e);
 		}
 		
-		return "redirect:category?active=course&menu=category";
+		return "redirect:../category?active=course&menu=category";
 	}
 	
 	@RequestMapping("category")

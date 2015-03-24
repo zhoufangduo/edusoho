@@ -150,7 +150,7 @@ body,div,form,ul,li,a{
 .tipstext{
 	 padding:3px 5px;
 	 margin-top:-1px;
-	 font-size: 5px;
+	/*  font-size: 5px; */
 }
 
 .arrow{

@@ -33,66 +33,102 @@
 						  <li class="active">用户管理</li>
 						</ol>
 					</div>
-				    <form action="">
+				    <form action="<%=basePath%>/admin/user?active=user" method="post">
 						<div class="input-group" style="float: left;width: 80%;">
 							  <span class="input-group-addon">搜索项 </span>
-							  <select class="form-control" style="width: 110px;">
-								  <option value="">所有角色</option>
-								  <option>学员</option>
-								  <option>教师</option>
-								  <option>管理员</option>
-								  <option>超级管理员</option>
+							  <select class="form-control" name="role" style="width: 110px;">
+								  <option value="" <c:if test="${param.role == ''}">selected="selected"</c:if>>所有角色</option>
+								  <option value="STUDENT" <c:if test="${param.role == 'STUDENT'}">selected="selected"</c:if> >
+								  	学员
+								  </option>
+								  <option value="TEACHER" <c:if test="${param.role == 'TEACHER'}">selected="selected"</c:if>>
+								  	教师
+								  </option>
+								  <option value="ADMIN" <c:if test="${param.role == 'ADMIN'}">selected="selected"</c:if>>
+								 	管理员
+								 </option>
+								  <option value="SUPERADMIN" <c:if test="${param.role == 'SUPERADMIN'}">selected="selected"</c:if>>
+								 	超级管理员
+								  </option>
 							  </select>
 							  
-							  <select class="form-control" style="width: 125px;margin-left: 3px;">
-								  <option value="">关键字类型</option>
-								  <option>登录账号</option>
-								  <option>邮件</option>
-								  <option>姓名</option>
+							  <select class="form-control" name="colname" style="width: 125px;margin-left: 3px;">
+								  <option value="" <c:if test="${param.colname == ''}">selected="selected"</c:if>>
+								 	 关键字类型
+								  </option>
+								  <option value="USERNAME" <c:if test="${param.colname == 'USERNAME'}">selected="selected"</c:if>>
+								  	登录账号
+								  </option>
+								  <option value="EMAIL" <c:if test="${param.colname == 'EMAIL'}">selected="selected"</c:if>>
+								  	邮件
+								  </option>
+								  <option value="NAME" <c:if test="${param.colname == 'NAME'}">selected="selected"</c:if>>
+								  	姓名
+								  </option>
 							  </select>
-							  <input type="text" class="form-control" placeholder="关键字" style="width: 240px;">
+							  <input type="text" class="form-control" name="keys" placeholder="关键字"
+							  value="${param.keys}" style="width: 240px;">
 							  
 							  <span class="input-group-btn" style="float: left;">
         						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
       						  </span>
 						</div>
-						 <span style="margin-left: 65px;">
-      						  <a href="javascript:showAddForm()" class="btn btn-info" target="_blank" >创建课程</a>
+						<span style="margin-left: 65px;">
+      						  <a href="javascript:showModel('#model','<%=basePath%>/admin/user/toAdd')"
+      						   class="btn btn-info" >添加用户</a>
       					</span>
 				    </form>
 				    <br/>
 				    <table class="table table-hover">
   						<tr>
-  							<th>用户名</th>
+  							<th width="25%">用户名</th>
   							<th>Email</th>
-  							<th>注册时间</th>
-  							<th>状态</th>
-  							<th>操作</th>
+  							<th width="20%">注册时间</th>
+  							<th width="20%">状态</th>
+  							<th width="12%">操作</th>
   						</tr>
-  						<c:forEach items="${list}" var="user">
+  						<c:forEach items="${list}" var="quser">
   							<tr>
-  								<td>${user.username}</td>
-  								<td>${user.email}</td>
-  								<td>${user.createTime}</td>
+  								<td>${quser.username} 
+  									<c:if test="${quser.locked == 1}">
+  										<span class="badge" style="background-color: red;">禁</span>
+  									</c:if>
+  								</td>
+  								<td>${quser.email}</td>
+  								<td>${quser.createTime}</td>
   								<td>
-  									<c:if test="${user.locked == 1}">已锁定</c:if>
-  									<c:if test="${user.locked == 0}">可使用</c:if>
+  									<c:if test="${quser.locked == 1}">已锁定</c:if>
+  									<c:if test="${quser.locked == 0}">可使用</c:if>
 								</td>
 								<td>
-									<div class="btn-group">
-									  <button type="button" class="btn btn-default btn-sm">管理</button>
-									  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-									    <span class="caret"></span>
-									    <span class="sr-only">Toggle Dropdown</span>
-									  </button>
-									  <ul class="dropdown-menu" role="menu">
-									    <li><a href="#">Action</a></li>
-									    <li><a href="#">Another action</a></li>
-									    <li><a href="#">Something else here</a></li>
-									    <li class="divider"></li>
-									    <li><a href="#">Separated link</a></li>
-									  </ul>
-									</div>
+								
+									<c:choose>
+										<c:when test="${quser.id == user.id ||
+													 user.role == 'SUPERADMIN' ||
+													  user.role == 'ADMIN'}">
+											<div class="btn-group">
+											  <button type="button" class="btn btn-default btn-sm"
+											    onclick="showModel('#model','<%=basePath%>/admin/user/toView?id=${quser.id}')">查看</button>
+											  <button type="button" class="btn btn-default btn-sm dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+											    <span class="caret"></span>
+											    <span class="sr-only">Toggle Dropdown</span>
+											  </button>
+											  <ul class="dropdown-menu" role="menu">
+											    <li><a href="#">编辑用户信息</a></li>
+											    <li><a href="#">删除用户</a></li>
+											    <li class='divider'></li>
+											    <li><a href="#">设置用户组</a></li>
+											    <li><a href="#">修改用户头像</a></li>
+											    <li><a href="#">修改密码</a></li>
+											    <li><a href="#">封禁用户</a></li>
+											  </ul>
+											</div>
+										</c:when>
+										<c:otherwise>
+											<button type="button" class="btn btn-default btn-sm"
+										    onclick="showModel('#model','<%=basePath%>/admin/user/toView?id=${quser.id}')">查看</button>
+										</c:otherwise>
+									</c:choose>
 								</td>
   							</tr>
   						</c:forEach>
@@ -102,107 +138,8 @@
 			</div>
 		</div>
 	</div>
-	
-	<form action="<%=basePath%>/admin/user/add" class="form-horizontal" id="addForm" method="post">
-		<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-		  <div class="modal-dialog">
-		    <div class="modal-content">
-		      <div class="modal-header">
-		        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-		        <h4 class="modal-title" id="myModalLabel">添加分类</h4>
-		      </div>
-		      <div class="modal-body">
-		      	<br/>
-		       		<div class="form-group">
-					    <label for="username" class="col-sm-2 control-label">用户名</label>
-					    <div class="col-sm-9">
-					      <input type="text" class="form-control" id="username" name="username" placeholder="用户名">
-					    </div>
-				    </div>
-				    <div class="form-group">
-					    <label for="password" class="col-sm-2 control-label">密码</label>
-					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="password" name="password" placeholder="密码" 
-					      value="123456">
-					      <span>至少为6位英文、数字、符号，区分大小写,默认为:123456</span>
-					    </div>
-				    </div>
-				    <div class="form-group">
-					    <label for="confirmPassword" class="col-sm-2 control-label">确认密码</label>
-					    <div class="col-sm-9">
-					      <input type="password" class="form-control" id="confirmPassword" name="confirmPassword" placeholder="确认密码" 
-					      value="123456">
-					    </div>
-				    </div>
-				    <div class="form-group">
-					    <label for="email" class="col-sm-2 control-label">邮箱地址</label>
-					    <div class="col-sm-9">
-					      <input type="text" class="form-control" id="email" name="email" placeholder="常用的邮箱的地址">
-					    </div>
-				    </div>
-				     <div class="form-group">
-					    <label for="email" class="col-sm-2 control-label">用户权限</label>
-					    <div class="col-sm-9">
-						    <input type="checkbox" name="role" value="TEACHER">&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						    <input type="checkbox" name="role" value="ADMIN">&nbsp;管理员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-						    <input type="checkbox" name="role" value="SUPERADMIN">&nbsp;超级管理员
-						</div>
-				    </div>
-		      </div>
-		      <div class="modal-footer">
-		        <button type="button" class="btn btn-default" data-dismiss="modal">&nbsp;取&nbsp;消&nbsp;</button>
-		        <button type="submit" class="btn btn-primary" >&nbsp;保&nbsp;存&nbsp;</button>
-		      </div>
-		    </div>
-		  </div>
-		</div>
-	</form>
-	
-	<script type="text/javascript">
+	<div id="model">
 		
-		$(function(){
-			$("#addForm").validate({
-				success:success,
-				ignore: "",
-				errorPlacement: showErrorTab,
-				rules:{
-					"username":{
-						required: true,
-						rangelength: [5,30]
-					},
-					"password" :{
-						required:true,
-						minlength: 6
-					},
-					"confirmPassword":{
-						equalTo: password 
-					},
-					"email":{
-						required:false,
-						email:true
-					}
-				},
-				messages:{
-					"username": {required: "账号名称不能为空!", rangelength:"长度只能为5-30字符!"},
-					"password": {required : "密码不能为空!", minlength:"长度至少为6个字符!"},
-					"confirmPassword": "确认密码不一致",
-					"email": "邮箱格式不对,例如: admin@163.com"
-				},
-				submitHandler: function(form) {
-					form.submit();
-				}
-			});
-			
-			$('input[type=checkbox]').iCheck({
-			    checkboxClass: 'icheckbox_flat-blue',
-			    radioClass: 'iradio_flat'
-			});
-		});
-		
-		function showAddForm(){
-			$('#myModal').modal('show');
-		}
-	
-	</script>
+	</div>
 </body>
 </html>

@@ -38,3 +38,8 @@ function success(label) {
 function showErrorTab(error, element){
 	showErrorPlacement(error, element);
 }
+
+
+function showModel(dom,url){
+	$(dom).load(url);
+}

@@ -19,4 +19,13 @@ public class UserDaoImpl extends BaseDaoSupport implements UserDao {
 	public List<User> getList(Map<String, String> params) {
 		return getList("User.list", params);
 	}
+
+	public void lock(Map<String, String> params) {
+		update("User.lock", params);
+	}
+
+	public User get(Map<String, String> params) {
+		List<User> users = getList(params);
+		return users.get(0);
+	}
 }

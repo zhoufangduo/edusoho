@@ -3,6 +3,7 @@ package com.et.edusoho.admin.user.controller;
 import java.util.List;
 import java.util.Map;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -43,8 +44,14 @@ public class UserController extends BaseController {
 		return getContext("list");
 	}
 	
+	@RequestMapping("user/toAdd")
+	public String toAdd(){
+		
+		return getContext("add");
+	}
+	
 	@RequestMapping("user/add")
-	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params){
+	public String add(@RequestParam Map<String, String> params){
 		
 		try {
 			
@@ -57,6 +64,42 @@ public class UserController extends BaseController {
 		}
 		
 		return "redirect:/admin/user?active=user";
+	}
+	
+	@RequestMapping("lock")
+	public String lock(@RequestParam Map<String, String> params){
+		
+		try {
+			
+			String id = params.get("id");
+			
+			if (StringUtils.isNotEmpty(id)) {
+				
+				userService.lock(params);
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		return "redirect:/admin/user?active=user";
+	}
+	
+	@RequestMapping("user/toView")
+	public String toView(final ModelMap modelMap, @RequestParam Map<String, String> params){
+		
+		try {
+			
+			String id = params.get("id");
+			if (StringUtils.isNotEmpty(id)) {
+				modelMap.addAttribute("queryUser", userService.get(params));
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		return getContext("view");
 	}
 	
 }

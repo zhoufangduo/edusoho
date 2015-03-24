@@ -5,12 +5,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="User">
 	
 	<insert id="add" parameterType="map">
-		INSERT INTO USER(`USERNAME`,`PASSWORD`,`ROLE`,`EMAIL`,`CREATETIME`) 
-		VALUES(#{username},MD5(MD5(#{password})),#{role},#{email},NOW())
+		INSERT INTO USER(`USERNAME`,`PASSWORD`,`EMAIL`,`CREATETIME`) 
+		VALUES(#{username},MD5(MD5(#{password})),#{email},NOW())
 	</insert>
 	
 	<select id="list" parameterType="map" resultType="user">
 		SELECT * FROM  USER
+		<where>
+			<if test="id != null and id != ''">
+				`ID` = #{id}
+			</if>
+			<if test="role != null and role != ''">
+				AND `ROLE` = #{role}
+			</if>
+			<if test="colname != null and colname != '' and keys != ''">
+				AND `${colname}` LIKE  '%${keys}%'
+			</if> 
+		</where>
 	</select>
+	
+	<update id="lock" parameterType="map">
+		UPDATE USER SET `LOCKED` = 1 WHERE ID = #{id}
+	</update>
 	
 </mapper>

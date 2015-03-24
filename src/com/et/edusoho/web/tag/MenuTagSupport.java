@@ -148,7 +148,13 @@ public class MenuTagSupport extends TagSupport {
 			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-envelope'></span>&nbsp;私信</a></li>");
 			buffer.append("<li class='dropdown'>");
 			buffer.append("<a href='#' class='dropdown-toggle' data-toggle='dropdown' role='button' aria-expanded='false'>");
-			buffer.append(user.getName()).append("<span class='caret'></span></a>");
+			
+			String name = user.getName();
+			if (StringUtils.isEmpty(name)) {
+				name = "";
+			}
+			
+			buffer.append(name).append("<span class='caret'></span></a>");
 			buffer.append("<ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>");
 			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'>&nbsp;我的主页</a></li>");
 			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 

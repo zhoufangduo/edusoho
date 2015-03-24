@@ -11,9 +11,6 @@ public class BaseDaoSupport extends  SqlSessionDaoSupport{
 	
 	@Autowired
 	public void setSqlSessionFactory(SqlSessionFactoryBean  factoryBean){
-		
-		System.out.println(factoryBean);
-		
 		this.setSqlSessionFactory(factoryBean);
 	}
 	
@@ -31,6 +28,14 @@ public class BaseDaoSupport extends  SqlSessionDaoSupport{
 	
 	protected void delete(String sql){
 		this.getSqlSession().delete(sql);
+	}
+	
+	protected void update(String sql){
+		this.getSqlSession().update(sql);
+	}
+	
+	protected void update(String sql, Object params){
+		this.getSqlSession().update(sql, params);
 	}
 	
 	protected <T> T get(String sql){

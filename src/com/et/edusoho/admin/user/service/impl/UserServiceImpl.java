@@ -24,4 +24,12 @@ public class UserServiceImpl implements UserService {
 		return userDao.getList(params);
 	}
 
+	public void lock(Map<String, String> params) {
+		userDao.lock(params);
+	}
+
+	public User get(Map<String, String> params) {
+		return userDao.get(params);
+	}
+
 }

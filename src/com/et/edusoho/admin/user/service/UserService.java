@@ -11,4 +11,8 @@ public interface UserService {
 
 	public List<User> getList(Map<String, String> params);
 
+	public void lock(Map<String, String> params);
+
+	public User get(Map<String, String> params);
+
 }
