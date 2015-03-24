@@ -14,5 +14,7 @@ public interface CONSTANTCONTEXT {
 	
 	public String LOGIN_COOKIE_PASSWORD = "login_cookie_password";
 	
+	public String USER_DEFAULT_ROLE = "STUDENT";
+	
 	
 }

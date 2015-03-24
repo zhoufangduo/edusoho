@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,15 +29,14 @@
 						  <li class="active">教师管理</li>
 						</ol>
 					</div>
-				    <br/>
 				    <table class="table table-hover">
   						<tr>
-  							<th width="25%">用户名</th>
-  							<th width="25">推荐教师</th>
-  							<th width="25%">推荐时间</th>
-  							<th width="25%">操作</th>
+  							<th>用户名</th>
+  							<th>推荐教师</th>
+  							<th>推荐时间</th>
+  							<th>操作</th>
   						</tr>
-  						<c:forEach items="${list}" var="quser">
+  						<c:forEach items="${teachers}" var="quser">
   							<tr>
   								<td>${quser.username} 
   									<c:if test="${quser.locked == 1}">

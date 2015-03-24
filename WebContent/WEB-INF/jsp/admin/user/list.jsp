@@ -115,8 +115,10 @@
 											  </button>
 											  <ul class="dropdown-menu" role="menu">
 											    <li><a href="#">编辑用户信息</a></li>
-											    <li><a href="#">删除用户</a></li>
-											    <li class='divider'></li>
+											    <c:if test="${user.id !=  quser.id}">
+												    <li><a href="#">删除用户</a></li>
+												    <li class='divider'></li>
+											    </c:if>
 											    <li><a href="#">设置用户组</a></li>
 											    <li><a href="#">修改用户头像</a></li>
 											    <li><a href="#">修改密码</a></li>

@@ -40,9 +40,9 @@
 			     <div class="form-group">
 				    <label for="email" class="col-sm-2 control-label">用户权限</label>
 				    <div class="col-sm-9">
-					    <input type="checkbox" name="role" value="TEACHER">&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					    <input type="checkbox" name="role" value="ADMIN">&nbsp;管理员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-					    <input type="checkbox" name="role" value="SUPERADMIN">&nbsp;超级管理员
+					    <input type="checkbox" name="role1" id="teacher" value="TEACHER">&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					    <input type="checkbox" name="role2" id="admin" value="ADMIN">&nbsp;管理员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+					    <input type="checkbox" name="role3" id="superAdmin" value="SUPERADMIN">&nbsp;超级管理员
 					</div>
 			    </div>
 	      </div>

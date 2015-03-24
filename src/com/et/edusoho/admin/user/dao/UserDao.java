@@ -15,4 +15,6 @@ public interface UserDao {
 
 	public User get(Map<String, String> params);
 
+	public List<User> getTeachers();
+
 }

@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.login.bean.User;
 import com.et.edusoho.support.constroller.BaseController;
+import com.et.edusoho.tools.CONSTANTCONTEXT;
 
 @Controller
 @RequestMapping("/admin/*")
@@ -56,6 +57,13 @@ public class UserController extends BaseController {
 		try {
 			
 			if (params.size() > 0) {
+				
+				String role = getRole(params);
+				
+				if (StringUtils.isEmpty(role)) {
+					params.put("role", CONSTANTCONTEXT.USER_DEFAULT_ROLE);
+				}
+				
 				userService.add(params);
 			}
 			
@@ -66,6 +74,29 @@ public class UserController extends BaseController {
 		return "redirect:/admin/user?active=user";
 	}
 	
+	
+	private String getRole(Map<String, String> params) {
+		
+		StringBuffer buffer = new StringBuffer();
+		
+		String role1 = params.get("role1");
+		if (StringUtils.isNotEmpty(role1)) {
+			buffer.append(role1);
+		}
+		
+		String role2 = params.get("role2");
+		if (StringUtils.isNotEmpty(role2)) {
+			buffer.append(",").append(role2);
+		}
+		
+		String role3 = params.get("role3");
+		if (StringUtils.isNotEmpty(role3)) {
+			buffer.append(",").append(role3);
+		}
+		
+		return buffer.toString();
+	}
+
 	@RequestMapping("lock")
 	public String lock(@RequestParam Map<String, String> params){
 		

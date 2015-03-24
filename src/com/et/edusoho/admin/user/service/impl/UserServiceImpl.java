@@ -32,4 +32,8 @@ public class UserServiceImpl implements UserService {
 		return userDao.get(params);
 	}
 
+	public List<User> getTeachers() {
+		return userDao.getTeachers();
+	}
+
 }

@@ -2,18 +2,19 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%String basePath = request.getContextPath();%>
 <div class="list-group">
-   <a href="<%=basePath%>/admin/user?active=user" 
+   <a href="<%=basePath%>/admin/user?active=user&menu=list" 
    <c:choose>
-		<c:when test="${param.menu == 'list'}">class="list-group-item"</c:when>
+   		<c:when test="${param.menu == null}">class="list-group-item active"</c:when>
+		<c:when test="${param.menu != 'list'}">class="list-group-item"</c:when>
 		<c:otherwise>
-			class="list-group-item  active"
+			class="list-group-item active"
 		</c:otherwise>
 	</c:choose>
    
 	>用户管理</a>
-   <a href="<%=basePath%>/admin/user?active=user" 
+   <a href="<%=basePath%>/admin/user/referral?active=user&menu=teacher" 
    	<c:choose>
-		<c:when test="${param.menu == 'category'}">class="list-group-item active"</c:when>
+		<c:when test="${param.menu == 'teacher'}">class="list-group-item active"</c:when>
 		<c:otherwise>
 			class="list-group-item"
 		</c:otherwise>
