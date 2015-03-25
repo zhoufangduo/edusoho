@@ -13,10 +13,14 @@ import com.et.edusoho.support.constroller.BaseController;
 @RequestMapping("/admin/system/setting")
 public class SettingController extends BaseController {
 	
+	public SettingController(){
+		super("/admin/system/setting/");
+	}
+	
 	@RequestMapping("site")
 	public String setSite(final ModelMap modelMap, 
 			@RequestParam Map<String, String> params){
 		
-		return "";
+		return getContext("site");
 	}
 }

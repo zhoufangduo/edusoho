@@ -21,7 +21,9 @@
         	<a href="<%=basePath%>/admin/user?active=user" >用户</a>
         </li>
         <li><a href="#">内容</a></li>
-        <li><a href="#">系统</a></li>
+        <li <c:if test="${param.active == 'system'}">class="active_nav"</c:if>>
+        	<a href="<%=basePath%>/admin/system/setting/site?active=system" >系统</a>
+        </li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<%=basePath%>"><span class="glyphicon glyphicon-home"></span>&nbsp;回首页</a></li>
