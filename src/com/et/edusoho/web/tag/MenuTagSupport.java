@@ -159,9 +159,11 @@ public class MenuTagSupport extends TagSupport {
 			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'>&nbsp;我的主页</a></li>");
 			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 
 			buffer.append("<li role='presentation' class='divider'></li>");
-			if ("ADMIN".equals(user.getRole()) || "SUPERADMIN".equals(user.getRole())) {
+			
+			if (hasAdmin(user.getRoles())) {
 				addAdminMenu(buffer);
 			}
+			
 			buffer.append("<li role='presentation'><a role='menuitem' href='");
 			buffer.append(context).append("/logout");
 			buffer.append("'><span class='glyphicon glyphicon-off'>&nbsp;退出</a></li>");
@@ -175,6 +177,18 @@ public class MenuTagSupport extends TagSupport {
 		
 		buffer.append("</ul>");
 		buffer.append("</div></div></div>");
+	}
+
+
+	private boolean hasAdmin(String[] roles) {
+		
+		for(String role : roles){
+			if ("ADMIN".equals(role) || "SUPERADMIN".equals(role)) {
+				return true;
+			}
+		}
+		
+		return false;
 	}
 
 

@@ -14,5 +14,5 @@ public class LoginDaoImpl extends BaseDaoSupport implements LoginDao {
 		
 		return get("Login.getLoginUser", params);
 	}
-
+	
 }

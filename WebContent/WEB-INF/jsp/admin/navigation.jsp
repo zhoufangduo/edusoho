@@ -26,7 +26,7 @@
       <ul class="nav navbar-nav navbar-right">
         <li><a href="<%=basePath%>"><span class="glyphicon glyphicon-home"></span>&nbsp;回首页</a></li>
         <li><a href="login.jsp"><span class="glyphicon glyphicon-user"></span>&nbsp;${user.name}</a></li>
-        <li><a href="addUser.jsp"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a></li>
+        <li><a href="<%=basePath%>/logout"><span class="glyphicon glyphicon-off"></span>&nbsp;退出</a></li>
       </ul>
     </div>
   </div>

@@ -51,7 +51,7 @@
   						<tr>
   							<th>名称</th>
   							<th width="15%">显示序号</th>
-  							<th width="22%">操作</th>
+  							<th width="21%">操作</th>
   						</tr>
   						
   						<c:forEach items="${list}" var="categ">
@@ -62,13 +62,11 @@
 		  							</td>
 		  							<td>${categ.sort}</td>
 		  							<td>
-									 	<div class="btn-group">
-										  <button type="button" class="btn btn-sm btn-default">管理</button>
-										  <button type="button" class="btn btn-sm btn-default  dropdown-toggle" data-toggle="dropdown">
-										    <span class="caret"></span>
-										    <span class="sr-only">Toggle Dropdown</span>
+										<div class="dropdown" style="float: left;">
+										  <button class="btn btn-default btn-sm dropdown-toggle" type="button" data-toggle="dropdown">
+										   	 管理&nbsp;<span class="caret"></span>
 										  </button>
-										  <ul class="dropdown-menu" role="menu">
+										  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 										    <li><a href="#">
 										    	<span class="glyphicon glyphicon-edit"></span>&nbsp;编辑
 										    </a></li>
@@ -77,10 +75,11 @@
 										    </a></li>
 										  </ul>
 										</div>
-									  <button type="button" class="btn btn-sm btn-default"
-									   onclick="showModel('#model','<%=basePath%>/admin/course/category/toAdd?pid=${categ.id}')">
-									  	<span class="glyphicon glyphicon-plus"></span>&nbsp;添加子分类
-									  </button>
+										&nbsp;
+									   <button type="button" class="btn btn-sm btn-default"
+										   onclick="showModel('#model','<%=basePath%>/admin/course/category/toAdd?pid=${categ.id}')">
+										  	<span class="glyphicon glyphicon-plus"></span>&nbsp;添加子分类
+									    </button>
 									</td>
 	  							</tr>
   							</c:if>
@@ -93,16 +92,15 @@
 			  							</td>
 			  							<td>${categSub.sort}</td>
 			  							<td>
-											<div class="btn-group">
-											  <button type="button" class="btn btn-sm btn-default">管理</button>
-											  <button type="button" class="btn btn-sm btn-default  dropdown-toggle" data-toggle="dropdown">
-											    <span class="caret"></span>
-											    <span class="sr-only">Toggle Dropdown</span>
+											<div class="dropdown">
+											  <button class="btn btn-default btn-sm dropdown-toggle" type="button" 
+											  				data-toggle="dropdown" aria-expanded="true">
+											   	 管理&nbsp;<span class="caret"></span>
 											  </button>
-											  <ul class="dropdown-menu" role="menu">
+											  <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
 											    <li><a href="#">
 											    	<span class="glyphicon glyphicon-edit"></span>&nbsp;编辑
-											    </a> </li>
+											    </a></li>
 											    <li><a href="#">
 											    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除
 											    </a></li>

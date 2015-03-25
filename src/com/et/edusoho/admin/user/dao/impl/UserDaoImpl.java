@@ -1,6 +1,5 @@
 package com.et.edusoho.admin.user.dao.impl;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -31,9 +30,10 @@ public class UserDaoImpl extends BaseDaoSupport implements UserDao {
 	}
 
 	public List<User> getTeachers() {
-		Map<String, String> params = new HashMap<String, String>();
-		params.put("role", "TEACHER");
-		
-		return getList(params);
+		return getList("User.getTeachers");
+	}
+
+	public void update(Map<String, String> params) {
+		update("User.update", params);
 	}
 }

@@ -60,7 +60,9 @@ public class UserController extends BaseController {
 				
 				String role = getRole(params);
 				
-				if (StringUtils.isEmpty(role)) {
+				if (StringUtils.isNotEmpty(role)) {
+					params.put("role", role);
+				}else {
 					params.put("role", CONSTANTCONTEXT.USER_DEFAULT_ROLE);
 				}
 				

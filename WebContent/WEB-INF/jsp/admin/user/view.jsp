@@ -36,10 +36,12 @@
 				<tr>
 					<th>用户组</th>
 					<td colspan="2">
-						<c:if test="${queryUser.role == 'STUDENT'}">学员</c:if>
-						<c:if test="${queryUser.role == 'TECAHER'}">教师</c:if>
-						<c:if test="${queryUser.role == 'ADMIN'}">管理员</c:if>
-						<c:if test="${queryUser.role == 'SUPERADMIN'}">超级管理员</c:if>
+						<c:forEach items="${queryUser.roles}"  var="role">
+							<c:if test="${role == 'STUDENT' }">学员&nbsp;</c:if>
+							<c:if test="${role == 'TEACHER' }">教师&nbsp;</c:if>
+							<c:if test="${role == 'ADMIN' }">管理员&nbsp;</c:if>
+							<c:if test="${role == 'SUPERADMIN' }">超级管理员&nbsp;</c:if>
+						</c:forEach>
 					</td>
 				</tr>
 				<tr>

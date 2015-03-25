@@ -14,6 +14,8 @@ public class User {
 
 	private String role; // 用户角色
 
+	private String[] roles;
+
 	private String email; // 用户的email
 
 	private String avatar; // 用户头像
@@ -21,6 +23,10 @@ public class User {
 	private String locked; // 用户是否被锁
 
 	private String createTime; // 用户创建的时间
+
+	private String promoted; // 该用户是否被推荐
+
+	private String promotedTime;// 该用户是否被推荐时间
 
 	public String getId() {
 		return id;
@@ -100,5 +106,29 @@ public class User {
 
 	public void setRole(String role) {
 		this.role = role;
+	}
+
+	public String[] getRoles() {
+		return roles;
+	}
+
+	public void setRoles(String[] roles) {
+		this.roles = roles;
+	}
+
+	public String getPromoted() {
+		return promoted;
+	}
+
+	public void setPromoted(String promoted) {
+		this.promoted = promoted;
+	}
+
+	public String getPromotedTime() {
+		return promotedTime;
+	}
+
+	public void setPromotedTime(String promotedTime) {
+		this.promotedTime = promotedTime;
 	}
 }

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import com.et.edusoho.admin.user.dao.UserDao;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.login.bean.User;
+import com.et.edusoho.tools.UserRolesUtils;
 
 @Service
 public class UserServiceImpl implements UserService {
@@ -21,7 +22,7 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public List<User> getList(Map<String, String> params) {
-		return userDao.getList(params);
+		return UserRolesUtils.setRolesToUser(userDao.getList(params));
 	}
 
 	public void lock(Map<String, String> params) {
@@ -29,11 +30,14 @@ public class UserServiceImpl implements UserService {
 	}
 
 	public User get(Map<String, String> params) {
-		return userDao.get(params);
+		return UserRolesUtils.setRolesToUser(userDao.get(params));
 	}
 
 	public List<User> getTeachers() {
-		return userDao.getTeachers();
+		return UserRolesUtils.setRolesToUser(userDao.getTeachers());
 	}
 
+	public void update(Map<String, String> params) {
+		userDao.update(params);
+	}
 }

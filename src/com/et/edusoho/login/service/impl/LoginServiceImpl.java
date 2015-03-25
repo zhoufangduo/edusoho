@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import com.et.edusoho.login.bean.User;
 import com.et.edusoho.login.dao.LoginDao;
 import com.et.edusoho.login.service.LoginService;
+import com.et.edusoho.tools.UserRolesUtils;
 
 @Service
 public class LoginServiceImpl implements LoginService {
@@ -16,8 +17,7 @@ public class LoginServiceImpl implements LoginService {
 	private LoginDao loginDao;
 
 	public User login(Map<String, String> params) {
-		
-		return loginDao.login(params);
+		return UserRolesUtils.setRolesToUser(loginDao.login(params));
 	}
 
 }

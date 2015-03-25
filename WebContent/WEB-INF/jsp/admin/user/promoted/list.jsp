@@ -10,7 +10,7 @@
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
-	<script src="<%=basePath%>/resource/jquery/jquery.validate.js" type="text/javascript"></script>
+	<script src="<%=basePath%>/resource/jquery/validate_form.js" type="text/javascript"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
 </head>
 <body>
@@ -38,17 +38,17 @@
   						</tr>
   						<c:forEach items="${teachers}" var="quser">
   							<tr>
-  								<td>${quser.username} 
-  									<c:if test="${quser.locked == 1}">
-  										<span class="badge" style="background-color: red;">禁</span>
+  								<td>
+  									<span style="font-weight: bold;">
+  									<a href="javascript:showModel('#model','<%=basePath%>/admin/user/toView?id=${quser.id}')">
+  										${quser.username}
+  									</a></span>
+  									<c:if test="${quser.promoted == 1}">
+  										<span class="badge" style="background-color: red;">推荐</span>
   									</c:if>
   								</td>
-  								<td>${quser.email}</td>
-  								<td>${quser.createTime}</td>
-  								<td>
-  									<c:if test="${quser.locked == 1}">已锁定</c:if>
-  									<c:if test="${quser.locked == 0}">可使用</c:if>
-								</td>
+  								<td>${quser.name}</td>
+  								<td>${quser.promotedTime}</td>
 								<td>
 									<div class="btn-group">
 									  <button type="button" class="btn btn-default btn-sm"
@@ -58,8 +58,17 @@
 									    <span class="sr-only">Toggle Dropdown</span>
 									  </button>
 									  <ul class="dropdown-menu" role="menu">
-									    <li><a href="#">推荐该老师</a></li>
-									    <li><a href="#">取消该推荐</a></li>
+									  	<c:choose>
+									  		<c:when test="${quser.promoted == 1}">
+									  			<li><a 
+									  				href="<%=basePath%>/admin/user/promoted/update?id=${quser.id}&promoted=0">
+									  			取消该推荐</a></li>
+									  		</c:when>
+									  		<c:otherwise>
+									  			<li><a href="<%=basePath%>/admin/user/promoted/update?id=${quser.id}&promoted=1">
+									  			推荐该老师</a></li>
+									  		</c:otherwise>
+									  	</c:choose>
 									  </ul>
 									</div>
 								</td>
@@ -70,6 +79,9 @@
 			   </div>
 			</div>
 		</div>
+	</div>
+	<div id="model">
+		
 	</div>
 </body>
 </html>

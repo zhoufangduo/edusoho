@@ -4,6 +4,8 @@ public interface CONSTANTCONTEXT {
 	
 	public String USER = "user";
 	
+	public String USER_ROLES = "user_roles";
+	
 	public String USER_MENU = "user_menu";
 
 	public String NAVBAR_TITLE = "navbar_title";
@@ -15,6 +17,8 @@ public interface CONSTANTCONTEXT {
 	public String LOGIN_COOKIE_PASSWORD = "login_cookie_password";
 	
 	public String USER_DEFAULT_ROLE = "STUDENT";
+	
+	public boolean OPEN_LOGIN_LOG = true;
 	
 	
 }

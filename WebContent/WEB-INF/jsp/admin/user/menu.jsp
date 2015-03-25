@@ -12,14 +12,21 @@
 	</c:choose>
    
 	>用户管理</a>
-   <a href="<%=basePath%>/admin/user/referral?active=user&menu=teacher" 
+   <a href="<%=basePath%>/admin/user/promoted?active=user&menu=promoted" 
    	<c:choose>
-		<c:when test="${param.menu == 'teacher'}">class="list-group-item active"</c:when>
+		<c:when test="${param.menu == 'promoted'}">class="list-group-item active"</c:when>
 		<c:otherwise>
 			class="list-group-item"
 		</c:otherwise>
 	</c:choose> >教师管理</a>
 	
    <a href="#" class="list-group-item">私信管理</a>
-   <a href="#" class="list-group-item">用户登录日志</a>
+   
+   <a href="<%=basePath%>/admin/user/log?active=user&menu=log" 
+   	<c:choose>
+		<c:when test="${param.menu == 'log'}">class="list-group-item active"</c:when>
+		<c:otherwise>
+			class="list-group-item"
+		</c:otherwise>
+	</c:choose> >用户登录日志</a>
 </div>

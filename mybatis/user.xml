@@ -16,7 +16,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 				`ID` = #{id}
 			</if>
 			<if test="role != null and role != ''">
-				AND `ROLE` = #{role}
+				AND LOCATE(#{role},`ROLE`)>0
 			</if>
 			<if test="colname != null and colname != '' and keys != ''">
 				AND `${colname}` LIKE  '%${keys}%'
@@ -26,6 +26,27 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<update id="lock" parameterType="map">
 		UPDATE USER SET `LOCKED` = 1 WHERE ID = #{id}
+	</update>
+	
+	<select id="getTeachers" parameterType="map" resultType="user">
+		SELECT * FROM  USER WHERE LOCATE('TEACHER',`ROLE`)>0 
+	</select>
+	
+	<update id="update" parameterType="map">
+		UPDATE USER 
+		<set>
+			<if test="promoted != null and promoted != ''">
+				PROMOTED = #{promoted}
+			</if>
+			<if test="promoted == 1">
+				, PROMOTEDTIME = NOW()
+			</if>
+			<if test="promoted == 0">
+				, PROMOTEDTIME = NULL
+			</if>
+		</set>
+		
+		WHERE ID = #{id}
 	</update>
 	
 </mapper>
