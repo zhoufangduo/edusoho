@@ -10,6 +10,7 @@
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
+	<script src="<%=basePath%>/resource/jquery/jquery.form.js"  type="text/javascript"></script>
 </head>
 <body>
 	<jsp:include page="../../navigation.jsp"></jsp:include>
@@ -48,10 +49,11 @@
 							      	&nbsp;
 							      	<input type="button" class="btn btn-default"  value="删除">
 							      </span>
-							      &nbsp;
 							      <span>
-							      	 <input type="file" id="file" style="display:none;">
-							      	 <img src="">
+							      	<br/>&nbsp;<br/>
+							      	 <img id="logoImage"
+							      	 src="<%=basePath%>/admin/system/setting/download?file=20150326180846.jpg" 
+							      	 >
 							      </span>
 							    </div>
 						    </div>
@@ -61,14 +63,27 @@
 			</div>
 		</div>
 	</div>
+	
+	<form id="logoForm" action="<%=basePath%>/admin/system/setting/upload?active=site" 
+  	 	enctype="multipart/form-data" method="post">
+  	 	<input type="file" name="file" id="logoFile" style="display:none;">	
+  	 </form>
 	<script type="text/javascript">
 		function openFile(){
-			$("#file").click();
+			$("#logoFile").click();
 		}
 		
 		$(function(){
-			$("#file").change(function(){
-				
+			$("#logoFile").change(function(){
+				$("#logoForm").ajaxSubmit({
+					dataType	: "text",
+					type        : "POST",
+					cache       : false,
+					success		: function(data){	
+						var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
+						$("#logoImage").attr("src",url);
+					}
+				});
 			});
 		});
 	</script>

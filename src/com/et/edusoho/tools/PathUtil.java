@@ -11,4 +11,8 @@ public abstract class PathUtil {
 		return getClassLoader().getResource(resource).getPath();
 	}
 	
+	public static String getPath(){
+		return getClassLoader().getResource("").getPath();
+	}
+	
 }

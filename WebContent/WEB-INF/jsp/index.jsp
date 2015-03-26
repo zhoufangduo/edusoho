@@ -131,6 +131,10 @@
 				</div>
 		    </div>
 	    </div>
+	    <div class="foot_contain">
+	    	www.hao123.com 新浪
+			Powered by EasyTop v4.8.0 ©2015-2016 好知网
+	    </div>
 	</div>
 </body>
 </html>

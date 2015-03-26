@@ -201,3 +201,10 @@ body,div,form,ul,li,a{
 	-o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 	transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
 }
+
+.foot_contain{
+	border-top: solid 1px #d1d1d1;
+	padding: 15px;
+	font-size: 12px;
+	color: #999;
+}

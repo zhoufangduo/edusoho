@@ -20,5 +20,7 @@ public interface CONSTANTCONTEXT {
 	
 	public boolean OPEN_LOGIN_LOG = true;
 	
+	public String DIR = "uploadFile/";
+	
 	
 }
