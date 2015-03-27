@@ -7,12 +7,14 @@ import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.et.edusoho.admin.system.service.SettingService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 import com.et.edusoho.tools.FileUtil;
@@ -25,21 +27,27 @@ public class SettingController extends BaseController {
 	private static Logger logger = Logger.getLogger(SettingController.class);
 
 	private final String fileDir;
+	
+	@Autowired
+	private SettingService settingService;
 
 	public SettingController() {
 		super("/admin/system/setting/");
-		this.fileDir = PathUtil.getPath() + CONSTANTCONTEXT.DIR;
+		this.fileDir = PathUtil.getPath() + CONSTANTCONTEXT.LOGO_DIR;
 	}
 
 	@RequestMapping("site")
 	public String setSite(final ModelMap modelMap,
 			@RequestParam Map<String, String> params) {
-
+		
+		modelMap.addAttribute("site", settingService.getInfo());
+		
 		return getContext("site");
 	}
 
 	@RequestMapping("upload")
 	public void upload(@RequestParam("file") Object uploadFile,
+			@RequestParam("fileName") String fileName,
 			HttpServletRequest request, HttpServletResponse response) {
 
 		try {
@@ -48,10 +56,10 @@ public class SettingController extends BaseController {
 
 			if (uploadFile instanceof MultipartFile) {
 
-				String fileName = FileUtil.save((MultipartFile) uploadFile,
-						fileDir, FileUtil.getFileNameTime());
+				String newFileName = FileUtil.save((MultipartFile) uploadFile,
+						fileDir, fileName);
 
-				write(fileName);
+				write(newFileName);
 			}
 
 		} catch (Exception e) {
@@ -71,13 +79,32 @@ public class SettingController extends BaseController {
 			String fileName = params.get("file");
 			if (StringUtils.isNotEmpty(fileName)) {
 				
-				FileUtil.download(response,this.fileDir + fileName);
+				System.out.println(this.fileDir);
+				
+				FileUtil.download(response, this.fileDir + fileName);
 			}
 
 		} catch (Exception e) {
 			logger.warn(e.getMessage(), e);
 			write("");
 		}
+	}
+	
+	@RequestMapping("save")
+	public String save(@RequestParam Map<String, String> params,
+			HttpServletResponse response, HttpServletRequest request){
+		
+		try {
+			
+			if (params.size() > 0) {
+				settingService.save(params);
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		return "redirect:site?active=site";
 	}
 
 }
