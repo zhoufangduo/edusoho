@@ -26,14 +26,14 @@ public class SettingController extends BaseController {
 
 	private static Logger logger = Logger.getLogger(SettingController.class);
 
-	private final String fileDir;
+	private final String UPLOAD_LOGO_DIR;
 	
 	@Autowired
 	private SettingService settingService;
 
 	public SettingController() {
 		super("/admin/system/setting/");
-		this.fileDir = PathUtil.getPath() + CONSTANTCONTEXT.LOGO_DIR;
+		this.UPLOAD_LOGO_DIR = PathUtil.getPath() + CONSTANTCONTEXT.LOGO_DIR;
 	}
 
 	@RequestMapping("site")
@@ -57,7 +57,9 @@ public class SettingController extends BaseController {
 			if (uploadFile instanceof MultipartFile) {
 
 				String newFileName = FileUtil.save((MultipartFile) uploadFile,
-						fileDir, fileName);
+						UPLOAD_LOGO_DIR, fileName);
+				
+				logger.info("上传文件的路径: " + UPLOAD_LOGO_DIR);
 
 				write(newFileName);
 			}
@@ -79,9 +81,7 @@ public class SettingController extends BaseController {
 			String fileName = params.get("file");
 			if (StringUtils.isNotEmpty(fileName)) {
 				
-				System.out.println(this.fileDir);
-				
-				FileUtil.download(response, this.fileDir + fileName);
+				FileUtil.download(response, this.UPLOAD_LOGO_DIR + fileName);
 			}
 
 		} catch (Exception e) {

@@ -12,6 +12,7 @@ import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
 import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.system.bean.Site;
 import com.et.edusoho.login.bean.User;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 
@@ -75,10 +76,12 @@ public class MenuTagSupport extends TagSupport {
 	
 	private void initNavbarHead(StringBuffer buffer){
 		
-		String navbarTitle = (String) pageContext.getServletContext().getAttribute(CONSTANTCONTEXT.NAVBAR_TITLE);
+		Site site = (Site) pageContext.getServletContext().getAttribute(CONSTANTCONTEXT.SITE_INFO);
 		
-		if (StringUtils.isEmpty(navbarTitle)) {
-			navbarTitle = "";
+		String navbarImage = "<img src='" + context + "/admin/system/setting/download?file=" + site.getLogoImage()+"'/>";
+		
+		if (StringUtils.isEmpty(navbarImage)) {
+			navbarImage = "";
 		}
 		
 		buffer.append("<div class='navbar-inverse'><div class='container-fluid'><div class='navbar-header'>");
@@ -86,7 +89,7 @@ public class MenuTagSupport extends TagSupport {
 		buffer.append("<span class='sr-only'>Toggle navigation</span> <span class='icon-bar'></span>");
 		buffer.append("<span class='icon-bar'></span> <span class='icon-bar'></span></button>");
 		
-		buffer.append("<a class='navbar-brand' href='").append(context).append("'>").append(navbarTitle).append("</a></div>");
+		buffer.append("<a class='navbar-brand' href='").append(context).append("'>").append(navbarImage).append("</a></div>");
 		buffer.append("<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>");
 		buffer.append("<ul class='nav navbar-nav'>");
 		
@@ -143,7 +146,8 @@ public class MenuTagSupport extends TagSupport {
 		buffer.append("<ul class='nav navbar-nav navbar-right'>");
 		if (user != null) {
 			buffer.append("<li><a href='search.jsp'>&nbsp;ÎÒµÄ¿Î³Ì</a></li>");
-			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-search'></span>&nbsp;ËÑË÷</a></li>");
+			buffer.append("<li><a href='").append(context).append("/").append("search").append("'>");
+			buffer.append("<span class='glyphicon glyphicon-search'></span>&nbsp;ËÑË÷</a></li>");
 			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-bullhorn'></span>&nbsp;Í¨Öª</a></li>");
 			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-envelope'></span>&nbsp;Ë½ÐÅ</a></li>");
 			buffer.append("<li class='dropdown'>");
@@ -169,7 +173,9 @@ public class MenuTagSupport extends TagSupport {
 			buffer.append("'><span class='glyphicon glyphicon-off'>&nbsp;ÍË³ö</a></li>");
 			
 		}else {
-			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-search'></span>&nbsp;ËÑË÷</a></li>");
+			buffer.append("<li><a href='").append(context).append("/").append("search").append("'>");
+			buffer.append("<span class='glyphicon glyphicon-search'></span>&nbsp;ËÑË÷</a></li>");
+			
 			buffer.append("<li><a href='").append(context).append("/").append("toLogin").append("'>");
 			buffer.append("<span class='glyphicon glyphicon-hand-right'></span>&nbsp;µÇÂ¼</a></li>");
 			buffer.append("<li><a href='addUser.jsp'><span class='glyphicon glyphicon-user'></span>&nbsp;×¢²á</a></li>");

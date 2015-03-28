@@ -1,15 +1,17 @@
 package com.et.edusoho.tools;
 
+import java.io.File;
+
 public interface CONSTANTCONTEXT {
 	
 	public String USER = "user";
+	
+	public String SITE_INFO = "site";
 	
 	public String USER_ROLES = "user_roles";
 	
 	public String USER_MENU = "user_menu";
 
-	public String NAVBAR_TITLE = "navbar_title";
-	
 	public String APP_INSTALLED = "isInstalled";
 	
 	public String LOGIN_COOKIE_USERNAME = "login_cookie_username";
@@ -20,7 +22,7 @@ public interface CONSTANTCONTEXT {
 	
 	public boolean OPEN_LOGIN_LOG = true;
 	
-	public String LOGO_DIR = "logo_images/";
+	public String LOGO_DIR = "logo_images" + File.separator;
 	
 	
 }

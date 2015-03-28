@@ -25,6 +25,11 @@ body,div,form,ul,li,a{
 	color: #FFFFFF;
 }
 
+.navbar-brand > img{
+	height: 50px;
+	margin-top: -15px;
+}
+
 .thumbnail{
 	height:120px;
 }

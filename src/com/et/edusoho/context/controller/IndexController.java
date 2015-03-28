@@ -14,4 +14,10 @@ public class IndexController extends BaseDaoSupport {
 		
 		return "/index";
 	}
+	
+	@RequestMapping("/search")
+	public String seach(final ModelMap modelMap){
+		
+		return "/search";
+	}
 }

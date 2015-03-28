@@ -10,6 +10,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
 import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.system.bean.Site;
 import com.et.edusoho.context.service.ApplicationContextService;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 
@@ -41,7 +42,10 @@ public final class ApplicationContextLoader implements ApplicationListener<Appli
 		
 		this.menus = appCtxService.getContextMenus();
 		
+		Site site = appCtxService.getSite();
+		
 		this.context.setAttribute(CONSTANTCONTEXT.USER_MENU, this.menus);
 		
+		this.context.setAttribute(CONSTANTCONTEXT.SITE_INFO, site);
 	}
 }

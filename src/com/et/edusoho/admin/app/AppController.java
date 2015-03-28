@@ -1,5 +1,8 @@
 package com.et.edusoho.admin.app;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -9,9 +12,21 @@ import com.et.edusoho.support.constroller.BaseController;
 public class AppController extends BaseController {
 	
 	@RequestMapping("/admin")
-	public String toAdmin(){
+	public String toAdmin(HttpServletResponse response, HttpServletRequest request){
 		
-		return "admin/index";
+		setWebContext(request, response);
+		
+		if (getUser() == null) {
+			
+			return "redirect:toLogin";
+		}
+		
+		if (isAdmin()) {
+			return "admin/index";
+		}
+		
+		return "redirect:";
+		
 	}
 	
 	

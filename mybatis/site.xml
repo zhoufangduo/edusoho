@@ -1,13 +1,36 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper
-PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
-"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Setting">
 	
-	<insert id="save" parameterType="map">
-		INSERT INTO `SITE`(`TITLE`,`SUBTITLE`,`LOGOIMAGE`,`ICOIMAGE`,`ADMINEMAIL`,`COPYRIGHT`,`ICPNO`)
-		VALUES(#{title},#{subtitle},#{logoImage},#{icoImage},#{adminEmail},#{copyright},#{icpNo})
-	</insert>
+	
+	<update id="save" parameterType="map">
+		UPDATE `SITE` 
+		<set>
+			<if test="title != null and title != ''">
+				`TITLE` = #{title}
+			</if>
+			<if test="subtitle != null and subtitle != ''">
+				,`SUBTITLE` = #{subtitle}
+			</if>
+			<if test="logoImage != null and logoImage != ''">
+				,`LOGOIMAGE` = #{logoImage}
+			</if>
+			<if test="icoImage != null and icoImage != ''">
+				,`ICOIMAGE` = #{icoImage}
+			</if>
+			<if test="adminEmail != null and adminEmail != ''">
+				,`ADMINEMAIL` = #{adminEmail}
+			</if>
+			<if test="copyright != null  and copyright != ''">
+				,`COPYRIGHT` = #{copyright}
+			</if>
+			<if test="icpNo != null  and icpNo != ''">
+				,`ICPNO` = #{icpNo}
+			</if>
+		</set>
+	</update>	
 	
 	<select id="getInfo" resultType="site">
 		SELECT * FROM `SITE`

@@ -1,10 +1,12 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html PUBLIC "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>站点设置-易通软件教育后台管理</title>
+	<link href="<%=basePath%>/admin/system/setting/download?file=${site.icoImage}" rel="shortcut icon" />
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
@@ -48,7 +50,11 @@
 							    <label for="name" class="col-sm-2 control-label">网站Logo</label>
 							    <div class="col-sm-9">
 							      <span>
-							      	 <img id="logoImage" src="<%=basePath%>/admin/system/setting/download?file=${site.logoImage}">
+							      	 <img id="logoImage" 
+							      	 <c:if test="${site.logoImage != null and site.logoImage != ''}">
+							      	 	src="<%=basePath%>/admin/system/setting/download?file=${site.logoImage}"
+							      	 </c:if>
+							      	 >
 							      	 <input type="hidden" name="logoImage">
 							      	 <br/>&nbsp;<br/>
 							      </span>
@@ -65,7 +71,12 @@
 							    <label for="name" class="col-sm-2 control-label">浏览器图标</label>
 							    <div class="col-sm-9">
 							      <span>
-							      	 <img id="icoImage" src="<%=basePath%>/admin/system/setting/download?file=${site.icoImage}">
+							      	 <img id="icoImage" 
+							      	 
+							      	  <c:if test="${site.icoImage != null and site.icoImage != ''}">
+							      	 	src="<%=basePath%>/admin/system/setting/download?file=${site.icoImage}"
+							      	 </c:if>
+							      	 >
 							      	 <input type="hidden" name="icoImage">
 							      	 <br/>&nbsp;<br/>
 							      </span>
@@ -102,7 +113,7 @@
 						    <br/>
 						    <div class="form-group">
 							    <div class="col-sm-9" style="text-align: center;">
-							      <input type="button" class="btn btn-primary btn-lg" value="&nbsp;提&nbsp;交&nbsp;">
+							      <input type="submit" class="btn btn-primary btn-lg" value="&nbsp;提&nbsp;交&nbsp;">
 							    </div>
 						    </div>
 						</form>
@@ -138,7 +149,6 @@
 					cache       : false,
 					success		: function(data){	
 						var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
-						alert(url);
 						$("#logoImage").attr("src",url);
 						$("input[name=logoImage]").val(data);
 					}

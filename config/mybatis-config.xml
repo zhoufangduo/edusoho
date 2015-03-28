@@ -10,6 +10,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="category" type="com.et.edusoho.admin.course.bean.Category"/>
 		<typeAlias alias="loginLog" type="com.et.edusoho.admin.user.bean.LoginLog"/>
 		<typeAlias alias="site" type="com.et.edusoho.admin.system.bean.Site"/>
+		<typeAlias alias="course" type="com.et.edusoho.admin.course.bean.Course"/>
 	</typeAliases>
 	
 	<mappers>
@@ -19,5 +20,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="user.xml"/>
 		<mapper resource="login_log.xml"/>
 		<mapper resource="site.xml"/>
+		<mapper resource="course.xml"/>
 	</mappers>
 </configuration>

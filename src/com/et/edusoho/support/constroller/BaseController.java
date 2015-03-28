@@ -155,5 +155,19 @@ public abstract class BaseController {
 		
 		return null;
 	}
+	
+	protected boolean isAdmin(){
+		User user = getUser();
+		if (user != null) {
+			String[] roles = user.getRoles();
+			for (String role : roles) {
+				if ("ADMIN".equals(role) || "SUPERADMIN".equals(role)) {
+					return true;
+				}
+			}
+		}
+		
+		return false;
+	}
 
 }
