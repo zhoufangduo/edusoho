@@ -64,4 +64,20 @@ public class CategoryController extends BaseController{
 		
 		return getContext("/list");
 	}
+	
+	@RequestMapping("category/delete")
+	public String delete(@RequestParam Map<String, String> params){
+		try {
+			
+			if (params.size() > 0) {
+				categoryService.delete(params);
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		return "redirect:../category?active=course&menu=category";
+		
+	}
 }

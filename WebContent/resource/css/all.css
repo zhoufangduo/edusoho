@@ -213,3 +213,7 @@ body,div,form,ul,li,a{
 	font-size: 12px;
 	color: #999;
 }
+
+.nameTip{
+	font-weight: bold;
+}

@@ -20,4 +20,16 @@ public class CourseDaoImpl extends BaseDaoSupport implements CourseDao {
 		return getList("Course.getAll", params);
 	}
 
+	public void update(Map<String, String> params) {
+		update("Course.update", params);
+	}
+
+	public void delete(Map<String, String> params) {
+		delete("Course.delete", params);
+	}
+
+	public Course view(Map<String, String> params) {
+		return get("Course.view", params);
+	}
+
 }

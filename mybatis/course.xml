@@ -12,4 +12,28 @@
 		SELECT * FROM COURSE
 	</select>
 	
+	<update id="update" parameterType="map">
+		UPDATE COURSE 
+		<set>
+			<if test="recommended != null  and recommended == 1">
+				RECOMMENDED = 1, RECOMMENDEDTIME = NOW(),
+			</if>
+			<if test="recommended != null  and recommended == 0">
+				RECOMMENDED = 0, RECOMMENDEDTIME = NULL,
+			</if>
+			<if test="status != null  and stutas != ''">
+				STATUS = #{status}
+			</if>
+		</set>
+		WHERE ID = #{id}
+	</update>
+	
+	<delete id="delete" parameterType="map">
+		DELETE FROM COURSE WHERE ID = #{id}
+	</delete>
+	
+	<select id="view" parameterType="map" resultType="course">
+		SELECT * FROM COURSE WHERE ID = #{id}
+	</select>
+	
 </mapper>

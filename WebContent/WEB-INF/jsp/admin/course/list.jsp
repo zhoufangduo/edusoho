@@ -32,9 +32,19 @@
 				    <form action="">
 						<div class="input-group" style="float: left;width: 80%;">
 							  <span class="input-group-addon" >搜索项 </span>
-							  <select class="form-control" style="width: 125px;">
+							  <select class="form-control" style="width: 150px;">
 								  <option value="">课程分类</option>
-								  <option>默认分类</option>
+								  <c:forEach items="${categorys}" var="categ">
+		  							  <c:if test="${categ.pId == 0}">
+											<option value="${categ.id}">${categ.name}</option>	
+		  							  </c:if>
+  							
+	 								  <c:forEach items="${categorys}" var="categSub">
+		  								<c:if test="${categ.id ==  categSub.pId && categSub.pId != 0}">
+		  									<option value="${categSub.id}">${categ.name}>${categSub.name}</option>	
+		  								</c:if>
+	 								  </c:forEach>
+								   </c:forEach>
 							  </select>
 							  <select class="form-control" style="width: 125px;">
 								  <option value="">课程状态</option>
@@ -48,7 +58,7 @@
         						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
       						  </span>
 						</div>
-						 <span style="margin-left: 65px;">
+						<span style="margin-left: 65px;">
       						  <a href="<%=basePath%>/admin/course/toAdd" class="btn btn-info" target="_blank">创建课程</a>
       					</span>
 				    </form>
@@ -66,7 +76,7 @@
   							<tr>
   								<td>${course.id}</td>
   								<td>
-  									<a href="#" style="font-weight: bold;">${course.title}</a>
+  									<a href="#" class="nameTip">${course.title}</a>
   									<c:if test="${course.recommended == 1}">
   										<span class="badge" style="background-color: red;">推荐</span>
   									</c:if>
@@ -86,27 +96,30 @@
   								<td>${course.createTime}</td>
   								<td>
   								<div class="btn-group">
-								  <button type="button" class="btn btn-sm btn-default">管理</button>
+								  <a href="<%=basePath%>/admin/course/view?id=${course.id}" 
+								  	class="btn btn-sm btn-default" target="_blank">管理</a>
 								  <button type="button" class="btn btn-sm btn-default  dropdown-toggle" data-toggle="dropdown">
 								    <span class="caret"></span>
 								    <span class="sr-only">Toggle Dropdown</span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="#">
-								    	<span class="glyphicon glyphicon-star"></span>&nbsp;推荐课程
-								    </a> </li>
+								  	<c:if test="${course.recommended == 0 }">
+									    <li><a href="<%=basePath%>/admin/course/update?recommended=1&id=${course.id}">
+									    	<span class="glyphicon glyphicon-star"></span>&nbsp;推荐课程
+									    </a> </li>
+								    </c:if>
 								    <c:if test="${course.recommended == 1}">
-								    	<li><a href="#">
+								    	<li><a href="<%=basePath%>/admin/course/update?recommended=0&id=${course.id}">
 								    		<span class="glyphicon glyphicon-star-empty"></span>&nbsp;取消推荐
 								    	</a> </li>
 								    </c:if>
-								    <c:if test="course.status == 'PUBLISHED'">
-									    <li><a href="#">
+								    <c:if test="${course.status == 'PUBLISHED'}">
+									    <li><a href="<%=basePath%>/admin/course/update?status=CLOSED&id=${course.id}">
 									    	<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;关闭课程
 									    </a></li>
 								    </c:if>
 								    <c:if test="${course.status == 'DRAFT' || course.status == 'CLOSED'}">
-									    <li><a href="#">
+									    <li><a href="<%=basePath%>/admin/course/update?status=PUBLISHED&id=${course.id}">
 									    	<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;发布课程
 									    </a></li>
 								    </c:if>

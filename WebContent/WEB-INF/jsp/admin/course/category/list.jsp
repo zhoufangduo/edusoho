@@ -71,7 +71,7 @@
 										    <li><a href="#">
 										    	<span class="glyphicon glyphicon-edit"></span>&nbsp;编辑
 										    </a></li>
-										    <li><a href="#">
+										    <li><a href="javascript:delType('${categ.id}')">
 										    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除
 										    </a></li>
 										  </ul>
@@ -102,7 +102,7 @@
 											    <li><a href="#">
 											    	<span class="glyphicon glyphicon-edit"></span>&nbsp;编辑
 											    </a></li>
-											    <li><a href="#">
+											    <li><a href="javascript:delType('${categSub.id}')">
 											    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除
 											    </a></li>
 											  </ul>
@@ -121,6 +121,14 @@
 	
 	<div id="model">
 	</div>
+	<script type="text/javascript">
+		
+		function delType(id){
+			if(window.confirm("你确定要删除此分类?")){
+				window.location = "<%=basePath%>/admin/course/category/delete?id=" + id;
+			}
+		}
 	
+	</script>
 </body>
 </html>

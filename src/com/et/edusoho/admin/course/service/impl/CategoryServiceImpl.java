@@ -24,5 +24,9 @@ public class CategoryServiceImpl implements CategoryService {
 		
 		return categoryDao.list(params);
 	}
+
+	public void delete(Map<String, String> params) {
+		categoryDao.delete(params);
+	}
 	
 }

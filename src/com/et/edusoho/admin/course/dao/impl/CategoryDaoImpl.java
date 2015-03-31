@@ -21,4 +21,8 @@ public class CategoryDaoImpl extends BaseDaoSupport implements CategoryDao {
 		return getList("Category.list", params);
 	}
 
+	public void delete(Map<String, String> params) {
+		delete("Category.delete", params);
+	}
+
 }
