@@ -77,11 +77,9 @@ public class MenuTagSupport extends TagSupport {
 	private void initNavbarHead(StringBuffer buffer){
 		
 		Site site = (Site) pageContext.getServletContext().getAttribute(CONSTANTCONTEXT.SITE_INFO);
-		
-		String navbarImage = "<img src='" + context + "/admin/system/setting/download?file=" + site.getLogoImage()+"'/>";
-		
-		if (StringUtils.isEmpty(navbarImage)) {
-			navbarImage = "";
+		String navbarImage = "";
+		if (site != null && StringUtils.isNotEmpty(site.getLogoImage())) {
+			 navbarImage = "<img src='" + context + "/admin/system/setting/download?file=" + site.getLogoImage()+"'/>";
 		}
 		
 		buffer.append("<div class='navbar-inverse'><div class='container-fluid'><div class='navbar-header'>");
