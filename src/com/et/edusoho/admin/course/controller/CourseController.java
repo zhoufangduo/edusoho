@@ -113,6 +113,23 @@ public class CourseController extends BaseController {
 
 			if (params.size() > 0) {
 				modelMap.addAttribute("course", courseService.view(params));
+				modelMap.addAttribute("categorys", categoryService.list(null));
+			}
+
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		return getContext("/base");
+	}
+	
+	
+	@RequestMapping("course/detail")
+	public String toDetail(final ModelMap modelMap,
+			@RequestParam Map<String, String> params) {
+		try {
+
+			if (params.size() > 0) {
+				modelMap.addAttribute("course", courseService.view(params));
 			}
 
 		} catch (Exception e) {

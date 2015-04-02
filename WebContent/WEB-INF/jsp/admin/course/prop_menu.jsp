@@ -1,10 +1,18 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
+<%@ taglib prefix="c"   uri="http://java.sun.com/jsp/jstl/core" %>
+<%String basePath = request.getContextPath();%>
 		<div class="panel panel-default">
 		  <div class="panel-body">
 		    <div class="list-group" style="width: 99%;">
 		      <span class="list-group-item head">课程信息</span>
-			  <a href="#" class="list-group-item active">基本信息</a>
-			  <a href="#" class="list-group-item">详细信息</a>
+			  <a href="<%=basePath%>/admin/course/view?active=base" 
+			  	<c:if test="${param.active='base'}">
+			  	class="list-group-item active" </c:if>
+			  	
+			  	
+			  	>基本信息</a>
+			  <a href="<%=basePath%>/admin/course/detail?active=detail" 
+			  class="list-group-item">详细信息</a>
 			  <a href="#" class="list-group-item">课程图片</a>
 			  <a href="#" class="list-group-item">课时管理</a>
 			  <a href="#" class="list-group-item">文件管理</a>
