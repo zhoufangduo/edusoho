@@ -75,7 +75,7 @@
   						<c:forEach items="${list}" var="log">
   							<tr>
   								<td>
-									<span style="font-weight: bold;">
+									<span class="nameTip">
   									<a href="javascript:showModel('#model','<%=basePath%>/admin/user/toView?id=${log.userId}')">
   										${log.username}
   									</a></span>

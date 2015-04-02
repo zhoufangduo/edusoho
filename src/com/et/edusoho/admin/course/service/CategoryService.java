@@ -11,4 +11,6 @@ public interface CategoryService {
 
 	public List<Category> list(Map<String, Object> params);
 
+	public void delete(Map<String, String> params);
+
 }

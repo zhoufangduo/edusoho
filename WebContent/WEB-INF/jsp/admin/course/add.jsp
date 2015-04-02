@@ -25,9 +25,9 @@
 					<p/><br/><br/>
 					<form action="<%=basePath%>/admin/course/add" class="form-horizontal" id="addForm" method="post">
 						<div class="form-group">
-						    <label for="title" class="col-sm-2 control-label">名&nbsp;称</label>
+						    <label for="title" class="col-sm-2 control-label">标&nbsp;题</label>
 						    <div class="col-sm-9">
-						      <input type="text" class="form-control" id="title" name="title" placeholder="课程名称">
+						      <input type="text" class="form-control" id="title" name="title" placeholder="课程标题">
 						    </div>
 					    </div>
 					    <br/><br/><br/>

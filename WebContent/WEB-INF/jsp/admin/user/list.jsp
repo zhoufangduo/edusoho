@@ -93,7 +93,7 @@
   						<c:forEach items="${list}" var="quser">
   							<tr>
   								<td>
-									<span style="font-weight: bold;">
+									<span class="nameTip">
   									<a href="javascript:showModel('#model','<%=basePath%>/admin/user/toView?id=${quser.id}')">
   										${quser.username}
   									</a></span>

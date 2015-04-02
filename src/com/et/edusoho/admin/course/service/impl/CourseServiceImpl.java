@@ -24,4 +24,16 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.getAll(params);
 	}
 
+	public void update(Map<String, String> params) {
+		courseDao.update(params);
+	}
+
+	public void delete(Map<String, String> params) {
+		courseDao.delete(params);
+	}
+
+	public Course view(Map<String, String> params) {
+		return courseDao.view(params);
+	}
+
 }
