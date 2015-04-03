@@ -63,62 +63,39 @@
 					 	
 				 <div class="col-md-9">
 			    	<div class="panel panel-default">
-			    		<div class="panel-heading">基本信息</div>
+			    		<div class="panel-heading">详细信息</div>
 			  			<div class="panel-body">
 			  				<form action="<%=basePath%>/admin/course/update" class="form-horizontal" id="addForm" method="post">
 			  					<div class="form-group">
-								    <label for="title" class="col-sm-2 control-label">名&nbsp;称</label>
+								    <label for="title" class="col-sm-2 control-label">课程简介</label>
 								    <div class="col-sm-8">
-								      <input type="text" class="form-control" id="title" 
-								      name="title" placeholder="课程名称" value="${course.title}">
+								      <textarea rows="" cols=""></textarea>
 								    </div>
 							    </div>
 							    <br/>
 							    <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">副标题</label>
+								    <label for="subtitle" class="col-sm-2 control-label">课程目标</label>
 								    <div class="col-sm-8">
-								      <input type="text" class="form-control" id="subtitle" 
-								      name="subtitle" placeholder="副标题" value="${course.subtitle}">
+								        <div class="input-group" >
+									      <input type="text" class="form-control" id="subtitle" 
+									      name="subtitle" placeholder="副标题" value="${course.subtitle}">
+									      <span class="input-group-btn">
+			        						<button class="btn btn-default" type="type">添加</button>
+			      						  </span>
+									    </div>
 								    </div>
 							    </div>
 							    <br/>
 							    <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">学习时长</label>
+								    <label for="subtitle" class="col-sm-2 control-label">适应人群</label>
 								    <div class="col-sm-8">
-								      <input type="text" class="form-control" id="subtitle" 
-								       name="subtitle" placeholder="天数">
-								      <span>
-								    	设置该值后(时间单位/天)，上课的老师可以按照此时间来规划上课内容。该值为0，则不做此限制。
-								    </span>
-								    </div>
-							    </div>
-							    <br/>
-							    <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">显示学员人数</label>
-								    <div class="col-sm-8" style="margin-top: 4px;">
-								     	<input type="radio"  name="remeber" value="true">&nbsp;开启
-								     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								     	<input type="radio"  name="remeber" value="true">&nbsp;关闭
-								    </div>
-							    </div>
-							    <br/>
-							     <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">分类</label>
-								    <div class="col-sm-8">
-										<select class="form-control" style="width: 50%">
-										  <option value="">课程分类</option>
-										  <c:forEach items="${categorys}" var="categ">
-				  							  <c:if test="${categ.pId == 0}">
-													<option value="${categ.id}">${categ.name}</option>	
-				  							  </c:if>
-		  							
-			 								  <c:forEach items="${categorys}" var="categSub">
-				  								<c:if test="${categ.id ==  categSub.pId && categSub.pId != 0}">
-				  									<option value="${categSub.id}">${categ.name}>${categSub.name}</option>	
-				  								</c:if>
-			 								  </c:forEach>
-										   </c:forEach>
-									  </select>								      
+								    	<div class="input-group" >
+									      	<input type="text" class="form-control" id="subtitle" 
+									      		name="subtitle" placeholder="副标题" value="${course.subtitle}">
+									      	<span class="input-group-btn">
+			        							<button class="btn btn-default" type="type">添加</button>
+			      						  	</span>
+		      						  	</div>
 								    </div>
 							    </div>
 							    <br/>

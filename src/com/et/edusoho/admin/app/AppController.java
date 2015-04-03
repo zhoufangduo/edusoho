@@ -18,7 +18,7 @@ public class AppController extends BaseController {
 		
 		if (getUser() == null) {
 			
-			return "redirect:toLogin";
+			return "redirect:/toLogin";
 		}
 		
 		if (isAdmin()) {

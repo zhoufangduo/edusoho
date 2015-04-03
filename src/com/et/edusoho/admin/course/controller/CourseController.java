@@ -71,7 +71,7 @@ public class CourseController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return getContext("/view");
+		return "redirect:view?active=base&id=" + params.get("id") ;
 	}
 
 	@RequestMapping("course/update")
@@ -135,7 +135,8 @@ public class CourseController extends BaseController {
 		} catch (Exception e) {
 			logger.warn(e.getMessage(), e);
 		}
-		return getContext("/base");
+		
+		return getContext("/detail");
 	}
 
 }

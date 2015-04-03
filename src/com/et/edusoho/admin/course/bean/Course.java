@@ -16,6 +16,8 @@ public class Course {
 
 	private String learnTime;
 
+	private String openLearner;
+
 	private String creater;
 
 	private String about;
@@ -132,4 +134,11 @@ public class Course {
 		this.recommendedTime = recommendedTime;
 	}
 
+	public String getOpenLearner() {
+		return openLearner;
+	}
+
+	public void setOpenLearner(String openLearner) {
+		this.openLearner = openLearner;
+	}
 }

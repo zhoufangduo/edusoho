@@ -65,7 +65,7 @@
 			    	<div class="panel panel-default">
 			    		<div class="panel-heading">基本信息</div>
 			  			<div class="panel-body">
-			  				<form action="<%=basePath%>/admin/course/update" class="form-horizontal" id="addForm" method="post">
+			  				<form action="<%=basePath%>/admin/course/update" class="form-horizontal" id="updateForm" method="post">
 			  					<div class="form-group">
 								    <label for="title" class="col-sm-2 control-label">名&nbsp;称</label>
 								    <div class="col-sm-8">
@@ -83,10 +83,10 @@
 							    </div>
 							    <br/>
 							    <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">学习时长</label>
+								    <label for="learnTime" class="col-sm-2 control-label">学习时长</label>
 								    <div class="col-sm-8">
-								      <input type="text" class="form-control" id="subtitle" 
-								       name="subtitle" placeholder="天数">
+								      <input type="text" class="form-control" id="learnTime" 
+								       name="learnTime" placeholder="天数" value="${course.learnTime}">
 								      <span>
 								    	设置该值后(时间单位/天)，上课的老师可以按照此时间来规划上课内容。该值为0，则不做此限制。
 								    </span>
@@ -96,25 +96,33 @@
 							    <div class="form-group">
 								    <label for="subtitle" class="col-sm-2 control-label">显示学员人数</label>
 								    <div class="col-sm-8" style="margin-top: 4px;">
-								     	<input type="radio"  name="remeber" value="true">&nbsp;开启
+								     	<input type="radio"  name="openLearner" value="1"
+								     		<c:if test="${course.openLearner == 1 }">checked="checked"</c:if>
+								     	>&nbsp;开启
 								     	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-								     	<input type="radio"  name="remeber" value="true">&nbsp;关闭
+								     	<input type="radio"  name="openLearner" value="0"
+								     		<c:if test="${course.openLearner == 0 }">checked="checked"</c:if>
+								     	>&nbsp;关闭
 								    </div>
 							    </div>
 							    <br/>
 							     <div class="form-group">
-								    <label for="subtitle" class="col-sm-2 control-label">分类</label>
+								    <label for="type" class="col-sm-2 control-label">分类</label>
 								    <div class="col-sm-8">
-										<select class="form-control" style="width: 50%">
+										<select class="form-control" name="type" style="width: 50%">
 										  <option value="">课程分类</option>
 										  <c:forEach items="${categorys}" var="categ">
 				  							  <c:if test="${categ.pId == 0}">
-													<option value="${categ.id}">${categ.name}</option>	
+													<option value="${categ.id}" 
+															<c:if test="${course.type == categ.id}">selected="selected"</c:if>
+													>${categ.name}</option>	
 				  							  </c:if>
 		  							
 			 								  <c:forEach items="${categorys}" var="categSub">
 				  								<c:if test="${categ.id ==  categSub.pId && categSub.pId != 0}">
-				  									<option value="${categSub.id}">${categ.name}>${categSub.name}</option>	
+				  									<option value="${categSub.id}"
+				  										<c:if test="${course.type == categSub.id}">selected="selected"</c:if>
+				  									>${categ.name}>${categSub.name}</option>	
 				  								</c:if>
 			 								  </c:forEach>
 										   </c:forEach>
@@ -128,7 +136,7 @@
 								      <input type="submit" style="width: 100px;" class="btn btn-primary btn-lg" value="保&nbsp;存">
 								    </div>
 							    </div>
-							    
+							    <input type="hidden" name="id" value="${course.id}">
 			  				</form>
 			  			</div>
 			  		</div>
@@ -137,7 +145,7 @@
 		</div>
 		<script type="text/javascript">
 		$(function(){
-			$("#addForm").validate({
+			$("#updateForm").validate({
 				success:success,
 				ignore: "",
 				errorPlacement: showErrorTab,

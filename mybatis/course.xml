@@ -5,6 +5,9 @@
 <mapper namespace="Course">
 
 	<insert id="create" parameterType="map">
+		 <selectKey resultType="string" keyProperty="id" order="AFTER" >
+   			 SELECT @@IDENTITY
+  		 </selectKey>
 		INSERT INTO COURSE(`TITLE`,`CREATETIME`,`CREATER`)VALUES(#{title},NOW(),#{creater})
 	</insert>
 	
@@ -22,8 +25,24 @@
 				RECOMMENDED = 0, RECOMMENDEDTIME = NULL,
 			</if>
 			<if test="status != null  and stutas != ''">
-				STATUS = #{status}
+				STATUS = #{status},
 			</if>
+			<if test="title != null and title != ''">
+				TITLE = #{title},
+			</if>
+			<if test="subtitle != null and subtitle != ''">
+				SUBTITLE = #{subtitle},
+			</if>
+			<if test="learnTime != null and learnTime != ''">
+				LEARNTIME = #{learnTime},	
+			</if>
+			<if test="openLearner != null  and openLearner != ''">
+				OPENLEARNER = #{openLearner},
+			</if>
+			<if test="type != null and type != ''">
+				TYPE = #{type}
+			</if>
+			
 		</set>
 		WHERE ID = #{id}
 	</update>
@@ -33,7 +52,16 @@
 	</delete>
 	
 	<select id="view" parameterType="map" resultType="course">
-		SELECT * FROM COURSE WHERE ID = #{id}
+		SELECT 
+			C.`ID`,C.`TITLE`,C.`SUBTITLE`,C.`STATUS`,C.`CREATETIME`,
+			C.`LEARNTIME`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`TYPE`,
+			C.`RECOMMENDED`,C.`RECOMMENDEDTIME`,U.`NAME` AS `CREATER`,
+			C.`OPENLEARNER`
+		
+		 FROM COURSE C 
+		 	LEFT OUTER JOIN  `USER` U
+		 		ON C.CREATER = U.ID
+		   WHERE C.ID = #{id}
 	</select>
 	
 </mapper>
