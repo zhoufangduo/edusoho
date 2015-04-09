@@ -9,12 +9,17 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.math.NumberUtils;
 import org.apache.log4j.Logger;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.support.RequestContext;
 
 import com.et.edusoho.login.bean.User;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
+import com.et.edusoho.tools.FileUtil;
+import com.et.edusoho.tools.PathUtil;
 
 
 public abstract class BaseController {
@@ -43,14 +48,21 @@ public abstract class BaseController {
 	
 	protected String dirPath ;
 	
+	private final String UPLOAD_LOGO_DIR;
+	
 	private static Logger logger = Logger.getLogger(BaseController.class);
 	
 	protected BaseController(String dirPath ){
+		this(dirPath, "");
+	}
+	
+	protected BaseController(String dirPath , String uploadDir){
 		this.dirPath = dirPath;
+		this.UPLOAD_LOGO_DIR = PathUtil.getPath() + uploadDir;
 	}
 	
 	protected BaseController(){
-		
+		this("");
 	}
 	
 	protected String getContext(String jspName){
@@ -169,5 +181,36 @@ public abstract class BaseController {
 		
 		return false;
 	}
+	
+	
+	public String upload(@RequestParam("file") Object uploadFile,
+			@RequestParam("fileName") String fileName) {
 
+		if (uploadFile instanceof MultipartFile) {
+
+			String newFileName = FileUtil.save((MultipartFile) uploadFile,
+					UPLOAD_LOGO_DIR, fileName);
+			
+			logger.info("上传文件的路径: " + UPLOAD_LOGO_DIR);
+			
+			try {
+				newFileName = new String(newFileName.getBytes("UTF-8"), "ISO-8859-1");
+			} catch (UnsupportedEncodingException e) {
+				e.printStackTrace();
+			}
+
+			return newFileName;
+		}
+		
+		return "";
+	}
+	
+	public void download(@RequestParam Map<String, String> params) {
+
+		String fileName = params.get("file");
+		if (StringUtils.isNotEmpty(fileName)) {
+			
+			FileUtil.download(response, this.UPLOAD_LOGO_DIR + fileName);
+		}
+	}
 }
