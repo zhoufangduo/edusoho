@@ -18,38 +18,31 @@
 		<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
 		<link href="<%=basePath%>/resource/iCheck/skins/all.css" rel="stylesheet">
 		<script src="<%=basePath%>/resource/iCheck/icheck.min.js"></script>
-		<style type="text/css">
-			 .list-group-item.active, 
-			 .list-group-item.active:focus, 
-			 .list-group-item.active:hover{
-				background-color: #eee;
-				color:#000000;
-				border-color: #eee;
-				font-weight: bold;
-				border-left: solid 3px #CCCCCC;
-				border-right: solid 3px #CCCCCC;
-			}
-			.list-group-item.head, 
-			.list-group-item.head:focus, 
-			.list-group-item.head:hover{
-				background-color: #777;
-				border-color: #777;
-				color: #FFFFFF;
-				font-weight: bold;
-			}
-		</style>
 	</head>
 	<body>
 		<nav:menu/>
 		<div class="container">
 			<div class="panel panel-default">
 			  <div class="panel-body">
+				<span style="float: left;">
+				  <img style="width: 80px;height: 50px;"
+					<c:choose>
+						<c:when test="${course.logoImage == null}">
+							src="<%=basePath%>/resource/images/et-logo.png" 
+						</c:when>
+						<c:otherwise>
+							 src="<%=basePath%>/admin/course/download?file=${course.logoImage}"
+						</c:otherwise>
+					</c:choose>
+					>
+				 </span>
 			  	 <span style="float: left;">
 				  	<a href="#" class="nameTip">${course.title}</a> 
 				  	<br>
 			 		 教师：${course.creater}
+			 		 <br>
 			  	 </span>
-			 	 <span style="float: right;">
+			 	 <span style="float: right;margin-top: 8px;">
 			 	 	<a class="btn btn-default" href="#" role="button">返回课程列表</a>&nbsp;
 			 	 	<a class="btn btn-info" href="#" role="button">预览</a>&nbsp;
 			 	 	<a class="btn btn-primary" href="#" role="button">上课</a>&nbsp;
