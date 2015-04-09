@@ -48,7 +48,12 @@
 				  	</c:choose>
 			  >课程图片</a>
 			  
-			  <a href="#" class="list-group-item">课时管理</a>
+			  <a href="<%=basePath%>/admin/course/lesson?active=lesson&id=${course.id}" 
+			  	<c:choose>
+				  	<c:when test="${param.active == 'lesson'}">class="list-group-item active"</c:when>
+				  	<c:otherwise>class="list-group-item"</c:otherwise>
+			  	</c:choose>
+			  >课时管理</a>
 			  <a href="#" class="list-group-item">文件管理</a>
 			</div>
 				

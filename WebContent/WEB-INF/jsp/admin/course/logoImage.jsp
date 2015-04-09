@@ -27,7 +27,7 @@
 			<div class="panel panel-default">
 			  <div class="panel-body">
 			  	 <span style="float: left;">
-				  <img style="width: 80px;height: 50px;"
+				  <img style="width: 80px;height: 50px;margin-right: 10px;"
 					<c:choose>
 						<c:when test="${course.logoImage == null}">
 							src="<%=basePath%>/resource/images/et-logo.png" 
@@ -38,7 +38,7 @@
 					</c:choose>
 					>
 				 </span>
-			  	 <span style="float: left;">
+			  	 <span style="float: left;margin-top: 6px;">
 				  	<a href="#" class="nameTip">${course.title}</a> 
 				  	<br>
 			 		 教师：${course.creater}
@@ -108,7 +108,7 @@
 						type        : "POST",
 						cache       : false,
 						success		: function(data){	
-							var url = "<%=basePath%>/admin/course/download?file=" + data;
+							var url = "<%=basePath%>/admin/course/download?file=" + data +"&d="+new Date();
 							$("#logoImage").attr("src",url);
 						}
 					});

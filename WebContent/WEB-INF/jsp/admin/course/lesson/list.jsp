@@ -58,7 +58,26 @@
 					 	
 				 <div class="col-md-9">
 			    	<div class="panel panel-default">
-			    		<div class="panel-heading">课时管理</div>
+			    		<div class="panel-heading">
+					    	   课时管理
+				    		 <span style="float:right; margin-right: 5px;">
+				    			<div class="btn-group">
+								  <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								   <span class="glyphicon glyphicon-plus"></span>&nbsp;
+								    添加&nbsp;<span class="caret"></span>
+								  </button>
+								  <ul class="dropdown-menu" role="menu">
+								    <li><a href="#">添加章</a></li>
+								    <li><a href="#">添加节</a></li>
+								  </ul>
+								</div>
+								&nbsp;&nbsp;
+								<a href="" 
+				    					class="btn btn-primary btn-xs">
+					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加课时
+				    			</a>
+				    		</span>
+			    		</div>
 			  			<div class="panel-body">
 			  				<div class="form-horizontal" style="height: 370px;">
 			  				

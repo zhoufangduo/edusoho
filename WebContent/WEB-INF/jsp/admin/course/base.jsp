@@ -25,7 +25,7 @@
 			<div class="panel panel-default">
 			  <div class="panel-body">
 				<span style="float: left;">
-				  <img style="width: 80px;height: 50px;"
+				  <img style="width: 80px;height: 50px;margin-right: 10px;"
 					<c:choose>
 						<c:when test="${course.logoImage == null}">
 							src="<%=basePath%>/resource/images/et-logo.png" 
