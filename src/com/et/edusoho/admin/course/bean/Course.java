@@ -30,6 +30,8 @@ public class Course {
 
 	private String recommendedTime;
 
+	private String logoImage;
+
 	public String getId() {
 		return id;
 	}
@@ -141,4 +143,13 @@ public class Course {
 	public void setOpenLearner(String openLearner) {
 		this.openLearner = openLearner;
 	}
+
+	public String getLogoImage() {
+		return logoImage;
+	}
+
+	public void setLogoImage(String logoImage) {
+		this.logoImage = logoImage;
+	}
+
 }

@@ -40,7 +40,19 @@
 				OPENLEARNER = #{openLearner},
 			</if>
 			<if test="type != null and type != ''">
-				TYPE = #{type}
+				TYPE = #{type},
+			</if>
+			<if test="audiences != null and audiences != ''">
+				AUDIENCES = #{audiences},
+			</if>
+			<if test="goals != null and goals !=''">
+				GOALS = #{goals},
+			</if>
+			<if test="about != null and about != ''">
+				ABOUT = #{about},
+			</if>
+			<if test="logoImage != null and logoImage != ''">
+				LOGOIMAGE = #{logoImage}
 			</if>
 			
 		</set>
@@ -56,7 +68,7 @@
 			C.`ID`,C.`TITLE`,C.`SUBTITLE`,C.`STATUS`,C.`CREATETIME`,
 			C.`LEARNTIME`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`TYPE`,
 			C.`RECOMMENDED`,C.`RECOMMENDEDTIME`,U.`NAME` AS `CREATER`,
-			C.`OPENLEARNER`
+			C.`OPENLEARNER`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`LOGOIMAGE`
 		
 		 FROM COURSE C 
 		 	LEFT OUTER JOIN  `USER` U
