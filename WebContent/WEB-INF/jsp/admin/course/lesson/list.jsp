@@ -19,6 +19,7 @@
 				width: 400px;
 				height: 210px;
 			}
+
 		</style>
 	</head>
 	<body>
@@ -62,31 +63,70 @@
 					    	   课时管理
 				    		 <span style="float:right; margin-right: 5px;">
 				    			<div class="btn-group">
-								  <button type="button" class="btn btn-info btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								  <button type="button" class="btn btn-success btn-xs dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								   <span class="glyphicon glyphicon-plus"></span>&nbsp;
 								    添加&nbsp;<span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="#">添加章</a></li>
-								    <li><a href="#">添加节</a></li>
+								    <li><a href="#">
+								   		<span class="glyphicon glyphicon-plus-sign"/>&nbsp;添加章
+								   	</a></li>
+								    <li><a href="#">
+								    	<span class="glyphicon glyphicon-plus-sign"/>&nbsp;添加节
+								    </a></li>
 								  </ul>
 								</div>
+								
 								&nbsp;&nbsp;
 								<a href="" 
 				    					class="btn btn-primary btn-xs">
 					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加课时
 				    			</a>
+				    			&nbsp;&nbsp;
+								<a href="" 
+				    					class="btn btn-info btn-xs">
+					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加作业
+				    			</a>
 				    		</span>
 			    		</div>
 			  			<div class="panel-body">
 			  				<div class="form-horizontal" style="height: 370px;">
-			  				
-			  					
+			  					<ul class="lesson-list sortable-list">
+						  			<!-- <li class="item-chapter  clearfix" style="word-break: break-all;">
+										<div class="item-content">第 <span class="number">1</span> 章： 第一章</div>
+										<div class="item-actions prs"></div>
+									</li>			  						  			   
+									<li class="item-chapter item-chapter-unit clearfix"  style="word-break: break-all;">
+										<div class="item-content">第 <span class="number">1</span> 节： 第一节</div>
+										<div class="item-actions prs"></div>
+									</li>			  						  			    
+									<li class="item-lesson clearfix" id="lesson-1" style="word-break: break-all;">
+										<div class="item-line"></div>
+										<div class="item-content">
+											dffdssf
+										</div>
+										<div class="item-actions"></div>
+									</li>	
+									<li class="item-lesson clearfix" id="lesson-1" style="word-break: break-all;">
+										<div class="item-line"></div>
+										<div class="item-content">
+											dffdssf
+										</div>
+										<div class="item-actions"></div>
+									</li>	
+									<li class="item-chapter  clearfix" id="chapter-3" style="word-break: break-all;">
+										<div class="item-content">第 <span class="number">1</span> 章： 第一章</div>
+										<div class="item-actions prs"></div>
+									</li>		   -->						
+								</ul>
 			  				</div> 
 			  			</div>
 			  		</div>
 				 </div>
 			</div>
+		</div>
+		<div id="model">
+		
 		</div>
 	</body>
 </html>
