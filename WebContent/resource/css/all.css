@@ -217,3 +217,64 @@ body,div,form,ul,li,a{
 .nameTip{
 	font-weight: bold;
 }
+
+.lesson-list {
+	 margin: 0 10px 0 40px;
+	 padding: 0;
+	 list-style: none;
+	 border-left: 2px solid #ccc;
+}
+
+.lesson-list .item-chapter, .lesson-list .item-lesson  {
+	 border: 1px solid #ccc;
+	 background: #fff;
+	 line-height: 40px;
+	 margin-bottom: 15px;
+	 border-radius: 4px;
+	 -webkit-box-shadow: 0 1px 1px rgba(0,0,0,.05);
+	 box-shadow: 0 1px 1px rgba(0,0,0,.05);
+}
+
+.lesson-list .item-chapter {
+	margin-left: -30px;
+}
+
+.lesson-list .item-chapter-unit {
+ 	margin-left: -15px;
+}
+
+.lesson-list .item-lesson {
+ 	margin-left: 20px;
+}
+
+.lesson-list .item-line {
+	 border-bottom: 2px solid #ccc;
+	 vertical-align: top;
+	 display: inline-block;
+	 height: 20px;
+	 width: 20px;
+	 margin-left: -21px;
+	 float: left;
+}
+
+.lesson-list .item-content {
+	 margin-left: 10px;
+	 overflow: hidden;
+	 height: 40px;
+	 line-height: 40px;
+	 float: left;
+}
+
+.lesson-list .item-actions {
+	 visibility: hidden;
+	 background: #f3f3f3;
+	 border-left: 1px solid #ddd;
+	 margin-left: 10px;
+	 position: absolute;
+	 float: right;
+	 right: 50px;
+}
+
+.lesson-list .item-chapter:hover, .lesson-list .item-lesson:hover {
+	background: #f3f3f3;
+}
