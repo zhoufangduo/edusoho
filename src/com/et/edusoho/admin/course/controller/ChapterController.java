@@ -47,7 +47,6 @@ public class ChapterController extends BaseController {
 			if (params.size() > 0) {
 				params.put("creater", getUser().getId());
 				
-				System.out.println(params);
 				chapterService.addChapter(params);
 			}
 			
@@ -55,6 +54,6 @@ public class ChapterController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 		
-		return "redirect:lesson?active=lesson&id=" + params.get("id");
+		return "redirect:../lesson?active=lesson&id=" + params.get("courseId");
 	}
 }

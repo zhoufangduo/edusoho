@@ -11,6 +11,6 @@ import com.et.edusoho.support.dao.BaseDaoSupport;
 public class ChapterDaoImpl extends BaseDaoSupport implements ChapterDao{
 	
 	public void addChapter(Map<String, String> params) {
-		insert("Lesson.add", params);
+		insert("Chapter.add", params);
 	}
 }

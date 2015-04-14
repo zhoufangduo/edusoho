@@ -3,9 +3,9 @@
 PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="Lesson">
-
-	<insert id="add" parameterType="map">
-		INSERT INTO `COURSE_CHAPTER`(`COURSEID`,`TYPE`,`PID`,`TITLE`,`CREATEDTIME`,CREATEDER`)
-		VALUES(#{courseId},#{type},#{pId},#{title},NOW(),#{creater})
-	</insert>
+	
+	<select id="getListByCourseId" parameterType="string" resultType="lesson">
+		SELECT * FROM `COURSE_LESSON` WHERE ID = #{courseId}
+	</select>
+	
 </mapper>

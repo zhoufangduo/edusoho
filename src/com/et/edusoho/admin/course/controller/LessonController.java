@@ -1,13 +1,18 @@
 package com.et.edusoho.admin.course.controller;
 
+import java.util.List;
 import java.util.Map;
 
+import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.course.bean.Course;
+import com.et.edusoho.admin.course.bean.Lesson;
+import com.et.edusoho.admin.course.service.ChapterService;
 import com.et.edusoho.admin.course.service.CourseService;
 import com.et.edusoho.admin.course.service.LessonService;
 import com.et.edusoho.support.constroller.BaseController;
@@ -16,8 +21,13 @@ import com.et.edusoho.support.constroller.BaseController;
 @RequestMapping("/admin/*")
 public class LessonController extends BaseController {
 	
+	private static Logger logger = Logger.getLogger(LessonController.class);
+	
 	@Autowired
 	private CourseService courseService;
+	
+	@Autowired
+	private ChapterService chapterService;
 	
 	@Autowired
 	private LessonService lessonService;
@@ -29,6 +39,22 @@ public class LessonController extends BaseController {
 	@RequestMapping("course/lesson")
 	public String toLesson(final ModelMap modelMap,
 			@RequestParam Map<String, String> params){
+		
+		try {
+			
+			setWebContext(request, response);
+			
+			Course course = courseService.view(params);
+			
+			if (course !=  null) {
+				List<Lesson> lessons = lessonService.getListByCourseId(course.getId());
+				
+				modelMap.addAttribute("lessons", lessons);
+				modelMap.addAttribute("course", course);
+			}
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
 		
 		return getContext("/list");
 	}
