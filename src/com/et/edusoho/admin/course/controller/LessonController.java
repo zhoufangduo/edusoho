@@ -1,9 +1,12 @@
 package com.et.edusoho.admin.course.controller;
 
-import org.apache.log4j.Logger;
+import java.util.Map;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.et.edusoho.admin.course.service.CourseService;
 import com.et.edusoho.admin.course.service.LessonService;
@@ -12,8 +15,6 @@ import com.et.edusoho.support.constroller.BaseController;
 @Controller
 @RequestMapping("/admin/*")
 public class LessonController extends BaseController {
-	
-	private static Logger logger = Logger.getLogger(LessonController.class);
 	
 	@Autowired
 	private CourseService courseService;
@@ -26,7 +27,8 @@ public class LessonController extends BaseController {
 	}
 	
 	@RequestMapping("course/lesson")
-	public String toLesson(){
+	public String toLesson(final ModelMap modelMap,
+			@RequestParam Map<String, String> params){
 		
 		return getContext("/list");
 	}

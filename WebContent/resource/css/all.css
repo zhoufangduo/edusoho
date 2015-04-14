@@ -50,6 +50,12 @@ body,div,form,ul,li,a{
 	font-size: 18px;
 }
 
+.course-title2{
+	font-weight: bold;
+	padding: 5px 0px;
+	font-size: 15px;
+}
+
 .status-list{
 	border-bottom: 1px #bce8f1 solid;
 	padding-bottom: 5px;

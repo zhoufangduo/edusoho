@@ -21,5 +21,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="login_log.xml"/>
 		<mapper resource="site.xml"/>
 		<mapper resource="course.xml"/>
+		<mapper resource="lesson.xml"/>
 	</mappers>
 </configuration>

@@ -22,33 +22,7 @@
 	<body>
 		<nav:menu/>
 		<div class="container">
-			<div class="panel panel-default">
-			  <div class="panel-body">
-				<span style="float: left;">
-				  <img style="width: 80px;height: 50px;margin-right: 10px;"
-					<c:choose>
-						<c:when test="${course.logoImage == null}">
-							src="<%=basePath%>/resource/images/et-logo.png" 
-						</c:when>
-						<c:otherwise>
-							 src="<%=basePath%>/admin/course/download?file=${course.logoImage}"
-						</c:otherwise>
-					</c:choose>
-					>
-				 </span>
-			  	 <span style="float: left;">
-				  	<a href="#" class="nameTip">${course.title}</a> 
-				  	<br>
-			 		 教师：${course.creater}
-			 		 <br>
-			  	 </span>
-			 	 <span style="float: right;margin-top: 8px;">
-			 	 	<a class="btn btn-default" href="#" role="button">返回课程列表</a>&nbsp;
-			 	 	<a class="btn btn-info" href="#" role="button">预览</a>&nbsp;
-			 	 	<a class="btn btn-primary" href="#" role="button">上课</a>&nbsp;
-			 	 </span>
-			  </div>
-			</div>
+			<jsp:include page="lesson/info.jsp"></jsp:include>			
 			<div class="row">
 			 	 <div class="col-md-3">
 			 	 	<jsp:include page="prop_menu.jsp"></jsp:include>
@@ -56,7 +30,9 @@
 					 	
 				 <div class="col-md-9">
 			    	<div class="panel panel-default">
-			    		<div class="panel-heading">基本信息</div>
+			    		<div class="panel-heading">
+			    			<label class="course-title2">基本信息</label>
+			    		</div>
 			  			<div class="panel-body">
 			  				<form action="<%=basePath%>/admin/course/update" class="form-horizontal" id="updateForm" method="post">
 			  					<div class="form-group">
