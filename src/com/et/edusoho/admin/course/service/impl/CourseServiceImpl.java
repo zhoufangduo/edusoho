@@ -1,5 +1,6 @@
 package com.et.edusoho.admin.course.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -33,6 +34,18 @@ public class CourseServiceImpl implements CourseService {
 	}
 
 	public Course view(Map<String, String> params) {
+		return courseDao.view(params);
+	}
+
+	public synchronized void updateSeq(String id) {
+		courseDao.updateSeq(id);
+	}
+
+	public Course viewById(String id) {
+		
+		Map<String, String> params = new HashMap<String, String>();
+		params.put("id", id);
+		
 		return courseDao.view(params);
 	}
 

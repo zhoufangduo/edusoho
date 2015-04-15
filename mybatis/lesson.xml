@@ -5,7 +5,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Lesson">
 	
 	<select id="getListByCourseId" parameterType="string" resultType="lesson">
-		SELECT * FROM `COURSE_LESSON` WHERE ID = #{courseId}
+		SELECT * FROM `COURSE_LESSON` WHERE `COURSEID` = #{courseId}
 	</select>
 	
 </mapper>

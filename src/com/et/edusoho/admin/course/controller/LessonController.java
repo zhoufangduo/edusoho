@@ -10,6 +10,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.course.bean.Chapter;
 import com.et.edusoho.admin.course.bean.Course;
 import com.et.edusoho.admin.course.bean.Lesson;
 import com.et.edusoho.admin.course.service.ChapterService;
@@ -36,6 +37,13 @@ public class LessonController extends BaseController {
 		super("admin/course/lesson");
 	}
 	
+	
+	@RequestMapping("course/lesson/toAdd")
+	public String toAdd(){
+		
+		return getContext("/add");
+	}
+	
 	@RequestMapping("course/lesson")
 	public String toLesson(final ModelMap modelMap,
 			@RequestParam Map<String, String> params){
@@ -47,11 +55,17 @@ public class LessonController extends BaseController {
 			Course course = courseService.view(params);
 			
 			if (course !=  null) {
-				List<Lesson> lessons = lessonService.getListByCourseId(course.getId());
+				
+				String courseId = course.getId();
+				
+				List<Lesson> lessons = lessonService.getListByCourseId(courseId);
+				List<Chapter> chapters = chapterService.getListByCourseId(courseId);
 				
 				modelMap.addAttribute("lessons", lessons);
+				modelMap.addAttribute("chapters", chapters);
 				modelMap.addAttribute("course", course);
 			}
+			
 		} catch (Exception e) {
 			logger.warn(e.getMessage(), e);
 		}

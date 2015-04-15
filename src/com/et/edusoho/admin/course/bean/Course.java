@@ -32,6 +32,8 @@ public class Course {
 
 	private String logoImage;
 
+	private String maxSeq;
+
 	public String getId() {
 		return id;
 	}
@@ -152,4 +154,11 @@ public class Course {
 		this.logoImage = logoImage;
 	}
 
+	public String getMaxSeq() {
+		return maxSeq;
+	}
+
+	public void setMaxSeq(String maxSeq) {
+		this.maxSeq = maxSeq;
+	}
 }

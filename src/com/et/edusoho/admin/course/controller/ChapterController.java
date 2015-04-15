@@ -12,7 +12,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.course.bean.Course;
 import com.et.edusoho.admin.course.service.ChapterService;
+import com.et.edusoho.admin.course.service.CourseService;
 import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
@@ -24,14 +26,15 @@ public class ChapterController extends BaseController {
 	@Autowired
 	private ChapterService chapterService;
 	
+	@Autowired
+	private CourseService courseService;
+	
 	public ChapterController(){
 		super("admin/course/chapter");
 	}
 	
-	
 	@RequestMapping("course/chapter/toAdd")
 	public String toAddChapter(){
-		
 		return getContext("/add");
 	}
 	
@@ -45,9 +48,15 @@ public class ChapterController extends BaseController {
 			setWebContext(request, response);
 			
 			if (params.size() > 0) {
+				
+				Course course = courseService.viewById(params.get("courseId"));
+				
 				params.put("creater", getUser().getId());
+				params.put("seq", course.getMaxSeq());
 				
 				chapterService.addChapter(params);
+				
+				courseService.updateSeq(params.get("courseId"));
 			}
 			
 		} catch (Exception e) {

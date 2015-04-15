@@ -12,6 +12,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="site" type="com.et.edusoho.admin.system.bean.Site"/>
 		<typeAlias alias="course" type="com.et.edusoho.admin.course.bean.Course"/>
 		<typeAlias alias="lesson" type="com.et.edusoho.admin.course.bean.Lesson"/>
+		<typeAlias alias="chapter" type="com.et.edusoho.admin.course.bean.Chapter"/>
 	</typeAliases>
 	
 	<mappers>

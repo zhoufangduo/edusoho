@@ -21,7 +21,6 @@
 				width: 400px;
 				height: 210px;
 			}
-
 		</style>
 	</head>
 	<body>
@@ -44,16 +43,16 @@
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
 								    <li><a href="javascript:showModel('#model','<%=basePath%>/admin/course/chapter/toAdd?type=1&pId=0&courseId=${course.id}')">
-								   		<span class="glyphicon glyphicon-plus-sign"/>&nbsp;添加章
+								   		<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;添加章
 								   	</a></li>
 								    <li><a href="javascript:showModel('#model','<%=basePath%>/admin/course/chapter/toAdd?type=2&pId=0&courseId=${course.id}')">
-								    	<span class="glyphicon glyphicon-plus-sign"/>&nbsp;添加节
+								    	<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;添加节
 								    </a></li>
 								  </ul>
 								</div>
 								
 								&nbsp;&nbsp;
-								<a href="" 
+								<a href="javascript:showModel('#model','<%=basePath%>/admin/course/lesson/toAdd?pId=0&courseId=${course.id}')" 
 				    					class="btn btn-primary">
 					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加课时
 				    			</a>
@@ -67,6 +66,13 @@
 			  			<div class="panel-body">
 			  				<div class="form-horizontal" style="height: 370px;">
 			  					<ul class="lesson-list sortable-list">
+			  						<c:forEach items="${chapters}" var="chapter">
+			  							<li class="item-chapter  clearfix" style="word-break: break-all;">
+											<div class="item-content">第 <span class="number">1</span> 章：${chapter.title}</div>
+											<div class="item-actions prs"></div>
+										</li>			 
+			  						</c:forEach>
+			  						
 						  			<!-- <li class="item-chapter  clearfix" style="word-break: break-all;">
 										<div class="item-content">第 <span class="number">1</span> 章： 第一章</div>
 										<div class="item-actions prs"></div>

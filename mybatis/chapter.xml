@@ -5,7 +5,11 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 <mapper namespace="Chapter">
 
 	<insert id="add" parameterType="map">
-		INSERT INTO `COURSE_CHAPTER`(`COURSEID`,`TYPE`,`PID`,`TITLE`,`CREATEDTIME`,`CREATEDER`)
-		VALUES(#{courseId},#{type},#{pId},#{title},NOW(),#{creater})
+		INSERT INTO `COURSE_CHAPTER`(`COURSEID`,`TYPE`,`PID`,`SEQ`,`TITLE`,`CREATEDTIME`,`CREATEDER`)
+		VALUES(#{courseId},#{type},#{pId},#{seq},#{title},NOW(),#{creater})
 	</insert>
+	
+	<select id="getListByCourseId" parameterType="string" resultType="chapter">
+		SELECT * FROM `COURSE_CHAPTER` WHERE `COURSEID` = #{courseId}
+	</select>
 </mapper>

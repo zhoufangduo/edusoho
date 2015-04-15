@@ -16,5 +16,9 @@ public interface CourseService {
 	public void delete(Map<String, String> params);
 
 	public Course view(Map<String, String> params);
+	
+	public Course viewById(String id);
+	
+	public void updateSeq(String id);
 
 }

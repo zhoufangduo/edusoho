@@ -17,4 +17,6 @@ public interface CourseDao {
 
 	public Course view(Map<String, String> params);
 
+	public void updateSeq(String id);
+
 }

@@ -32,4 +32,7 @@ public class CourseDaoImpl extends BaseDaoSupport implements CourseDao {
 		return get("Course.view", params);
 	}
 
+	public void updateSeq(String id) {
+		update("Course.updateSeq",id);
+	}
 }

@@ -54,9 +54,12 @@
 			<if test="logoImage != null and logoImage != ''">
 				LOGOIMAGE = #{logoImage}
 			</if>
-			
 		</set>
 		WHERE ID = #{id}
+	</update>
+	
+	<update id="updateSeq">
+		UPDATE COURSE SET `MAXSEQ` = (`MAXSEQ`+1) WHERE ID = #{id}
 	</update>
 	
 	<delete id="delete" parameterType="map">
@@ -68,7 +71,8 @@
 			C.`ID`,C.`TITLE`,C.`SUBTITLE`,C.`STATUS`,C.`CREATETIME`,
 			C.`LEARNTIME`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`TYPE`,
 			C.`RECOMMENDED`,C.`RECOMMENDEDTIME`,U.`NAME` AS `CREATER`,
-			C.`OPENLEARNER`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`LOGOIMAGE`
+			C.`OPENLEARNER`,C.`ABOUT`,C.`GOALS`,C.`AUDIENCES`,C.`LOGOIMAGE`,
+			C.`MAXSEQ`
 		
 		 FROM COURSE C 
 		 	LEFT OUTER JOIN  `USER` U
