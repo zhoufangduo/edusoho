@@ -8,6 +8,12 @@
 		.nav-pills>li>a{
 			padding: 3px 10px;
 		}
+		.edui-default .edui-colorpicker-nocolor{
+				padding :0px 5px;
+		} 
+		.modal{
+			z-index: 10;
+		}
 	</style>
 	<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog modal-lg">
@@ -98,7 +104,27 @@
 				    	audio
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="text">
-				    	text
+				    	<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="addForm" method="post">
+					    	<div class="form-group">
+					    		<label for="title" class="col-sm-2 control-label">标题</label>
+					    		<div class="col-sm-9">
+					    			<input type="text" class="form-control" id="title" name="title" placeholder="标题" />
+					    		</div>
+					    	</div>
+					    	<div class="form-group">
+					    		<label for="title" class="col-sm-2 control-label">摘要</label>
+					    		<div class="col-sm-9">
+					    			<textarea rows="3" cols="" class="form-control"></textarea>
+					    		</div>
+					    	</div>
+					    	
+					    	<div class="form-group">
+					    		<label for="title" class="col-sm-2 control-label">内容</label>
+					    		<div class="col-sm-9">
+					    			 <textarea name="about"  style="height: 150px;" id="editor"></textarea>
+					    		</div>
+					    	</div>
+					    </form>
 				    </div>
 				    <div role="tabpanel" class="tab-pane" id="office">
 				    	office
@@ -139,5 +165,9 @@
 		});
 		
 		$('#myModal').modal('show');
+	});
+	var ue = UE.getEditor('editor',{
+	    autoHeightEnabled: true,
+	    autoFloatEnabled: true
 	});
 </script>

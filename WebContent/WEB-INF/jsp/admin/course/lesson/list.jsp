@@ -16,6 +16,9 @@
 		<script src="<%=basePath%>/resource/jquery/jquery.validate.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/jquery/validate_form.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/jquery/messages_zh.js" type="text/javascript"></script>
+		<script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/ueditor.config.js"></script>
+		<script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/ueditor.all.min.js"> </script>
+		<script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/lang/zh-cn/zh-cn.js"></script>
 		<style type="text/css">
 			.logoImage{
 				width: 400px;
