@@ -1,9 +1,6 @@
 eclipse.preferences.version=1
 encoding//WebContent/WEB-INF/head.jsp=UTF-8
+encoding//WebContent/resource/ckeditor/contents.css=UTF-8
+encoding//WebContent/resource/ckeditor/skins/bootstrapck/editor.css=UTF-8
 encoding//WebContent/resource/jquery/messages_zh.js=UTF-8
-encoding//WebContent/resource/ueditor/dialogs/internal.js=UTF-8
-encoding//WebContent/resource/ueditor/jsp/config.json=UTF-8
-encoding//WebContent/resource/ueditor/themes/default/css/ueditor.css=UTF-8
-encoding//WebContent/resource/ueditor/themes/iframe.css=UTF-8
-encoding//WebContent/resource/ueditor/ueditor.config.js=UTF-8
 encoding//config/schame.sql=UTF-8

@@ -40,8 +40,17 @@ public class LessonController extends BaseController {
 	
 	@RequestMapping("course/lesson/toAdd")
 	public String toAdd(){
-		
 		return getContext("/add");
+	}
+	
+	@RequestMapping("course/lesson/toAddVideo")
+	public String toAddVideo(){
+		return getContext("/addVideo");
+	}
+	
+	@RequestMapping("course/lesson/toAddText")
+	public String toAddText(){
+		return getContext("/addText");
 	}
 	
 	@RequestMapping("course/lesson")

@@ -13,14 +13,7 @@
 		<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 		<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
-		<script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/ueditor.config.js"></script>
-	    <script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/ueditor.all.min.js"> </script>
-	    <script type="text/javascript" charset="utf-8" src="<%=basePath%>/resource/ueditor/lang/zh-cn/zh-cn.js"></script>
-		<style type="text/css">
-			.edui-default .edui-colorpicker-nocolor{
-				padding :0px 5px;
-			}
-		</style>
+		<script src="<%=basePath%>/resource/ckeditor/ckeditor.js"></script>
 	</head>
 	<body>
 		<nav:menu/>
@@ -41,7 +34,7 @@
 			  					<div class="form-group">
 								    <label for="title" class="col-sm-2 control-label">课程简介</label>
 								    <div class="col-sm-8">
-								      <textarea name="about"  style="height: 150px;" id="editor"></textarea>
+								      <textarea name="about"  style="height: 150px;" id="editor">${course.about}</textarea>
 								    </div>
 							    </div>
 							    <br/>
@@ -95,6 +88,17 @@
 		</form>
 		
 		<script type="text/javascript">
+			
+		CKEDITOR.replace('editor',{
+        	language: 'zh-cn',
+       	 	skin:'bootstrapck',
+       	 	toolbar :[
+                 ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
+                  'RemoveFormat','PasteText','NumberedList', 'BulletedList', '-',
+                  'Link','Unlink','Image','-','Source','Maximize','Preview'],
+                  ['Styles','Format','Font','FontSize']
+            ]
+        });
 		
 		 $(function(){
 			 
@@ -187,20 +191,6 @@
 			}
 		}
 		
-		
-		var ue = UE.getEditor('editor',{
-		    toolbars: [
-	             ['fullscreen', 'bold', 'italic','underline','|',
-	              'forecolor','backcolor', '|',
-	              'insertorderedlist', 'insertunorderedlist', '|',
-	              'simpleupload', 'insertimage','spechars',
-	              'link','unlink','insertcode','|','redo', 'preview']
-		    ],
-		    autoHeightEnabled: true,
-		    autoFloatEnabled: true,
-		    initialContent : '${course.about}'
-		});
-		
 		function save(){
 			var goalsVal = "" ;
 			var goals = $("input[name=goalsName]");
@@ -217,9 +207,9 @@
 			
 			$("input[name=audiences]").val(audiencesVal);
 			
-			var html = ue.getContent();
+			var data = CKEDITOR.instances.editor.getData();
 			
-			$("input[name=about]").val(html);
+			$("input[name=about]").val(data);
 			
 			$("#addForm").submit();
 		}
