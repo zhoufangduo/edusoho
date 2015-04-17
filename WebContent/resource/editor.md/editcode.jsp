@@ -6,43 +6,54 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<title>Markdown编写</title>
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
-	<link rel="stylesheet" href="<%=basePath%>/resource/editor.md/css/editormd.min.css" />
+	<link rel="stylesheet" href="<%=basePath%>/resource/editor.md/css/editormd.css" />
 	<script src="<%=basePath%>/resource/editor.md/editormd.js"></script>
+	<script src="<%=basePath%>/resource/editor.md/editormd.amd.js"></script>
+	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<script type="text/javascript">
-		var testEditor;
+		var editor;
 		$(function() {
-		    testEditor = editormd("test-editormd", {
+		    editor = editormd("editormd", {
 		        width   : "90%",
 		        height  : 640,
 		        path    : "<%=basePath%>/resource/editor.md/lib/",
 	            codeFold : true,
-	            //syncScrolling : false,
-	            saveHTMLToTextarea : true,    // 保存HTML到Textarea
+	            toolbarIcons : function() {
+	                return [ "save","undo", "redo", "|", 
+	                         "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", 
+	                         "h1", "h2", "h3", "h4", "h5", "h6", "|", 
+	                         "list-ul", "list-ol", "hr", "|",
+	                         "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
+	                         "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|","help"]
+	            },
+	            toolbarIconsClass : {
+	            	/*指定一个FontAawsome的图标类*/
+	            	save:'glyphicon glyphicon-floppy-disk'
+	            },
+	            toolbarHandlers : {
+	            	save : function(cm, icon, cursor, selection) {
+	            		markdownCode = $("#context").val();
+	            		window.close();
+	            	}
+	            },
+	            saveHTMLToTextarea : true,
 	            searchReplace : true,
-	            //watch : false,                // 关闭实时预览
-	            htmlDecode : "style,script,iframe",            // 开启HTML标签解析，为了安全性，默认不开启    
-	            //toolbar  : false,             //关闭工具栏
-	            //previewCodeHighlight : false, // 关闭预览HTML的代码块高亮，默认开启
+	            htmlDecode : "style,script,iframe",
 	            emoji : true,
 	            taskList : true,
-	            tocm            : true,         // Using [TOCM]
-	            tex : true,                   // 开启科学公式TeX语言支持，默认关闭
-	            flowChart : true,             // 开启流程图支持，默认关闭
-	            sequenceDiagram : true,       // 开启时序/序列图支持，默认关闭,
-	            //dialogLockScreen : false,   // 设置弹出层对话框不锁屏，全局通用，默认为true
-	            //dialogShowMask : false,     // 设置弹出层对话框显示透明遮罩层，全局通用，默认为true
-	            //dialogDraggable : false,    // 设置弹出层对话框不可拖动，全局通用，默认为true
-	            //dialogMaskOpacity : 0.4,    // 设置透明遮罩层的透明度，全局通用，默认值为0.1
-	            //dialogMaskBgColor : "#000", // 设置透明遮罩层的背景颜色，全局通用，默认为#fff
+	            tocm : true,      
+	            tex : true, 
+	            flowChart : true,  
+	            sequenceDiagram : true,  
 	            imageUpload : true,
 	            imageFormats : ["jpg", "jpeg", "gif", "png", "bmp", "webp"]
 		    });
-		});
+		}); 
 	</script>
 </head>
 <body>
-	<div id="test-editormd">
-		 <textarea class="form-control" rows="5"></textarea>
+	<div id="editormd" style="width: 95%;">
+		 <textarea class="form-control" id="context" rows="5"></textarea>
 	</div>
 </body>
 </html>

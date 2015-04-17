@@ -19,7 +19,7 @@
 			<div class="col-sm-9">
 			   <div class="panel panel-default">
 					<div class="panel-body">
-						<br /> 选择你要上传的视频文件：
+						<br /> 选择你要上传的文件：
 						<p />
 						<button type="button" class="btn btn-primary" onclick="toEdit()">编辑Markdown</button>
 						<br />&nbsp;
@@ -33,6 +33,9 @@
 </form>
 <script>
 	function toEdit(){
-		window.showModalDialog("<%=basePath%>/resource/editor.md/editcode.jsp","dialogWidth=1024px;dialogHeight=980px");
+		var xpwidth=window.screen.width-10;
+        var xpheight=window.screen.height-35;
+		window.open('<%=basePath%>/resource/editor.md/editcode.jsp', '_blank',
+				'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
 	}
 </script>

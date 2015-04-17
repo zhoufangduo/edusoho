@@ -24,7 +24,7 @@
   -webkit-box-sizing: border-box;
   -moz-box-sizing: border-box;
   box-sizing: border-box;
-  font-family: "Microsoft YaHei", "微软雅黑", Helvetica, Tahoma, STXihei, "华文细黑", STHeiti, "Helvetica Neue", Helvetica, Tahoma, "Droid Sans", "wenquanyi micro hei", FreeSans, Arimo, Arial, SimSun, "宋体", Heiti, "黑体", sans-serif;
+  font-family: "微软雅黑";
 }
 .editormd a {
   text-decoration: none;
@@ -513,6 +513,11 @@
 .editormd-form iframe {
   display: none;
 }
+
+.editormd-form input,.editormd-form button{
+	font-family: "微软雅黑";
+}
+
 .editormd-form input:focus {
   outline: 0;
 }
@@ -520,18 +525,22 @@
   color: #999;
   padding: 7px 8px;
   border: 1px solid #ddd;
+  font-family: "微软雅黑";
 }
 .editormd-form input[type="number"] {
   width: 40px;
   display: inline-block;
   padding: 5px 8px;
+  font-family: "微软雅黑";
 }
 .editormd-form input[type="text"] {
   display: inline-block;
   width: 242px;
+  font-family: "微软雅黑";
 }
 .editormd-form .fa-btns {
   display: inline-block;
+  font-family: "微软雅黑";
 }
 .editormd-form .fa-btns a {
   color: #999;
@@ -539,9 +548,11 @@
   display: inline-block;
   text-decoration: none;
   text-align: center;
+  font-family: "微软雅黑";
 }
 .editormd-form .fa-btns .fa {
   font-size: 1.3em;
+  font-family: "微软雅黑";
 }
 .editormd-form .fa-btns label {
   float: none;
@@ -550,6 +561,7 @@
   text-align: left;
   padding: 0 0 0 5px;
   cursor: pointer;
+  font-family: "微软雅黑";
 }
 
 .editormd-form input[type="submit"], .editormd-form .editormd-btn, .editormd-form button,
@@ -576,6 +588,7 @@
   /* Firefox 4.0~16.0 */
   transition: background 300ms ease-out;
   /* IE >9, FF >15, Opera >12.0 */
+  font-family: "微软雅黑";
 }
 .editormd-form input[type="submit"]:hover, .editormd-form .editormd-btn:hover, .editormd-form button:hover,
 .editormd-dialog-container input[type="submit"]:hover,
@@ -585,16 +598,19 @@
 .editormd-dialog-footer .editormd-btn:hover,
 .editormd-dialog-footer button:hover {
   background: #eee;
+  font-family: "微软雅黑";
 }
 .editormd-form .editormd-btn,
 .editormd-dialog-container .editormd-btn,
 .editormd-dialog-footer .editormd-btn {
   padding: 5px 8px 4px\0;
+  font-family: "微软雅黑";
 }
 .editormd-form .editormd-btn + .editormd-btn,
 .editormd-dialog-container .editormd-btn + .editormd-btn,
 .editormd-dialog-footer .editormd-btn + .editormd-btn {
   margin-left: 8px;
+  font-family: "微软雅黑";
 }
 
 .editormd-file-input {
@@ -603,6 +619,7 @@
   margin-left: 8px;
   position: relative;
   display: inline-block;
+  font-family: "微软雅黑";
 }
 .editormd-file-input input[type="file"] {
   width: 75px;
@@ -614,13 +631,16 @@
   position: absolute;
   top: 0;
   right: 0;
+  font-family: "微软雅黑";
 }
 .editormd-file-input input[type="file"]::-webkit-file-upload-button {
   visibility: hidden;
 }
 .editormd-file-input:hover input[type="submit"] {
   background: #eee;
+  font-family: "微软雅黑";
 }
+
 
 .editormd .CodeMirror, .editormd-preview {
   display: inline-block;
@@ -631,6 +651,7 @@
   -moz-box-sizing: border-box;
   box-sizing: border-box;
   margin: 0;
+  font-family: "微软雅黑";
 }
 
 .editormd-preview {
@@ -3137,6 +3158,7 @@
   font-family: "Helvetica Neue", Helvetica, "Segoe UI", Arial, freesans, sans-serif;
   font-size: 16px;
   line-height: 1.6;
+  font-family:"微软雅黑";
   word-wrap: break-word;
 }
 
@@ -4051,6 +4073,7 @@ li.L9 {
   /* Opera(Old) */
   box-shadow: 0 3px 5px rgba(0, 0, 0, 0.2);
   /* IE9+, News */
+  font-family: "微软雅黑";
 }
 .editormd-preview-container .editormd-toc-menu > .markdown-toc > ul > li ul, .editormd-html-preview .editormd-toc-menu > .markdown-toc > ul > li ul {
   width: 100%;
