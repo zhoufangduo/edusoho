@@ -28,9 +28,12 @@
 		skin:'bootstrapck',
    	 	toolbar :[
              ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
-              'RemoveFormat','PasteText','NumberedList', 'BulletedList', '-',
-              'Link','Unlink','Image','-','Source','Maximize','Preview'],
+              'RemoveFormat','PasteText','NumberedList', 'BulletedList', 
+              'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock','-',
+              'Image','Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe','-',
+              'Link','Unlink','-','PasteText', 'PasteFromWord','-',
+              'Source','Maximize','Preview'],
               ['Styles','Format','Font','FontSize']
-        ]
+        ] 
 	});
 </script>

@@ -48,9 +48,24 @@ public class LessonController extends BaseController {
 		return getContext("/addVideo");
 	}
 	
+	@RequestMapping("course/lesson/toAddAudio")
+	public String toAddAudio(){
+		return getContext("/addAudio");
+	}
+	
 	@RequestMapping("course/lesson/toAddText")
 	public String toAddText(){
 		return getContext("/addText");
+	}
+	
+	@RequestMapping("course/lesson/toMarkdown")
+	public String toMarkdown(){
+		return getContext("/addMarkdown");
+	}
+	
+	@RequestMapping("course/lesson/toFile")
+	public String toFile(){
+		return getContext("/addFile");
 	}
 	
 	@RequestMapping("course/lesson")

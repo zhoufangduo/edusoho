@@ -14,7 +14,8 @@
 	-webkit-transition: none;
 	-moz-transition: none;
 	-ms-transition: none;
-	transition: none
+	transition: none;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all,.cke_reset_all * {
@@ -41,7 +42,8 @@
 	text-align: left;
 	white-space: nowrap;
 	cursor: auto;
-	float: none
+	float: none;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all .cke_rtl * {
@@ -49,21 +51,25 @@
 }
 
 .cke_reset_all iframe {
-	vertical-align: inherit
+	vertical-align: inherit;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all textarea {
-	white-space: pre
+	white-space: pre;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all input[type=password],.cke_reset_all input[type=text],.cke_reset_all textarea
 	{
-	cursor: text
+	cursor: text;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all input[type=password][disabled],.cke_reset_all input[type=text][disabled],.cke_reset_all textarea[disabled]
 	{
-	cursor: default
+	cursor: default;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_reset_all fieldset {
@@ -710,7 +716,8 @@ a.cke_button_disabled:active,a.cke_button_disabled:focus,a.cke_button_disabled:h
 .cke_rtl .cke_combo_label {
 	float: right;
 	margin-left: 5px;
-	margin-right: 0
+	margin-right: 0;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_combo_button {
@@ -719,7 +726,8 @@ a.cke_button_disabled:active,a.cke_button_disabled:focus,a.cke_button_disabled:h
 	margin: 0 6px 5px 0;
 	border: 1px solid #ddd;
 	border-radius: 4px;
-	background: #fff
+	background: #fff;
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_combo_off a.cke_combo_button:focus,.cke_combo_off a.cke_combo_button:hover
@@ -736,6 +744,7 @@ a.cke_button_disabled:active,a.cke_button_disabled:focus,a.cke_button_disabled:h
 	float: right;
 	margin-left: 5px;
 	margin-right: 0
+	font-family: "Courier New","微软雅黑";
 }
 
 .cke_hc a.cke_combo_button {

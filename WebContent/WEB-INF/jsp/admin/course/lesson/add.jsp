@@ -9,11 +9,13 @@
 			padding: 3px 10px;
 		}
 	</style>
-	<div class="modal fade bs-example-modal-lg" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog modal-lg">
+	 <div class="modal in" id="myModal"   aria-hidden="false">
+	  <div class="modal-dialog  modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
-	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+	        <span aria-hidden="true">&times;</span></button>
+	        
 	        <h4 class="modal-title" id="myModalLabel">添加课时</h4>
 	      </div>
 	      <div class="modal-body">
@@ -29,7 +31,7 @@
 				    	<a href="#text" aria-controls="text" role="tab" data-toggle="tab">图文</a>
 				    </li>
 				    <li role="presentation">
-				    	<a href="#office" aria-controls="office" role="tab" data-toggle="tab">Office的文档</a>
+				    	<a href="#office" aria-controls="office" role="tab" data-toggle="tab">文档</a>
 				    </li>
 				     <li role="presentation">
 				    	<a href="#markdown" aria-controls="markdown" role="tab" data-toggle="tab">Markdown</a>
@@ -52,7 +54,7 @@
 				    	markdown
 				    </div>
 				  </div>
-			  </div>
+			  </div> 
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">&nbsp;取&nbsp;消&nbsp;</button>
 		        <button type="submit" class="btn btn-primary" >&nbsp;保&nbsp;存&nbsp;</button>
@@ -61,11 +63,15 @@
 	  </div>
 	</div>
 </div>
-
 <script type="text/javascript">
 	$(function(){
+		
 		$('#myModal').modal('show');
+		
 		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo");
 		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText");
+		$("#office").load("<%=basePath%>/admin/course/lesson/toFile");
+		$("#markdown").load("<%=basePath%>/admin/course/lesson/toMarkdown");
 	});
+	
 </script>
