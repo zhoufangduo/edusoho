@@ -10,6 +10,11 @@
 	<script src="<%=basePath%>/resource/editor.md/editormd.js"></script>
 	<script src="<%=basePath%>/resource/editor.md/editormd.amd.js"></script>
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<style type="text/css">
+		.btn-default{
+			font-family: "微软雅黑";
+		}
+	</style>
 	<script type="text/javascript">
 		var editor;
 		$(function() {
@@ -19,20 +24,23 @@
 		        path    : "<%=basePath%>/resource/editor.md/lib/",
 	            codeFold : true,
 	            toolbarIcons : function() {
-	                return [ "save","undo", "redo", "|", 
+	                return [ "undo", "redo", "|", 
 	                         "bold", "del", "italic", "quote", "ucwords", "uppercase", "lowercase", "|", 
 	                         "h1", "h2", "h3", "h4", "h5", "h6", "|", 
 	                         "list-ul", "list-ol", "hr", "|",
 	                         "link", "reference-link", "image", "code", "preformatted-text", "code-block", "table", "datetime", "emoji", "html-entities", "pagebreak", "|",
-	                         "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|","help"]
+	                         "goto-line", "watch", "preview", "fullscreen", "clear", "search", "|","help","saveAndExit"];
 	            },
-	            toolbarIconsClass : {
-	            	/*指定一个FontAawsome的图标类*/
-	            	save:'glyphicon glyphicon-floppy-disk'
+	            
+	            toolbarIconTexts:{
+	            	saveAndExit :'<input type="button" class="btn btn-default btn-sm" value="保存并关闭">'
 	            },
+	            
 	            toolbarHandlers : {
-	            	save : function(cm, icon, cursor, selection) {
+	            	saveAndExit : function(cm, icon, cursor, selection) {
 	            		markdownCode = $("#context").val();
+	            		$("#markdownCode",opener.document).html(markdownCode); 
+	            		$("input[name=context]",opener.document).val(markdownCode); 
 	            		window.close();
 	            	}
 	            },

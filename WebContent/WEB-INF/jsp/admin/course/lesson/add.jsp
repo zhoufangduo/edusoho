@@ -31,28 +31,18 @@
 				    	<a href="#text" aria-controls="text" role="tab" data-toggle="tab">图文</a>
 				    </li>
 				    <li role="presentation">
-				    	<a href="#office" aria-controls="office" role="tab" data-toggle="tab">文档</a>
+				    	<a href="#code" aria-controls="code" role="tab" data-toggle="tab">代码</a>
 				    </li>
 				     <li role="presentation">
 				    	<a href="#markdown" aria-controls="markdown" role="tab" data-toggle="tab">Markdown</a>
 				    </li>
 				  </ul>
 				  <div class="tab-content">
-				    <div role="tabpanel" class="tab-pane active" id="video">
-				    	
-				    </div>
-				    <div role="tabpanel" class="tab-pane" id="audio">
-				    	audio
-				    </div>
-				    <div role="tabpanel" class="tab-pane" id="text">
-				    	
-				    </div>
-				    <div role="tabpanel" class="tab-pane" id="office">
-				    	office
-				    </div>
-				    <div role="tabpanel" class="tab-pane" id="markdown">
-				    	markdown
-				    </div>
+				    <div role="tabpanel" class="tab-pane active" id="video"></div>
+				    <div role="tabpanel" class="tab-pane" id="audio"></div>
+				    <div role="tabpanel" class="tab-pane" id="text"></div>
+				    <div role="tabpanel" class="tab-pane" id="code"></div>
+				    <div role="tabpanel" class="tab-pane" id="markdown"></div>
 				  </div>
 			  </div> 
 		      <div class="modal-footer">
@@ -69,9 +59,10 @@
 		$('#myModal').modal('show');
 		
 		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo");
+		$("#audio").load("<%=basePath%>/admin/course/lesson/toAddAudio");
 		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText");
-		$("#office").load("<%=basePath%>/admin/course/lesson/toFile");
-		$("#markdown").load("<%=basePath%>/admin/course/lesson/toMarkdown");
+		$("#code").load("<%=basePath%>/admin/course/lesson/toAddCode");
+		$("#markdown").load("<%=basePath%>/admin/course/lesson/toAddMarkdown");
 	});
 	
 </script>
