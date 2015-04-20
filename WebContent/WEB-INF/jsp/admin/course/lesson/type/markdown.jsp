@@ -41,7 +41,7 @@
 	function toEdit(){
 		var xpwidth=window.screen.width-10;
         var xpheight=window.screen.height-35;
-		window.open('<%=basePath%>/resource/editor/editmarkdown.jsp', '_blank',
+		window.open('<%=basePath%>/resource/editor/mdEditor.jsp', '_blank',
 				'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
 		
 	}
