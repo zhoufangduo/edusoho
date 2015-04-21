@@ -2,6 +2,7 @@ package com.et.edusoho.admin.course.dao.impl;
 
 
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
@@ -14,5 +15,9 @@ public class LessonDaoImpl extends BaseDaoSupport implements LessonDao {
 
 	public List<Lesson> getListByCourseId(String courseId) {
 		return getList("Lesson.getListByCourseId", courseId);
+	}
+
+	public void addMarkdown(Map<String, String> params) {
+		insert("Lesson.add", params);
 	}
 }
