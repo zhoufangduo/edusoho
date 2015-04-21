@@ -37,7 +37,6 @@ public class LessonController extends BaseController {
 		super("admin/course/lesson");
 	}
 	
-	
 	@RequestMapping("course/lesson/toAdd")
 	public String toAdd(){
 		return getContext("/add");
@@ -58,10 +57,6 @@ public class LessonController extends BaseController {
 		return getContext("/type/text");
 	}
 	
-	@RequestMapping("course/lesson/toAddMarkdown")
-	public String toMarkdown(){
-		return getContext("/type/markdown");
-	}
 	
 	@RequestMapping("course/lesson/toAddCode")
 	public String toAddDoc(){

@@ -20,7 +20,7 @@
 	      </div>
 	      <div class="modal-body">
 	     	 <div role="tabpanel">
-				  <ul class="nav nav-tabs" role="tablist">
+				  <ul class="nav nav-tabs" role="tablist" id="tab">
 				    <li role="presentation" class="active">
 				    	<a href="#video" aria-controls="video" role="tab" data-toggle="tab">视频</a>
 				    </li>
@@ -54,15 +54,34 @@
 	</div>
 </div>
 <script type="text/javascript">
+	var formName = "#videoForm";
+	
 	$(function(){
-		
-		$('#myModal').modal('show');
 		
 		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo");
 		$("#audio").load("<%=basePath%>/admin/course/lesson/toAddAudio");
 		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText");
 		$("#code").load("<%=basePath%>/admin/course/lesson/toAddCode");
 		$("#markdown").load("<%=basePath%>/admin/course/lesson/toAddMarkdown");
+		
+		var config = {
+			'#video'	:	'#videoForm',
+			'#audio'	:	'#audioForm',
+			'#text'		:	'#textForm',
+			'#code'		:	'codeForm',
+			'#markdown' : 	'markdownForm'
+		};
+		
+		$('#tab a').click(function (e) {
+			formName = config[$(this).attr("href")];
+		  	$(this).tab('show');
+		});
+		
+		$("input[type='submit']").click(function(){
+			 $(formName).submit();
+		});
+		
+		$('#myModal').modal('show');
 	});
 	
 </script>

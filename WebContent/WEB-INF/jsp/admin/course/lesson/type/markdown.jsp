@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
-<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="addMarkDownForm" method="post">
+<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="markdownForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">
@@ -25,9 +25,12 @@
 				   <div class="panel-body">
 						<br /> 
 						<div id="uploadMd">
-							选择你要上传的文件<p/> 
-							<button type="button" class="btn btn-primary" onclick="">上传文件</button>
-							<br /> 
+							选择你要上传的&nbsp;<img src='<%=basePath%>/resource/images/markdown.png'/>&nbsp;文件<p/> 
+							<button type="button" class="btn btn-primary" onclick="selectFile()">md文件</button>
+							&nbsp;&nbsp;
+							<button type="button" class="btn btn-info" onclick="toPreview()">预览</button>
+							<br /> &nbsp;<br /> 
+							<span id="fileName"></span>
 						</div>
 						<div id="editMd" style="display: none;">
 							<button type="button" class="btn btn-primary" onclick="toEdit()">编辑Markdown</button>
@@ -41,11 +44,48 @@
 		</div>
 	</div>
 </form>
+
+<form id="mdFileForm"  action="<%=basePath%>/admin/course/lesson/uploadMD"   enctype="multipart/form-data" method="post">
+	<input type="file" name="file" id="mdFile" style="display: none;">
+</form>
 <script>
+
+	$(function(){
+		$("#mdFile").change(function(){
+			var fileName = $(this).val();
+			var fileType=fileName.substring(fileName.lastIndexOf(".") + 1).toLowerCase();
+			if(fileType != 'md'){
+				alert("你选择的不是Markdown的文件，请重新选择!");
+			}else{
+				$("#uploadMd > button").attr("diabled","true");
+				$("#fileName").html("你选择的md文件: <label>" + fileName + "</label>");
+				$("#mdFileForm").ajaxSubmit({
+					dataType	: "text",
+					type        : "POST",
+					cache       : false,
+					success		: function(data){
+						$("[name=context]").val(data);
+					}
+				});
+			}
+		});
+	});
+	
+	function selectFile(){
+		$("#mdFile").click();
+	}
+	
 	function toEdit(){
 		var xpwidth=window.screen.width-10;
         var xpheight=window.screen.height-35;
 		window.open('<%=basePath%>/resource/editor/mdEditor.jsp', '_blank',
+				'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
+	}
+	
+	function toPreview(){
+		var xpwidth=window.screen.width-10;
+        var xpheight=window.screen.height-35;
+		window.open('<%=basePath%>/resource/editor/previewMD.jsp', '_blank',
 				'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
 		
 	}

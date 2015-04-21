@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <script src="<%=basePath%>/resource/ckeditor/ckeditor.js"></script>
-<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="addForm" method="post">
+<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="textForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">

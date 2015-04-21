@@ -13,6 +13,7 @@
 		<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 		<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
+		<script src="<%=basePath%>/resource/jquery/jquery.form.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/jquery/jquery.validate.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/jquery/validate_form.js" type="text/javascript"></script>
 		<script src="<%=basePath%>/resource/jquery/messages_zh.js" type="text/javascript"></script>
