@@ -3,6 +3,9 @@ package com.et.edusoho.admin.course.controller;
 import java.util.List;
 import java.util.Map;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -61,6 +64,34 @@ public class LessonController extends BaseController {
 	@RequestMapping("course/lesson/toAddCode")
 	public String toAddDoc(){
 		return getContext("/type/code");
+	}
+	
+	@RequestMapping("course/lesson/add")
+	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params,
+			HttpServletRequest request, HttpServletResponse response){
+		
+		String courseId =  params.get("courseId") == null? "" : params.get("courseId");
+		
+		try {
+			
+			setWebContext(request, response);
+			
+			if (params.size() > 0) {
+				
+				Course course = courseService.viewById(params.get("courseId"));
+				params.put("seq", course.getMaxSeq());
+				
+				params.put("creater", getUserId());
+				lessonService.addMarkdown(params);
+				courseService.updateSeq(courseId);
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		
+		return "redirect:/admin/course/lesson?active=lesson&id=" + courseId;
 	}
 	
 	@RequestMapping("course/lesson")

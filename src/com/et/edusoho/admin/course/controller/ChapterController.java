@@ -51,7 +51,7 @@ public class ChapterController extends BaseController {
 				
 				Course course = courseService.viewById(params.get("courseId"));
 				
-				params.put("creater", getUser().getId());
+				params.put("creater", getUserId());
 				params.put("seq", course.getMaxSeq());
 				
 				chapterService.addChapter(params);

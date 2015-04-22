@@ -8,4 +8,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		SELECT * FROM `COURSE_LESSON` WHERE `COURSEID` = #{courseId}
 	</select>
 	
+	<insert id="addMarkdown" parameterType="map">
+		INSERT INTO `COURSE_LESSON`(`COURSEID`,`PID`,`TITLE`,`TYPE`,`SEQ`,`CONTEXT`,`SUMMARY`,`CREATEDTIME`,`CREATEDER`)
+		VALUES(#{courseId},#{pId},#{title},#{type},#{seq},#{context},#{summary},NOW(),#{creater})
+	</insert> 
+	
 </mapper>

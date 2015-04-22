@@ -18,6 +18,6 @@ public class LessonDaoImpl extends BaseDaoSupport implements LessonDao {
 	}
 
 	public void addMarkdown(Map<String, String> params) {
-		insert("Lesson.add", params);
+		insert("Lesson.addMarkdown", params);
 	}
 }

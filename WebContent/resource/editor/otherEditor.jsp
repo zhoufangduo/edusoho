@@ -45,7 +45,7 @@
 			<div class="bar">
 				<span class="title"> Editor </span> 
 				<span style="float: right;"> 
-					<input type="button" style="font-family: '微软雅黑';" class="btn btn-default" value="保存并关闭">
+					<input type="button" id="subBtn" style="font-family: '微软雅黑';" class="btn btn-default" value="保存并关闭">
 				</span>
 			</div>
 			<br />
@@ -59,6 +59,13 @@
 			 var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 		        lineNumbers: true
 		     });
+			 
+			 $("#subBtn").on("click",function(){
+    			code = editor.getValue();
+				$("#codeCtx",opener.document).html(code); 
+				$("input[name=context]",opener.document).val(code); 
+				window.close();
+	    	 });
 		});
 	</script>
 </body>

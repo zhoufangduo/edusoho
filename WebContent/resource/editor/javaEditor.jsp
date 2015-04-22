@@ -13,29 +13,28 @@
 	<script src="<%=basePath%>/resource/editor.md/lib/codemirror/addon/hint/show-hint.js"></script>
 	<script src="<%=basePath%>/resource/editor.md/lib/codemirror/mode/clike/clike.js"></script>
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
+	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<style type="text/css">
-      .CodeMirror {
-      		border: 1px solid #ddd; 
-      		font-size:15px;
-      		font-family: 'Courier New' ,'微软雅黑';
-      		height: 520px;
-      }
-      .CodeMirror span{
-      	 font-size:15px;
-      	 font-family: 'Courier New' ,'微软雅黑';
-      }
-      .title {
-		font-family: '微软雅黑';
-		font-size: 20px;
-	  }
-	
-	.bar {
-		margin: 1px 30px;
-	}
-	
-	.panel {
-		margin: 2px 30px;
-	}
+		.CodeMirror {
+			border: 1px solid #ddd; 
+			font-size:15px;
+			font-family: 'Courier New' ,'微软雅黑';
+			height: 520px;
+		}
+		.CodeMirror span{
+			font-size:15px;
+			font-family: 'Courier New' ,'微软雅黑';
+		}
+		.title {
+			font-family: '微软雅黑';
+			font-size: 20px;
+		}
+		.bar {
+			margin: 1px 30px;
+		}
+		.panel {
+			margin: 2px 30px;
+		}
     </style>
 </head>
 <body>
@@ -45,7 +44,7 @@
 			<div class="bar">
 				<span class="title"> Java Editor </span> <span
 					style="float: right;"> <input type="button"
-					style="font-family: '微软雅黑';" class="btn btn-default" value="保存并关闭">
+					style="font-family: '微软雅黑';" class="btn btn-default" onclick="toClose()" value="保存并关闭">
 				</span>
 			</div>
 			<br />
@@ -58,8 +57,16 @@
 		var javaEditor = CodeMirror.fromTextArea(document.getElementById("code"), {
 	        lineNumbers: true,
 	        matchBrackets: true,
+	        saveHTMLToTextarea : true,
 	        mode: "text/x-java"
 	    });
+		
+		function toClose(){
+			code = javaEditor.getValue();
+			$("#codeCtx",opener.document).html(code); 
+			$("input[name=context]",opener.document).val(code); 
+			window.close();
+		}
 	</script>
 </body>
 </html>

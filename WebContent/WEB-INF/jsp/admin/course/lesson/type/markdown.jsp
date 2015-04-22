@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
-<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="markdownForm" method="post">
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<form action="<%=basePath%>/admin/course/lesson/add" class="form-horizontal" id="markdownForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">
@@ -9,9 +10,9 @@
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="title" class="col-sm-2 control-label">摘要</label>
+		<label for="summary" class="col-sm-2 control-label">摘要</label>
 		<div class="col-sm-9">
-			<textarea rows="3" cols="" class="form-control"></textarea>
+			<textarea rows="3" name="summary" class="form-control"></textarea>
 		</div>
 	</div>
 	<div class="form-group">
@@ -40,9 +41,12 @@
 						</div>
 				   </div>
 			   </div>
-			  <input type="hidden" name="context" value="">
 		</div>
 	</div>
+	<input type="hidden" name="context" value="">
+	<input type="hidden" name="pId" value="${param.pId}">
+	<input type="hidden" name="courseId" value="${param.courseId}">
+	<input type="hidden" name="type" value="5">
 </form>
 
 <form id="mdFileForm"  action="<%=basePath%>/admin/course/lesson/uploadMD"   enctype="multipart/form-data" method="post">
@@ -67,6 +71,23 @@
 						$("[name=context]").val(data);
 					}
 				});
+			}
+		});
+		
+		$("#markdownForm").validate({
+			success:success,
+			ignore: "",
+			errorPlacement: showErrorTab,
+			rules:{
+				"title":{
+					required: true
+				}
+			},
+			messages:{
+				"title": "标题是必填项"
+			},
+			submitHandler: function(form) {
+				form.submit();
 			}
 		});
 	});

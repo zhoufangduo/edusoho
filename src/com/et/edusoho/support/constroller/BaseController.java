@@ -160,6 +160,17 @@ public abstract class BaseController {
 		
 	}
 	
+	protected String getUserId(){
+		
+		User user = getUser();
+		if (user != null) {
+			
+			return user.getId();
+		}
+		
+		return "";
+	}
+	
 	protected User getUser(){
 		if (session != null) {
 			return (User)session.getAttribute(CONSTANTCONTEXT.USER);

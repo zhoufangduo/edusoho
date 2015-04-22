@@ -1,17 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
-<form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="codeForm" method="post">
+<form action="<%=basePath%>/admin/course/lesson/add" class="form-horizontal" id="codeForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">
-			<input type="text" class="form-control" id="title" name="title"
-				placeholder="标题" />
+			<input type="text" class="form-control" id="title" name="title" placeholder="标题" />
 		</div>
 	</div>
 	<div class="form-group">
-		<label for="title" class="col-sm-2 control-label">摘要</label>
+		<label for="summary" class="col-sm-2 control-label">摘要</label>
 		<div class="col-sm-9">
-			<textarea rows="3" cols="" class="form-control"></textarea>
+			<textarea rows="3" name="summary" class="form-control"></textarea>
 		</div>
 	</div>
 	<div class="form-group">
@@ -36,19 +35,41 @@
 						</div>
 						&nbsp;&nbsp;<span style="color: #31708f;">点击按钮后，会弹出一个编写代码的框,可以直接进行代码编写</span>
 						<br />&nbsp;
-						<pre style="min-height: 100px;"><code id="code"  style="font-family: '微软雅黑';"></code></pre>
-						 <input type="hidden" name="context" value="">
+						<pre style="min-height: 100px;"><code id="codeCtx"  style="font-family: '微软雅黑';"></code></pre>
 				   </div>
 			   </div>
 		</div>
 	</div>
-	<script type="text/javascript">
-		function toCodeEdit(type){
-			var xpwidth=window.screen.width-10;
-	        var xpheight=window.screen.height-35;
-			window.open('<%=basePath%>/resource/editor/' + type + 'Editor.jsp', '_blank',
-					'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
-		}
-	</script>
+	<input type="hidden" name="pId" value="${param.pId}">
+	<input type="hidden" name="courseId" value="${param.courseId}">
+	<input type="hidden" name="type" value="4">
+	<input type="hidden" name="context" value="">
 </form>
+<script type="text/javascript">
+	function toCodeEdit(type){
+		var xpwidth=window.screen.width-10;
+        var xpheight=window.screen.height-35;
+		window.open('<%=basePath%>/resource/editor/' + type + 'Editor.jsp', '_blank',
+				'fullscreen,toolbar=no,location=no,directories=no,status=yes,resizable=yes,directories=no,top=0,left=0,width='+xpwidth+',height='+xpheight);
+	}
+	
+	$(function(){
+		$("#codeForm").validate({
+			success:success,
+			ignore: "",
+			errorPlacement: showErrorTab,
+			rules:{
+				"title":{
+					required: true
+				}
+			},
+			messages:{
+				"title": "标题是必填项"
+			},
+			submitHandler: function(form) {
+				form.submit();
+			}
+		});
+	});
+</script>
 

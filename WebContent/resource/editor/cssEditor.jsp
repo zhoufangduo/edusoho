@@ -14,8 +14,6 @@
 	<script src="<%=basePath%>/resource/editor.md/lib/codemirror/mode/css/css.js"></script>
 	<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
-	
-	
 	<style type="text/css">
       .CodeMirror {
       		border: 1px solid #ddd; 
@@ -69,7 +67,10 @@
     	    });
     		
     		$("#subBtn").on("click",function(){
-    			alert();
+    			code = editor.getValue();
+				$("#codeCtx",opener.document).html(code); 
+				$("input[name=context]",opener.document).val(code); 
+				window.close();
     		});
     	});
     </script>

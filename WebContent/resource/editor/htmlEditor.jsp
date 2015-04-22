@@ -43,7 +43,7 @@
       body, html{
       	height: 96%;
       }
-    </style>
+   </style>
 </head>
 <body>
 	<div class="panel panel-default">
@@ -51,7 +51,7 @@
    			<div class="bar">
 				<span class="title">HTML Editor</span>
 				<span style="float: right;">
-					<input type="button" style="font-family: '微软雅黑';" class="btn btn-default" value="保存并关闭">
+					<input type="button" id="submit" style="font-family: '微软雅黑';" class="btn btn-default" value="保存并关闭">
 				</span>
 			</div>
 			<br/>
@@ -62,19 +62,43 @@
 	</div>
     <script>
     	$(function(){
-    		 var mixedMode = {
+    		var mixedMode = {
 		      	name: "htmlmixed",
 		      	scriptTypes: [
 		      	    {matches: /\/x-handlebars-template|\/x-mustache/i, mode: null},
 		            {matches: /(text|application)\/(x-)?vb(a|script)/i,mode: "vbscript"}
 		         ]
 		    };
+    		 
 	        var editor = CodeMirror.fromTextArea(document.getElementById("code"), {
 		        mode: mixedMode,
 		        lineNumbers: true,
 		        selectionPointer: true,
 		        autofocus: true
 	        });
+	        
+	        
+	        $("#submit").click(function(){
+	        	code = html_encode(editor.getValue());
+	        	alert(code);
+				$("#codeCtx",opener.document).html(code); 
+				$("input[name=context]",opener.document).val(code); 
+				window.close();
+	        });
+	        
+	        function html_encode(str)   
+	        {   
+	          var s = "";   
+	          if (str.length == 0) return "";   
+	          s = str.replace(/&/g, "&gt;");   
+	          s = s.replace(/</g, "&lt;");   
+	          s = s.replace(/>/g, "&gt;");   
+	          ///s = s.replace(/ /g, "&nbsp;");   
+	          ///s = s.replace(/\'/g, "&#39;");   
+	          //s = s.replace(/\"/g, "&quot;");   
+	         ///  s = s.replace(/\n/g, "&lt;br&gt;");   
+	          return s;   
+	        }   
     	});
     </script>
 </body>

@@ -1,16 +1,16 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-	<style>
-		.tab-content{
-			margin-top: 35px;
-		}
-		.nav-pills>li>a{
-			padding: 3px 10px;
-		}
-	</style>
-	 <div class="modal in" id="myModal"   aria-hidden="false">
-	  <div class="modal-dialog  modal-lg">
+<style>
+	.tab-content{
+		margin-top: 35px;
+	}
+	.nav-pills>li>a{
+		padding: 3px 10px;
+	}
+</style>
+<div class="modal in" id="myModal"   aria-hidden="false">
+	<div class="modal-dialog  modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
@@ -47,7 +47,7 @@
 			  </div> 
 		      <div class="modal-footer">
 		        <button type="button" class="btn btn-default" data-dismiss="modal">&nbsp;取&nbsp;消&nbsp;</button>
-		        <button type="submit" class="btn btn-primary" >&nbsp;保&nbsp;存&nbsp;</button>
+		        <button type="button" class="btn btn-primary" id="submit">&nbsp;保&nbsp;存&nbsp;</button>
 		      </div>
 	    </div>
 	  </div>
@@ -58,18 +58,18 @@
 	
 	$(function(){
 		
-		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo");
-		$("#audio").load("<%=basePath%>/admin/course/lesson/toAddAudio");
-		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText");
-		$("#code").load("<%=basePath%>/admin/course/lesson/toAddCode");
-		$("#markdown").load("<%=basePath%>/admin/course/lesson/toAddMarkdown");
+		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo?pId=${param.pId}&courseId=${param.courseId}");
+		$("#audio").load("<%=basePath%>/admin/course/lesson/toAddAudio?pId=${param.pId}&courseId=${param.courseId}");
+		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText?pId=${param.pId}&courseId=${param.courseId}");
+		$("#code").load("<%=basePath%>/admin/course/lesson/toAddCode?pId=${param.pId}&courseId=${param.courseId}");
+		$("#markdown").load("<%=basePath%>/admin/course/lesson/toAddMarkdown?pId=${param.pId}&courseId=${param.courseId}");
 		
 		var config = {
 			'#video'	:	'#videoForm',
 			'#audio'	:	'#audioForm',
 			'#text'		:	'#textForm',
-			'#code'		:	'codeForm',
-			'#markdown' : 	'markdownForm'
+			'#code'		:	'#codeForm',
+			'#markdown' : 	'#markdownForm'
 		};
 		
 		$('#tab a').click(function (e) {
@@ -77,7 +77,7 @@
 		  	$(this).tab('show');
 		});
 		
-		$("input[type='submit']").click(function(){
+		$("#submit").click(function(){
 			 $(formName).submit();
 		});
 		
