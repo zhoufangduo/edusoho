@@ -8,4 +8,6 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	config.baseFloatZIndex = 9000;
+	
+	///config.smiley_images = ['20080615144039689.png'];
 };

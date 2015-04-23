@@ -92,6 +92,8 @@
 		CKEDITOR.replace('editor',{
         	language: 'zh-cn',
        	 	skin:'bootstrapck',
+       	    filebrowserImageUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile',
+ 		    filebrowserImageBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
        	 	toolbar :[
                  ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
                   'RemoveFormat','PasteText','NumberedList', 'BulletedList', '-',

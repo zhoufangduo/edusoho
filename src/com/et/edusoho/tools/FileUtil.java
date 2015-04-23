@@ -6,11 +6,14 @@ import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -119,5 +122,38 @@ public abstract class FileUtil {
 				e2.printStackTrace();
 			}
 		}
+	}
+	
+	public static List<String> findLessonImage(){
+		
+		List<String> images = new ArrayList<String>();
+		String[] fileTypes = CONSTANTCONTEXT.IMAGE_TYPE.split(",");
+		
+		String LESSON_IMAGE_DIR =  PathUtil.getPath() + CONSTANTCONTEXT.LESSON_FILE_DIR;
+		
+		File dirs = new File(LESSON_IMAGE_DIR);
+		
+		File[] files = dirs.listFiles();
+		for(File file : files){
+			
+			if (file == null) {
+				continue;
+			}
+			
+			String fileType = getFileExtension(file.getName()).toLowerCase();
+			
+			for(String type : fileTypes){
+				if (StringUtils.isEmpty(type)) {
+					continue;
+				}
+				
+				if (type.equals(fileType)) {
+					images.add(file.getName());
+					break;
+				}
+			}
+		}
+		
+		return images;
 	}
 }

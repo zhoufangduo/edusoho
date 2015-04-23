@@ -22,7 +22,11 @@ public interface CONSTANTCONTEXT {
 	
 	public boolean OPEN_LOGIN_LOG = true;
 	
-	public String LOGO_DIR = "logo_images" + File.separator;
+	public String LOGO_DIR = "upload" + File.separator + "logo_images" + File.separator;
+
+	public String LESSON_FILE_DIR = "upload" + File.separator + "lesson_file" + File.separator;
+	
+	public String IMAGE_TYPE = "bmp,gif,jpg,psd,png,ico,tiff";
 	
 	
 }

@@ -29,12 +29,16 @@
 	CKEDITOR.replace('editor',{
 		language: 'zh-cn',
 		skin:'bootstrapck',
+		filebrowserImageUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile',
+		filebrowserImageBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
+		filebrowserFlashUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile?type=image',
+		filebrowserFlashBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
    	 	toolbar :[
              ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
               'RemoveFormat','PasteText','NumberedList', 'BulletedList', 
               'JustifyLeft', 'JustifyCenter', 'JustifyRight', 'JustifyBlock','-',
-              'Image','Flash', 'Table', 'HorizontalRule', 'SpecialChar', 'Iframe','-',
-              'Link','Unlink','-','PasteText', 'PasteFromWord','-',
+              'Smiley','Image','Table', 'HorizontalRule', 'SpecialChar', 'Iframe','-',
+              'Link','Unlink','-','PasteText', 'PasteFromWord','-','Find','Replace',
               'Source','Maximize','Preview'],
               ['Styles','Format','Font','FontSize']
         ] 
