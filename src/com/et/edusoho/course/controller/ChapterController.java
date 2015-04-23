@@ -18,7 +18,7 @@ import com.et.edusoho.course.service.CourseService;
 import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
-@RequestMapping("/admin/*")
+@RequestMapping("/course/*")
 public class ChapterController extends BaseController {
 	
 	private static Logger logger = Logger.getLogger(ChapterController.class);
@@ -30,15 +30,15 @@ public class ChapterController extends BaseController {
 	private CourseService courseService;
 	
 	public ChapterController(){
-		super("admin/course/chapter");
+		super("course/chapter");
 	}
 	
-	@RequestMapping("course/chapter/toAdd")
+	@RequestMapping("chapter/toAdd")
 	public String toAddChapter(){
 		return getContext("/add");
 	}
 	
-	@RequestMapping("course/chapter/add")
+	@RequestMapping("chapter/add")
 	public String addChapter(final ModelMap modelMap,
 			@RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){

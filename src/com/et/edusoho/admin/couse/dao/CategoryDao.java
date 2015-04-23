@@ -1,9 +1,11 @@
-package com.et.edusoho.course.dao;
+package com.et.edusoho.admin.couse.dao;
+
 
 import java.util.List;
 import java.util.Map;
 
-import com.et.edusoho.course.bean.Category;
+import com.et.edusoho.admin.couse.bean.Category;
+
 
 public interface CategoryDao {
 

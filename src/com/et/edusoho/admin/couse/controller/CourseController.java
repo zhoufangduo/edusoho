@@ -1,6 +1,5 @@
-package com.et.edusoho.course.controller;
+package com.et.edusoho.admin.couse.controller;
 
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -15,13 +14,13 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.et.edusoho.admin.couse.service.CategoryService;
+import com.et.edusoho.admin.couse.service.CourseService;
 import com.et.edusoho.course.bean.Course;
-import com.et.edusoho.course.service.CourseService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 
 @Controller
-@RequestMapping("/course/*")
+@RequestMapping("/admin/course/*")
 public class CourseController extends BaseController {
 
 	private static Logger logger = Logger.getLogger(CourseController.class);
@@ -105,104 +104,6 @@ public class CourseController extends BaseController {
 
 		return "redirect:?active=course";
 
-	}
-
-	@RequestMapping("view")
-	public String toView(final ModelMap modelMap,
-			@RequestParam Map<String, String> params) {
-		try {
-
-			if (params.size() > 0) {
-				modelMap.addAttribute("course", courseService.view(params));
-				modelMap.addAttribute("categorys", categoryService.list(null));
-			}
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-		}
-		return getContext("/base");
-	}
-
-	@RequestMapping("detail")
-	public String toDetail(final ModelMap modelMap,
-			@RequestParam Map<String, String> params) {
-		try {
-
-			if (params.size() > 0) {
-				modelMap.addAttribute("course", courseService.view(params));
-			}
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-		}
-
-		return getContext("/detail");
-	}
-
-	@RequestMapping("updateDetail")
-	public String updateDetail(final ModelMap modelMap,
-			@RequestParam Map<String, String> params) {
-
-		update(params);
-
-		return "redirect:detail?active=detail&id=" + params.get("id");
-	}
-
-	@RequestMapping("toLogoImage")
-	public String toLogoImage(final ModelMap modelMap,
-			@RequestParam Map<String, String> params) {
-
-		try {
-
-			if (params.size() > 0) {
-				modelMap.addAttribute("course", courseService.view(params));
-			}
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-		}
-
-		return getContext("/logoImage");
-	}
-
-	@RequestMapping("upload")
-	public void upload(@RequestParam("file") Object uploadFile,
-			@RequestParam("fileName") String fileName,
-			HttpServletRequest request, HttpServletResponse response) {
-
-		try {
-
-			this.setWebContext(request, response);
-
-			String newFileName = super.upload(uploadFile, fileName);
-
-			Map<String, String> params = new HashMap<String, String>();
-			params.put("id", fileName);
-			params.put("logoImage", newFileName);
-
-			courseService.update(params);
-
-			write(newFileName);
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-			write("");
-		}
-	}
-
-	@RequestMapping("download")
-	public void download(@RequestParam Map<String, String> params,
-			HttpServletRequest request, HttpServletResponse response) {
-		try {
-
-			this.setWebContext(request, response);
-
-			download(params);
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-			write("");
-		}
 	}
 
 }

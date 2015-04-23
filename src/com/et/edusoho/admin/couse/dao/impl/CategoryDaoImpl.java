@@ -1,12 +1,13 @@
-package com.et.edusoho.course.dao.impl;
+package com.et.edusoho.admin.couse.dao.impl;
+
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.et.edusoho.course.bean.Category;
-import com.et.edusoho.course.dao.CategoryDao;
+import com.et.edusoho.admin.couse.bean.Category;
+import com.et.edusoho.admin.couse.dao.CategoryDao;
 import com.et.edusoho.support.dao.BaseDaoSupport;
 
 @Repository

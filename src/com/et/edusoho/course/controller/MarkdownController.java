@@ -16,7 +16,7 @@ import com.et.edusoho.course.service.MarkdownService;
 import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
-@RequestMapping("/admin/*")
+@RequestMapping("/course/lesson/*")
 public class MarkdownController extends BaseController{
 	
 	private static Logger logger = Logger.getLogger(MarkdownController.class);
@@ -28,15 +28,15 @@ public class MarkdownController extends BaseController{
 	private CourseService courseService;
 	
 	public MarkdownController(){
-		super("admin/course/lesson/type/");
+		super("course/lesson/type/");
 	}
 	
-	@RequestMapping("course/lesson/toAddMarkdown")
+	@RequestMapping("toAddMarkdown")
 	public String toMarkdown(){
 		return getContext("markdown");
 	}
 	
-	@RequestMapping("course/lesson/uploadMD")
+	@RequestMapping("uploadMD")
 	public void uploadFile(@RequestParam("file") Object uploadFile,
 			HttpServletRequest request, HttpServletResponse response){
 		

@@ -1,4 +1,5 @@
-package com.et.edusoho.course.controller;
+package com.et.edusoho.admin.couse.controller;
+
 
 import java.util.List;
 import java.util.Map;
@@ -13,8 +14,11 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.et.edusoho.course.bean.Category;
-import com.et.edusoho.course.service.CategoryService;
+
+
+
+import com.et.edusoho.admin.couse.bean.Category;
+import com.et.edusoho.admin.couse.service.CategoryService;
 import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
@@ -28,7 +32,7 @@ public class CategoryController extends BaseController{
 	private CategoryService categoryService;
 	
 	public CategoryController(){
-		super("admin/course/category");
+		super("course/category");
 	}
 	
 	@RequestMapping("category/toAdd")

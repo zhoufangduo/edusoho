@@ -1,4 +1,5 @@
-package com.et.edusoho.course.service.impl;
+package com.et.edusoho.admin.couse.service.impl;
+
 
 import java.util.List;
 import java.util.Map;
@@ -6,9 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.et.edusoho.course.bean.Category;
-import com.et.edusoho.course.dao.CategoryDao;
-import com.et.edusoho.course.service.CategoryService;
+import com.et.edusoho.admin.couse.bean.Category;
+import com.et.edusoho.admin.couse.dao.CategoryDao;
+import com.et.edusoho.admin.couse.service.CategoryService;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

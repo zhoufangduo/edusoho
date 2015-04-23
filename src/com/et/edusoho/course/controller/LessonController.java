@@ -26,7 +26,7 @@ import com.et.edusoho.tools.FileUtil;
 import com.et.edusoho.tools.PathUtil;
 
 @Controller
-@RequestMapping("/admin/*")
+@RequestMapping("/course/*")
 public class LessonController extends BaseController {
 	
 	private static Logger logger = Logger.getLogger(LessonController.class);
@@ -41,36 +41,36 @@ public class LessonController extends BaseController {
 	private LessonService lessonService;
 	
 	public LessonController(){
-		super("admin/course/lesson/",CONSTANTCONTEXT.LESSON_FILE_DIR);
+		super("course/lesson/",CONSTANTCONTEXT.LESSON_FILE_DIR);
 	}
 	
-	@RequestMapping("course/lesson/toAdd")
+	@RequestMapping("lesson/toAdd")
 	public String toAdd(){
 		return getContext("add");
 	}
 	
-	@RequestMapping("course/lesson/toAddVideo")
+	@RequestMapping("lesson/toAddVideo")
 	public String toAddVideo(){
 		return getContext("type/video");
 	}
 	
-	@RequestMapping("course/lesson/toAddAudio")
+	@RequestMapping("lesson/toAddAudio")
 	public String toAddAudio(){
 		return getContext("type/audio");
 	}
 	
-	@RequestMapping("course/lesson/toAddText")
+	@RequestMapping("lesson/toAddText")
 	public String toAddText(){
 		return getContext("type/text");
 	}
 	
 	
-	@RequestMapping("course/lesson/toAddCode")
+	@RequestMapping("lesson/toAddCode")
 	public String toAddDoc(){
 		return getContext("type/code");
 	}
 	
-	@RequestMapping("course/lesson/add")
+	@RequestMapping("lesson/add")
 	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -95,10 +95,10 @@ public class LessonController extends BaseController {
 		}
 		
 		
-		return "redirect:/admin/course/lesson?active=lesson&id=" + courseId;
+		return "redirect:/course/lesson?active=lesson&id=" + courseId;
 	}
 	
-	@RequestMapping("course/lesson")
+	@RequestMapping("list")
 	public String toLesson(final ModelMap modelMap,
 			@RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){
@@ -128,7 +128,7 @@ public class LessonController extends BaseController {
 		return getContext("list");
 	}
 	
-	@RequestMapping("course/lesson/uploadFile")
+	@RequestMapping("lesson/uploadFile")
 	public void uploadFile(@RequestParam("upload") Object uploadFile,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -154,7 +154,7 @@ public class LessonController extends BaseController {
 		}
 	}
 	
-	@RequestMapping("course/lesson/downloadFile")
+	@RequestMapping("lesson/downloadFile")
 	public synchronized void  downloadFile(@RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -170,7 +170,7 @@ public class LessonController extends BaseController {
 	}
 	
 	
-	@RequestMapping("course/lesson/Images")
+	@RequestMapping("lesson/Images")
 	public String getImages(final ModelMap modelMap,
 			HttpServletRequest request, HttpServletResponse response){
 		

@@ -1,4 +1,4 @@
-package com.et.edusoho.course.service;
+package com.et.edusoho.admin.couse.service;
 
 import java.util.List;
 import java.util.Map;
@@ -14,12 +14,5 @@ public interface CourseService {
 	public void update(Map<String, String> params);
 
 	public void delete(Map<String, String> params);
-	
-	public Course view(Map<String, String> params);
-
-	public void updateSeq(String id);
-	
-	public Course viewById(String id);
-
 
 }
