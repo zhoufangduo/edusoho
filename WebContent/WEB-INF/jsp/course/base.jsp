@@ -34,7 +34,7 @@
 			    			<label class="course-title2">基本信息</label>
 			    		</div>
 			  			<div class="panel-body">
-			  				<form action="<%=basePath%>/admin/course/update" class="form-horizontal" id="updateForm" method="post">
+			  				<form action="<%=basePath%>/course/update" class="form-horizontal" id="updateForm" method="post">
 			  					<div class="form-group">
 								    <label for="title" class="col-sm-2 control-label">名&nbsp;称</label>
 								    <div class="col-sm-8">

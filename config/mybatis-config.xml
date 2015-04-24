@@ -7,12 +7,12 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 	<typeAliases>
 		<typeAlias alias="menu" type="com.et.edusoho.admin.menu.bean.Menu"/>
 		<typeAlias alias="user" type="com.et.edusoho.login.bean.User"/>
-		<typeAlias alias="category" type="com.et.edusoho.admin.course.bean.Category"/>
+		<typeAlias alias="category" type="com.et.edusoho.admin.curriculum.bean.Category"/>
 		<typeAlias alias="loginLog" type="com.et.edusoho.admin.user.bean.LoginLog"/>
 		<typeAlias alias="site" type="com.et.edusoho.admin.system.bean.Site"/>
-		<typeAlias alias="course" type="com.et.edusoho.admin.course.bean.Course"/>
-		<typeAlias alias="lesson" type="com.et.edusoho.admin.course.bean.Lesson"/>
-		<typeAlias alias="chapter" type="com.et.edusoho.admin.course.bean.Chapter"/>
+		<typeAlias alias="course" type="com.et.edusoho.course.bean.Course"/>
+		<typeAlias alias="lesson" type="com.et.edusoho.course.bean.Lesson"/>
+		<typeAlias alias="chapter" type="com.et.edusoho.course.bean.Chapter"/>
 	</typeAliases>
 	
 	<mappers>

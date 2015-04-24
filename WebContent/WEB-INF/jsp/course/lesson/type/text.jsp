@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <script src="<%=basePath%>/resource/ckeditor/ckeditor.js"></script>
-<form action="<%=basePath%>/admin/course/lesson/add" class="form-horizontal" id="textForm" method="post">
+<form action="<%=basePath%>/course/lesson/add" class="form-horizontal" id="textForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">
@@ -29,10 +29,8 @@
 	CKEDITOR.replace('editor',{
 		language: 'zh-cn',
 		skin:'bootstrapck',
-		filebrowserImageUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile',
-		filebrowserImageBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
-		filebrowserFlashUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile?type=image',
-		filebrowserFlashBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
+		filebrowserImageUploadUrl: '<%=basePath%>/course/lesson/uploadFile',
+		filebrowserImageBrowseUrl : '<%=basePath%>/course/lesson/Images',
    	 	toolbar :[
              ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
               'RemoveFormat','PasteText','NumberedList', 'BulletedList', 

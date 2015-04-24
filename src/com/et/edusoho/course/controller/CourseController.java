@@ -14,7 +14,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.et.edusoho.admin.couse.service.CategoryService;
+import com.et.edusoho.admin.curriculum.service.CategoryService;
 import com.et.edusoho.course.bean.Course;
 import com.et.edusoho.course.service.CourseService;
 import com.et.edusoho.support.constroller.BaseController;
@@ -33,7 +33,7 @@ public class CourseController extends BaseController {
 	private CategoryService categoryService;
 
 	public CourseController() {
-		super("admin/course", CONSTANTCONTEXT.LOGO_DIR);
+		super("course/", CONSTANTCONTEXT.LOGO_DIR);
 	}
 
 	@RequestMapping("list")
@@ -45,12 +45,12 @@ public class CourseController extends BaseController {
 		modelMap.addAttribute("categorys", categoryService.list(null));
 		modelMap.addAttribute("courses", courses);
 
-		return getContext("/list");
+		return getContext("list");
 	}
 
 	@RequestMapping("toAdd")
 	public String toAdd() {
-		return getContext("/add");
+		return getContext("add");
 	}
 
 	@RequestMapping("add")
@@ -120,7 +120,7 @@ public class CourseController extends BaseController {
 		} catch (Exception e) {
 			logger.warn(e.getMessage(), e);
 		}
-		return getContext("/base");
+		return getContext("base");
 	}
 
 	@RequestMapping("detail")
@@ -136,7 +136,7 @@ public class CourseController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return getContext("/detail");
+		return getContext("detail");
 	}
 
 	@RequestMapping("updateDetail")
@@ -162,7 +162,7 @@ public class CourseController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return getContext("/logoImage");
+		return getContext("logoImage");
 	}
 
 	@RequestMapping("upload")

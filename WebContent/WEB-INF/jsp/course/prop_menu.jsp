@@ -27,28 +27,28 @@
 		    <div class="list-group" style="width: 99%;">
 		      <span class="list-group-item head">课程信息</span>
 		      
-			  <a href="<%=basePath%>/admin/course/view?active=base&id=${course.id}" 
+			  <a href="<%=basePath%>/course/view?active=base&id=${course.id}" 
 			  		<c:choose>
 					  	<c:when test="${param.active == 'base' || param.active == null}">class="list-group-item active"</c:when>
 					  	<c:otherwise>class="list-group-item"</c:otherwise>
 				  	</c:choose>
 			  	>基本信息</a>
 			  	
-			  <a href="<%=basePath%>/admin/course/detail?active=detail&id=${course.id}" 
+			  <a href="<%=basePath%>/course/detail?active=detail&id=${course.id}" 
 				  	<c:choose>
 					  	<c:when test="${param.active == 'detail'}">class="list-group-item active"</c:when>
 					  	<c:otherwise>class="list-group-item"</c:otherwise>
 				  	</c:choose>
 			  >详细信息</a>
 			  
-			  <a href="<%=basePath%>/admin/course/toLogoImage?active=logoImage&id=${course.id}"
+			  <a href="<%=basePath%>/course/toLogoImage?active=logoImage&id=${course.id}"
 			  		<c:choose>
 					  	<c:when test="${param.active == 'logoImage'}">class="list-group-item active"</c:when>
 					  	<c:otherwise>class="list-group-item"</c:otherwise>
 				  	</c:choose>
 			  >课程图片</a>
 			  
-			  <a href="<%=basePath%>/admin/course/lesson?active=lesson&id=${course.id}" 
+			  <a href="<%=basePath%>/course/lesson/list?active=lesson&id=${course.id}" 
 			  	<c:choose>
 				  	<c:when test="${param.active == 'lesson'}">class="list-group-item active"</c:when>
 				  	<c:otherwise>class="list-group-item"</c:otherwise>

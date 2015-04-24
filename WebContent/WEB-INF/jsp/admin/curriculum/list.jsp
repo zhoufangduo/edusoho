@@ -59,7 +59,7 @@
       						  </span>
 						</div>
 						<span style="margin-left: 65px;">
-      						  <a href="<%=basePath%>/admin/course/toAdd" class="btn btn-info" target="_blank">创建课程</a>
+      						  <a href="<%=basePath%>/course/toAdd" class="btn btn-info" target="_blank">创建课程</a>
       					</span>
 				    </form>
 				    <br/>
@@ -96,7 +96,7 @@
   								<td>${course.createTime}</td>
   								<td>
   								<div class="btn-group">
-								  <a href="<%=basePath%>/admin/course/view?id=${course.id}" 
+								  <a href="<%=basePath%>/course/view?id=${course.id}" 
 								  	class="btn btn-sm btn-default" target="_blank">管理</a>
 								  <button type="button" class="btn btn-sm btn-default  dropdown-toggle" data-toggle="dropdown">
 								    <span class="caret"></span>
@@ -104,22 +104,22 @@
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
 								  	<c:if test="${course.recommended == 0 }">
-									    <li><a href="<%=basePath%>/admin/course/update?recommended=1&id=${course.id}">
+									    <li><a href="<%=basePath%>/admin/curriculum/update?recommended=1&id=${course.id}">
 									    	<span class="glyphicon glyphicon-star"></span>&nbsp;推荐课程
 									    </a> </li>
 								    </c:if>
 								    <c:if test="${course.recommended == 1}">
-								    	<li><a href="<%=basePath%>/admin/course/update?recommended=0&id=${course.id}">
+								    	<li><a href="<%=basePath%>/admin/curriculum/update?recommended=0&id=${course.id}">
 								    		<span class="glyphicon glyphicon-star-empty"></span>&nbsp;取消推荐
 								    	</a> </li>
 								    </c:if>
 								    <c:if test="${course.status == 'PUBLISHED'}">
-									    <li><a href="<%=basePath%>/admin/course/update?status=CLOSED&id=${course.id}">
+									    <li><a href="<%=basePath%>/admin/curriculum/update?status=CLOSED&id=${course.id}">
 									    	<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;关闭课程
 									    </a></li>
 								    </c:if>
 								    <c:if test="${course.status == 'DRAFT' || course.status == 'CLOSED'}">
-									    <li><a href="<%=basePath%>/admin/course/update?status=PUBLISHED&id=${course.id}">
+									    <li><a href="<%=basePath%>/admin/curriculum/update?status=PUBLISHED&id=${course.id}">
 									    	<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;发布课程
 									    </a></li>
 								    </c:if>

@@ -63,6 +63,6 @@ public class ChapterController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 		
-		return "redirect:../lesson?active=lesson&id=" + params.get("courseId");
+		return "redirect:../lesson/list?active=lesson&id=" + params.get("courseId");
 	}
 }

@@ -80,7 +80,7 @@
 			</div>
 		</div>
 		
-		<form class="form-horizontal" id="addForm" action="<%=basePath%>/admin/course/updateDetail" method="post">
+		<form class="form-horizontal" id="addForm" action="<%=basePath%>/course/updateDetail" method="post">
 			<input type="hidden" name="id" value="${course.id}">
 			<input type="hidden" name="goals" value="">
 			<input type="hidden" name="audiences" value="">
@@ -92,8 +92,8 @@
 		CKEDITOR.replace('editor',{
         	language: 'zh-cn',
        	 	skin:'bootstrapck',
-       	    filebrowserImageUploadUrl: '<%=basePath%>/admin/course/lesson/uploadFile',
- 		    filebrowserImageBrowseUrl : '<%=basePath%>/admin/course/lesson/Images',
+       	    filebrowserImageUploadUrl: '<%=basePath%>/course/lesson/uploadFile',
+ 		    filebrowserImageBrowseUrl : '<%=basePath%>/course/lesson/Images',
        	 	toolbar :[
                  ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
                   'RemoveFormat','PasteText','NumberedList', 'BulletedList', '-',

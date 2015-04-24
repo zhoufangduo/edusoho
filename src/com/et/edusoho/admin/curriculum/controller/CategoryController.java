@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.couse.controller;
+package com.et.edusoho.admin.curriculum.controller;
 
 
 import java.util.List;
@@ -17,12 +17,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 
 
-import com.et.edusoho.admin.couse.bean.Category;
-import com.et.edusoho.admin.couse.service.CategoryService;
+
+
+import com.et.edusoho.admin.curriculum.bean.Category;
+import com.et.edusoho.admin.curriculum.service.CategoryService;
 import com.et.edusoho.support.constroller.BaseController;
 
 @Controller
-@RequestMapping("/admin/course/*")
+@RequestMapping("/admin/curriculum/*")
 public class CategoryController extends BaseController{
 	
 	private static Logger logger = Logger.getLogger(CategoryController.class);
@@ -32,7 +34,7 @@ public class CategoryController extends BaseController{
 	private CategoryService categoryService;
 	
 	public CategoryController(){
-		super("course/category");
+		super("admin/curriculum/category");
 	}
 	
 	@RequestMapping("category/toAdd")

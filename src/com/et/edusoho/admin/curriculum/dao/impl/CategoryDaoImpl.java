@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.couse.dao.impl;
+package com.et.edusoho.admin.curriculum.dao.impl;
 
 
 import java.util.List;
@@ -6,8 +6,8 @@ import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.et.edusoho.admin.couse.bean.Category;
-import com.et.edusoho.admin.couse.dao.CategoryDao;
+import com.et.edusoho.admin.curriculum.bean.Category;
+import com.et.edusoho.admin.curriculum.dao.CategoryDao;
 import com.et.edusoho.support.dao.BaseDaoSupport;
 
 @Repository

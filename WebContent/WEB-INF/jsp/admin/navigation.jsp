@@ -15,7 +15,7 @@
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
         <li <c:if test="${param.active == 'course'}">class="active_nav"</c:if>>
-        	<a href="<%=basePath%>/admin/course?active=course">课程 </a>
+        	<a href="<%=basePath%>/admin/curriculum/list?active=course">课程 </a>
         </li>
         <li <c:if test="${param.active == 'user'}">class="active_nav"</c:if>>
         	<a href="<%=basePath%>/admin/user?active=user" >用户</a>

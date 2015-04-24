@@ -1,16 +1,16 @@
-package com.et.edusoho.admin.couse.dao.impl;
+package com.et.edusoho.admin.curriculum.dao.impl;
 
 import java.util.List;
 import java.util.Map;
 
 import org.springframework.stereotype.Repository;
 
-import com.et.edusoho.admin.couse.dao.CourseDao;
+import com.et.edusoho.admin.curriculum.dao.CurriculumDao;
 import com.et.edusoho.course.bean.Course;
 import com.et.edusoho.support.dao.BaseDaoSupport;
 
 @Repository
-public class CourseDaoImpl extends BaseDaoSupport implements CourseDao {
+public class CurriculumDaoImpl extends BaseDaoSupport implements CurriculumDao {
 
 	public void create(Map<String, String> params) {
 		insert("Course.create", params);

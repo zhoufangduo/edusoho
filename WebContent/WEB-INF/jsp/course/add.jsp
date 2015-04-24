@@ -23,7 +23,7 @@
 				<div class="panel-body" style="padding: 0px 20px;height: 480px;">
 					<h3>创建课程</h3>
 					<p/><br/><br/>
-					<form action="<%=basePath%>/admin/course/add" class="form-horizontal" id="addForm" method="post">
+					<form action="<%=basePath%>/course/add" class="form-horizontal" id="addForm" method="post">
 						<div class="form-group">
 						    <label for="title" class="col-sm-2 control-label">标&nbsp;题</label>
 						    <div class="col-sm-9">

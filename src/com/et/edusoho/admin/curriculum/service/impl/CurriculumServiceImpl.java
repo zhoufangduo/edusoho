@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.couse.service.impl;
+package com.et.edusoho.admin.curriculum.service.impl;
 
 import java.util.List;
 import java.util.Map;
@@ -6,16 +6,16 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.et.edusoho.admin.couse.dao.CourseDao;
-import com.et.edusoho.admin.couse.service.CourseService;
+import com.et.edusoho.admin.curriculum.dao.CurriculumDao;
+import com.et.edusoho.admin.curriculum.service.CurriculumService;
 import com.et.edusoho.course.bean.Course;
 
 
 @Service
-public class CourseServiceImpl implements CourseService {
+public class CurriculumServiceImpl implements CurriculumService {
 	
 	@Autowired
-	private CourseDao courseDao;
+	private CurriculumDao courseDao;
 	
 	public void create(Map<String, String> params) {
 		courseDao.create(params);

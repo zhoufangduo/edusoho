@@ -37,7 +37,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 		<div class="panel-body">
 			<c:forEach items="${images}" var="image">
 				<a href="#" class="thumbnail" title="双击即可选择" onclick="selectImage('${image}')">
-			   		<img src="<%=basePath%>/admin/course/lesson/downloadFile?file=${image}">
+			   		<img src="<%=basePath%>/course/lesson/downloadFile?file=${image}">
 			    </a>
 			</c:forEach>
 		</div>
@@ -45,7 +45,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
  	<script type="text/javascript">
  		
  		function selectImage(image){
- 			var url = "<%=basePath%>/admin/course/lesson/downloadFile?file=" + image;
+ 			var url = "<%=basePath%>/course/lesson/downloadFile?file=" + image;
  			window.opener.CKEDITOR.tools.callFunction(1,url);
  			window.close();
  		}

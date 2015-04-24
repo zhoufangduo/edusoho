@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
- <form action="<%=basePath%>/admin/course/category/add" class="form-horizontal" id="addForm" method="post">
+ <form action="<%=basePath%>/admin/curriculum/category/add" class="form-horizontal" id="addForm" method="post">
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">

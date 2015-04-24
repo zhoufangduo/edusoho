@@ -45,7 +45,7 @@
 				  								src="<%=basePath%>/resource/images/easytopLOGO.png" 
 				  							</c:when>
 				  							<c:otherwise>
-				  								 src="<%=basePath%>/admin/course/download?file=${course.logoImage}"
+				  								 src="<%=basePath%>/course/download?file=${course.logoImage}"
 				  							</c:otherwise>
 				  						</c:choose>
 				  						>
@@ -67,7 +67,7 @@
 				 </div>
 			</div>
 		</div>
-		<form id="logoForm" action="<%=basePath%>/admin/course/upload?active=logoImage" 
+		<form id="logoForm" action="<%=basePath%>/course/upload?active=logoImage" 
 	  	 	enctype="multipart/form-data" method="post">
 	  	 	<input type="file" name="file" id="logoFile" style="display:none;">	
 	  	 	<input type="hidden" value="${course.id}" name="fileName">
@@ -84,7 +84,7 @@
 						type        : "POST",
 						cache       : false,
 						success		: function(data){	
-							var url = "<%=basePath%>/admin/course/download?file=" + data +"&d="+new Date();
+							var url = "<%=basePath%>/course/download?file=" + data +"&d="+new Date();
 							$("#logoImage").attr("src",url);
 						}
 					});

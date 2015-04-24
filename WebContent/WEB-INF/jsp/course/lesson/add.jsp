@@ -58,11 +58,11 @@
 	
 	$(function(){
 		
-		$("#video").load("<%=basePath%>/admin/course/lesson/toAddVideo?pId=${param.pId}&courseId=${param.courseId}");
-		$("#audio").load("<%=basePath%>/admin/course/lesson/toAddAudio?pId=${param.pId}&courseId=${param.courseId}");
-		$("#text").load("<%=basePath%>/admin/course/lesson/toAddText?pId=${param.pId}&courseId=${param.courseId}");
-		$("#code").load("<%=basePath%>/admin/course/lesson/toAddCode?pId=${param.pId}&courseId=${param.courseId}");
-		$("#markdown").load("<%=basePath%>/admin/course/lesson/toAddMarkdown?pId=${param.pId}&courseId=${param.courseId}");
+		$("#video").load("<%=basePath%>/course/lesson/toAddVideo?pId=${param.pId}&courseId=${param.courseId}");
+		$("#audio").load("<%=basePath%>/course/lesson/toAddAudio?pId=${param.pId}&courseId=${param.courseId}");
+		$("#text").load("<%=basePath%>/course/lesson/toAddText?pId=${param.pId}&courseId=${param.courseId}");
+		$("#code").load("<%=basePath%>/course/lesson/toAddCode?pId=${param.pId}&courseId=${param.courseId}");
+		$("#markdown").load("<%=basePath%>/course/lesson/toAddMarkdown?pId=${param.pId}&courseId=${param.courseId}");
 		
 		var config = {
 			'#video'	:	'#videoForm',

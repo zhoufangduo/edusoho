@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
- <form action="<%=basePath%>/admin/course/chapter/add" class="form-horizontal" id="addForm" method="post">
+ <form action="<%=basePath%>/course/chapter/add" class="form-horizontal" id="addForm" method="post">
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	  <div class="modal-dialog">
 	    <div class="modal-content">

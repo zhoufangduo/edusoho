@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.couse.service.impl;
+package com.et.edusoho.admin.curriculum.service.impl;
 
 
 import java.util.List;
@@ -7,9 +7,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.et.edusoho.admin.couse.bean.Category;
-import com.et.edusoho.admin.couse.dao.CategoryDao;
-import com.et.edusoho.admin.couse.service.CategoryService;
+import com.et.edusoho.admin.curriculum.bean.Category;
+import com.et.edusoho.admin.curriculum.dao.CategoryDao;
+import com.et.edusoho.admin.curriculum.service.CategoryService;
 
 @Service
 public class CategoryServiceImpl implements CategoryService {

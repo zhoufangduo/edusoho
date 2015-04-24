@@ -1,6 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
-<form action="<%=basePath%>/admin/course/lesson/add" class="form-horizontal" id="codeForm" method="post">
+<form action="<%=basePath%>/course/lesson/add" class="form-horizontal" id="codeForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">

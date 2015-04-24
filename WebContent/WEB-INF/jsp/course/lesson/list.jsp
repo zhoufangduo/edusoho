@@ -43,17 +43,17 @@
 								    添加&nbsp;<span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
-								    <li><a href="javascript:showModel('#model','<%=basePath%>/admin/course/chapter/toAdd?type=1&pId=0&courseId=${course.id}')">
+								    <li><a href="javascript:showModel('#model','<%=basePath%>/course/chapter/toAdd?type=1&pId=0&courseId=${course.id}')">
 								   		<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;添加章
 								   	</a></li>
-								    <li><a href="javascript:showModel('#model','<%=basePath%>/admin/course/chapter/toAdd?type=2&pId=0&courseId=${course.id}')">
+								    <li><a href="javascript:showModel('#model','<%=basePath%>/course/chapter/toAdd?type=2&pId=0&courseId=${course.id}')">
 								    	<span class="glyphicon glyphicon-plus-sign"></span>&nbsp;添加节
 								    </a></li>
 								  </ul>
 								</div>
 								
 								&nbsp;&nbsp;
-								<a href="javascript:showModel('#model','<%=basePath%>/admin/course/lesson/toAdd?pId=0&courseId=${course.id}')" 
+								<a href="javascript:showModel('#model','<%=basePath%>/course/lesson/toAdd?pId=0&courseId=${course.id}')" 
 				    					class="btn btn-primary">
 					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加课时
 				    			</a>

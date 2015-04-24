@@ -1,11 +1,11 @@
-package com.et.edusoho.admin.couse.dao;
+package com.et.edusoho.admin.curriculum.dao;
 
 import java.util.List;
 import java.util.Map;
 
 import com.et.edusoho.course.bean.Course;
 
-public interface CourseDao {
+public interface CurriculumDao {
 
 	public void create(Map<String, String> params);
 

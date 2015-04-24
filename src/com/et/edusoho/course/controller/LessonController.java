@@ -26,7 +26,7 @@ import com.et.edusoho.tools.FileUtil;
 import com.et.edusoho.tools.PathUtil;
 
 @Controller
-@RequestMapping("/course/*")
+@RequestMapping("/course/lesson/*")
 public class LessonController extends BaseController {
 	
 	private static Logger logger = Logger.getLogger(LessonController.class);
@@ -44,33 +44,33 @@ public class LessonController extends BaseController {
 		super("course/lesson/",CONSTANTCONTEXT.LESSON_FILE_DIR);
 	}
 	
-	@RequestMapping("lesson/toAdd")
+	@RequestMapping("toAdd")
 	public String toAdd(){
 		return getContext("add");
 	}
 	
-	@RequestMapping("lesson/toAddVideo")
+	@RequestMapping("toAddVideo")
 	public String toAddVideo(){
 		return getContext("type/video");
 	}
 	
-	@RequestMapping("lesson/toAddAudio")
+	@RequestMapping("toAddAudio")
 	public String toAddAudio(){
 		return getContext("type/audio");
 	}
 	
-	@RequestMapping("lesson/toAddText")
+	@RequestMapping("toAddText")
 	public String toAddText(){
 		return getContext("type/text");
 	}
 	
 	
-	@RequestMapping("lesson/toAddCode")
+	@RequestMapping("toAddCode")
 	public String toAddDoc(){
 		return getContext("type/code");
 	}
 	
-	@RequestMapping("lesson/add")
+	@RequestMapping("add")
 	public String add(final ModelMap modelMap, @RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -128,7 +128,7 @@ public class LessonController extends BaseController {
 		return getContext("list");
 	}
 	
-	@RequestMapping("lesson/uploadFile")
+	@RequestMapping("uploadFile")
 	public void uploadFile(@RequestParam("upload") Object uploadFile,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -154,7 +154,7 @@ public class LessonController extends BaseController {
 		}
 	}
 	
-	@RequestMapping("lesson/downloadFile")
+	@RequestMapping("downloadFile")
 	public synchronized void  downloadFile(@RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response){
 		
@@ -170,7 +170,7 @@ public class LessonController extends BaseController {
 	}
 	
 	
-	@RequestMapping("lesson/Images")
+	@RequestMapping("Images")
 	public String getImages(final ModelMap modelMap,
 			HttpServletRequest request, HttpServletResponse response){
 		

@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"  pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
-<form action="<%=basePath%>/admin/course/lesson/add" class="form-horizontal" id="markdownForm" method="post">
+<form action="<%=basePath%>/course/lesson/add" class="form-horizontal" id="markdownForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
 		<div class="col-sm-9">
@@ -49,7 +49,7 @@
 	<input type="hidden" name="type" value="5">
 </form>
 
-<form id="mdFileForm"  action="<%=basePath%>/admin/course/lesson/uploadMD"   enctype="multipart/form-data" method="post">
+<form id="mdFileForm"  action="<%=basePath%>/course/lesson/uploadMD"   enctype="multipart/form-data" method="post">
 	<input type="file" name="file" id="mdFile" style="display: none;">
 </form>
 <script>

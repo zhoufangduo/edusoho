@@ -10,7 +10,7 @@
 				src="<%=basePath%>/resource/images/et-logo.png" 
 			</c:when>
 			<c:otherwise>
-				 src="<%=basePath%>/admin/course/download?file=${course.logoImage}"
+				 src="<%=basePath%>/course/download?file=${course.logoImage}"
 			</c:otherwise>
 		</c:choose>
 		>

@@ -1,10 +1,10 @@
-package com.et.edusoho.admin.couse.dao;
+package com.et.edusoho.admin.curriculum.dao;
 
 
 import java.util.List;
 import java.util.Map;
 
-import com.et.edusoho.admin.couse.bean.Category;
+import com.et.edusoho.admin.curriculum.bean.Category;
 
 
 public interface CategoryDao {

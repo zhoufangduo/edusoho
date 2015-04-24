@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.couse.bean;
+package com.et.edusoho.admin.curriculum.bean;
 
 
 public class Category {

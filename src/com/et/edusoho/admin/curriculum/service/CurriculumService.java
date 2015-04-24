@@ -1,11 +1,11 @@
-package com.et.edusoho.admin.couse.service;
+package com.et.edusoho.admin.curriculum.service;
 
 import java.util.List;
 import java.util.Map;
 
 import com.et.edusoho.course.bean.Course;
 
-public interface CourseService {
+public interface CurriculumService {
 
 	public void create(Map<String, String> params);
 
