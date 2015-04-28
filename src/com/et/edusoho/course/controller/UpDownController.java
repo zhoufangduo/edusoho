@@ -4,9 +4,9 @@ package com.et.edusoho.course.controller;
 import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
+import java.net.HttpURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
-import java.net.URLConnection;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -129,26 +129,28 @@ public class UpDownController extends BaseController{
 				
 				logger.info("正在从网络中下载文件");
 				
-				URLConnection connection = url.openConnection();
+				 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 				bytes = readInputStream(connection.getInputStream());
 				
 				String newFileName = FileUtil.save(bytes, UPLOAD_LOGO_DIR, fileName);
 				
-				logger.info("生成的文件:" + newFileName);
+				logger.info("生成的文件:" + UPLOAD_LOGO_DIR + newFileName);
 				
-				write("下载文件成功!");
+				write(newFileName);
 				
 			} catch (MalformedURLException e) {
-				write("下载文件错误");
+				logger.warn(e.getMessage(), e);
+				write("0");
 			} catch (IOException e) {
-				write("下载文件错误");
+				logger.warn(e.getMessage(), e);
+				write("0");
 			}
+		}else {
+			write("-1");
 		}
-		
-		write("不能下载文件");
 	}
 	
-	 public static  byte[] readInputStream(InputStream inputStream) throws IOException {    
+	 private byte[] readInputStream(InputStream inputStream) throws IOException {    
 	        byte[] buffer = new byte[1024];    
 	        int len = 0;    
 	        
@@ -161,5 +163,4 @@ public class UpDownController extends BaseController{
 	        
 	        return bos.toByteArray();    
 	 }    
-	//http://att2.citysbs.com/hangzhou/image/day_070922/20070922_450ef50fe0e13c2d7e82D6nvVXcNhCGa.jpg
 }

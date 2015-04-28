@@ -1,5 +1,10 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
+<style type="text/css">
+	ul{
+		list-style: none;
+	}
+</style>
 <form action="<%=basePath%>/course/lesson/add" class="form-horizontal" id="audioForm" method="post">
 	<div class="form-group">
 		<label for="title" class="col-sm-2 control-label">标题</label>
@@ -39,8 +44,7 @@
 							<span id="auPlayer"></span>				
 						</span>
 					</div>
-					<div id="pill2" style="min-height: 200px;display: none;">
-						
+					<div id="pill2" style="height: 200px;display: none;overflow:auto;">
 					</div>
 					<div id="pill3" style="display: none;">
 						输入下载的音频文件的网络的地址，点击导入即可:<p/>
@@ -50,6 +54,9 @@
 					        <button class="btn btn-default" type="button" id="importBtn">导入</button>
 					      </span>
 					    </div>
+					     <br/>
+				        <span id="importTip">
+				        </span>
 					</div>
 				</div>
 			</div>
@@ -99,14 +106,22 @@
 			}
 		});
 		
-		
+	
 		$("#importBtn").bind("click",function(){
 			var url = $("#url").val();
 			if(url != "" && url != null && url != undefined){
 				$.post("<%=basePath%>/course/lesson/toURLDownload", {'url': url}, 
 					function(data){
-			   		
+			   		if(data == '-1' || data == '0'){
+			   			alert("无法下载文件或者是下载文件失败");
+			   		}else{
+			   			$("[name=context]").val(data);
+			   			file = data;
+			   			$("#importTip").html("<label>导入成功，试听:&nbsp;&nbsp;<span class='glyphicon glyphicon-play-circle' title='点击试听' onclick='toPlay()'></span></label>");
+			   		}
 			   });
+			}else{
+				alert("请输入导入的音频的地址");
 			}
 		});
 		
@@ -123,6 +138,7 @@
 			$("#pill3").hide();
 		}else if(panel == '#pill2'){
 			$('#vli2').attr("class","active");
+			toFrom();
 			$("#pill1").hide();
 			$("#pill3").hide();
 		}else{
@@ -130,6 +146,39 @@
 			$("#pill1").hide();
 			$("#pill2").hide();
 		} 
+	}
+	
+	function toFrom(){
+		$.getJSON("<%=basePath%>/course/lesson/audios", function(json){
+			$("#pill2").empty();
+		   	for(var i in json){
+		   		var bgc = "";
+		   		if(json[i] == file){
+		   			bgc = "#CCFFFF";
+		   		}
+		   		var templ = "<ol class='breadcrumb' style='background-color: " + bgc + "'>"+
+		   		"<span class='glyphicon glyphicon-music'/>&nbsp;&nbsp;&nbsp;"+
+		   		"<a id='a"+ i +"' href='javascript:slctFrom(\""+ json[i] + "\",\"#a"+i+"\")'>" + json[i] + "</a>&nbsp;&nbsp;&nbsp;&nbsp;"+
+		   		"<span class='glyphicon glyphicon-play-circle' title='点击试听' onclick='toFromSlct(\"" + json[i]+ "\",this)'/></ol>";
+		   		
+		   		$("#pill2").append(templ);
+		   	}
+		});
+	}
+	
+	function slctFrom(audioFile,obj){
+		file = audioFile;
+		$("[name=context]").val(audioFile);
+		$("ol").css("background-color","");
+		$(obj).parents("ol").css("background-color","#CCFFFF");
+	}
+	
+	function toFromSlct(audioFile,obj){
+		file = audioFile;
+		$("[name=context]").val(audioFile);
+		$("ol").css("background-color","");
+		$(obj).parents("ol").css("background-color","#CCFFFF");
+		toPlay(); 
 	}
 	
 	function toSelect(){
