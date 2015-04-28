@@ -61,7 +61,6 @@
 			if(fileType != 'md'){
 				alert("你选择的不是Markdown的文件，请重新选择!");
 			}else{
-				$("#uploadMd > button").attr("diabled","true");
 				$("#fileName").html("你选择的md文件: <label>" + fileName + "</label>");
 				$("#mdFileForm").ajaxSubmit({
 					dataType	: "text",

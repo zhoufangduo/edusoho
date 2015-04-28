@@ -48,7 +48,7 @@ public abstract class BaseController {
 	
 	protected String dirPath ;
 	
-	private final String UPLOAD_LOGO_DIR;
+	protected final String UPLOAD_LOGO_DIR;
 	
 	private static Logger logger = Logger.getLogger(BaseController.class);
 	

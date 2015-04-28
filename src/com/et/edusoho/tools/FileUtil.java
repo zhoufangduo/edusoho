@@ -2,6 +2,7 @@ package com.et.edusoho.tools;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.io.UnsupportedEncodingException;
@@ -47,6 +48,36 @@ public abstract class FileUtil {
 		
 		return "";
 	}
+	
+	@SuppressWarnings("resource")
+	public static String save(final byte[] bytes,String parentDir, String newFileName) {
+		if (bytes != null) {
+			try {
+				
+				File dir = new File(parentDir);
+				if (!dir.exists()) {
+					dir.mkdirs();
+				}
+				
+				File file = new File(parentDir + newFileName);
+				if (!file.exists()) {
+					file.createNewFile();
+				}
+				
+				new FileOutputStream(file).write(bytes);
+				
+				return file.getPath();
+				
+			} catch (IllegalStateException e) {
+				logger.warn("保存文件出现错误!", e);
+			} catch (IOException e) {
+				e.printStackTrace();
+			} 
+		}
+		
+		return "";
+	}
+	
 
 	private static String transferToFile(final MultipartFile uploadFile,
 			File file) throws IOException {
@@ -67,6 +98,7 @@ public abstract class FileUtil {
 	public static String getFileExtension(String fileName) {
 		if (fileName != null) {
 			int beginIndex = fileName.lastIndexOf(".");
+			
 			if (beginIndex > 0) {
 				return fileName.substring(beginIndex + 1);
 			}

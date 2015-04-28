@@ -21,9 +21,7 @@ import com.et.edusoho.course.service.CourseService;
 import com.et.edusoho.course.service.LessonService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
-import com.et.edusoho.tools.DateUtil;
 import com.et.edusoho.tools.FileUtil;
-import com.et.edusoho.tools.PathUtil;
 
 @Controller
 @RequestMapping("/course/lesson/*")
@@ -128,52 +126,9 @@ public class LessonController extends BaseController {
 		return getContext("list");
 	}
 	
-	@RequestMapping("uploadFile")
-	public void uploadFile(@RequestParam("upload") Object uploadFile,
-			HttpServletRequest request, HttpServletResponse response){
-		
-		try {
-			
-			
-			String callback = request.getParameter("CKEditorFuncNum");    
-			
-			String fileName = DateUtil.getFileNameTime();
-
-			this.setWebContext(request, response);
-
-			String newFileName = super.upload(uploadFile, fileName);
-			
-			String path = PathUtil.getHttpPath(request) + "/admin/course/lesson/downloadFile?file=" + newFileName ;
-			
-			write("<script type=\'text/javascript\'>window.parent.CKEDITOR.tools.callFunction(" 
-					+ callback + ",'"+path+ "','')</script>");
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-			write("");
-		}
-	}
-	
-	@RequestMapping("downloadFile")
-	public synchronized void  downloadFile(@RequestParam Map<String, String> params,
-			HttpServletRequest request, HttpServletResponse response){
-		
-		try {
-			
-			this.setWebContext(request, response);
-
-			download(params);
-
-		} catch (Exception e) {
-			logger.warn(e.getMessage(), e);
-		}
-	}
-	
-	
 	@RequestMapping("Images")
 	public String getImages(final ModelMap modelMap,
 			HttpServletRequest request, HttpServletResponse response){
-		
 		try {
 			
 			this.setWebContext(request, response);

@@ -27,6 +27,8 @@ public interface CONSTANTCONTEXT {
 	public String LESSON_FILE_DIR = "upload" + File.separator + "lesson_file" + File.separator;
 	
 	public String IMAGE_TYPE = "bmp,gif,jpg,psd,png,ico,tiff";
+
+	public int BUFFER = 1024 * 1024 * 100;
 	
 	
 }

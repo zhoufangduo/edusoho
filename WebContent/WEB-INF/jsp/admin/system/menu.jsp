@@ -2,7 +2,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%String basePath = request.getContextPath();%>
 <div class="list-group">
-   <a href="<%=basePath%>/admin/system/site?active=site" 
+   <a href="<%=basePath%>/admin/system/setting/site?active=site" 
    	<c:choose>
 		<c:when test="${param.menu == 'site'}">class="list-group-item"</c:when>
 		<c:otherwise>

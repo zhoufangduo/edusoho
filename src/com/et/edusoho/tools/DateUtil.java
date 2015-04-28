@@ -8,7 +8,7 @@ public class DateUtil {
 	
 	private static SimpleDateFormat format = new SimpleDateFormat("yyyyMMddHHmmss");
 	
-	public static String getFileNameTime(){
+	public synchronized static String getFileNameTime(){
 		Date date = new Date();
 		return format.format(date);
 	}
