@@ -39,8 +39,8 @@
 				    		 <span style="float:right; margin-right: 5px;">
 				    			<div class="btn-group">
 								  <button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-								   <span class="glyphicon glyphicon-plus"></span>&nbsp;
-								    添加&nbsp;<span class="caret"></span>
+								   <span class="glyphicon glyphicon-plus"></span>
+								    章/节&nbsp;<span class="caret"></span>
 								  </button>
 								  <ul class="dropdown-menu" role="menu">
 								    <li><a href="javascript:showModel('#model','<%=basePath%>/course/chapter/toAdd?type=1&pId=0&courseId=${course.id}')">
@@ -55,12 +55,12 @@
 								&nbsp;&nbsp;
 								<a href="javascript:showModel('#model','<%=basePath%>/course/lesson/toAdd?pId=0&courseId=${course.id}')" 
 				    					class="btn btn-primary">
-					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加课时
+					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;课时&nbsp;
 				    			</a>
 				    			&nbsp;&nbsp;
 								<a href="" 
 				    					class="btn btn-info">
-					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;添加作业
+					    			<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;作业&nbsp;
 				    			</a>
 				    		</span>
 			    		</div>

@@ -66,7 +66,7 @@ public abstract class FileUtil {
 				
 				new FileOutputStream(file).write(bytes);
 				
-				return file.getPath();
+				return file.getName();
 				
 			} catch (IllegalStateException e) {
 				logger.warn("保存文件出现错误!", e);
@@ -96,15 +96,25 @@ public abstract class FileUtil {
 	}
 
 	public static String getFileExtension(String fileName) {
+		
+		String suffixName = "";
+		
 		if (fileName != null) {
 			int beginIndex = fileName.lastIndexOf(".");
 			
 			if (beginIndex > 0) {
-				return fileName.substring(beginIndex + 1);
+				suffixName = fileName.substring(beginIndex + 1);
+			}
+			
+			if (suffixName.contains("?")) {
+				int endIndex = suffixName.indexOf("?");
+				if (endIndex > 0) {
+					suffixName = suffixName.substring(0, endIndex);
+				}
 			}
 		}
 
-		return "tmp";
+		return suffixName;
 	}
 
 	public static void download(HttpServletResponse response, String fileName) {
@@ -156,16 +166,22 @@ public abstract class FileUtil {
 		}
 	}
 	
-	public static List<String> findLessonImage(){
+	public static List<String> findLessonImage(String types){
 		
-		List<String> images = new ArrayList<String>();
-		String[] fileTypes = CONSTANTCONTEXT.IMAGE_TYPE.split(",");
+		List<String> list = new ArrayList<String>();
+		String[] fileTypes = types.split(",");
 		
 		String LESSON_IMAGE_DIR =  PathUtil.getPath() + CONSTANTCONTEXT.LESSON_FILE_DIR;
 		
 		File dirs = new File(LESSON_IMAGE_DIR);
 		
 		File[] files = dirs.listFiles();
+		
+		if (files == null) {
+			return list;
+		}
+		
+		
 		for(File file : files){
 			
 			if (file == null) {
@@ -180,12 +196,12 @@ public abstract class FileUtil {
 				}
 				
 				if (type.equals(fileType)) {
-					images.add(file.getName());
+					list.add(file.getName());
 					break;
 				}
 			}
 		}
 		
-		return images;
+		return list;
 	}
 }

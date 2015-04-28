@@ -7,6 +7,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.log4j.Logger;
+import org.json.JSONArray;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -133,7 +134,8 @@ public class LessonController extends BaseController {
 			
 			this.setWebContext(request, response);
 			
-			modelMap.addAttribute("images", FileUtil.findLessonImage());
+			modelMap.addAttribute("images", 
+					FileUtil.findLessonImage(CONSTANTCONTEXT.IMAGE_TYPE));
 			
 		} catch (Exception e) {
 			logger.warn(e.getMessage(), e);
@@ -141,4 +143,26 @@ public class LessonController extends BaseController {
 		
 		return getContext("type/showImages");
 	}
+	
+	
+	@RequestMapping("audios")
+	public void getAudio(HttpServletRequest request, HttpServletResponse response){
+		
+		JSONArray array = new JSONArray();
+		
+		try {
+			
+			this.setWebContext(request, response);
+			
+			List<String> audios = FileUtil.findLessonImage(CONSTANTCONTEXT.AUDIO_TYPE);
+			
+			array = new JSONArray(audios);
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		write(array.toString());
+	}
+	
 }
