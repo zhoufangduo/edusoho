@@ -66,15 +66,19 @@
 		<label for="title" class="col-sm-2 control-label">视频时长</label>
 		<div class="col-sm-9">
 			<div class="form-inline">
-				<input type="text" class="form-control" style="width: 120px;" placeholder="分" />
+				<input type="text" class="form-control" style="width: 120px;" placeholder="分" name="minute"/>
 					&nbsp;分&nbsp; &nbsp; 
-					<input type="text" class="form-control" style="width: 120px;" placeholder="秒" />&nbsp;秒&nbsp;
+					<input type="text" class="form-control" style="width: 120px;" placeholder="秒" name="second"/>
+					&nbsp;秒&nbsp;
 			</div>
 			时长必须为整数。
 		</div>
 	</div>
 	
 	<input type="hidden" name="context">
+	<input type="hidden" name="pId" value="${param.pId}">
+	<input type="hidden" name="courseId" value="${param.courseId}">
+	<input type="hidden" name="type" value="2">
 </form>
 
 <form id="audioFileForm"  action="<%=basePath%>/course/lesson/uploadFile"  enctype="multipart/form-data" method="post">
@@ -122,6 +126,41 @@
 			   });
 			}else{
 				alert("请输入导入的音频的地址");
+			}
+		});
+		
+		$("#audioForm").validate({
+			success:success,
+			ignore: "",
+			errorPlacement: showErrorTab,
+			rules:{
+				"title":{
+					required: true
+				},
+				"minute":{
+					required: false,
+					rangelength: [0,60],
+					digits: true
+				},
+				"second":{
+					required: false,
+					min: 0,
+					digits: true
+				}
+			},
+			messages:{
+				"title": "标题是必填项",
+				"minute":{
+					rangelength : "分钟为0-60",
+					digits:"只能为正整数"
+				},
+				"second":{
+					min : "秒钟数要大于0",
+					digits:"只能为正整数"
+				}
+			},
+			submitHandler: function(form) {
+				form.submit();
 			}
 		});
 		

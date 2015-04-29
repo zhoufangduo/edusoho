@@ -94,7 +94,7 @@ public class LessonController extends BaseController {
 		}
 		
 		
-		return "redirect:/course/lesson?active=lesson&id=" + courseId;
+		return "redirect:/course/lesson/list?active=lesson&id=" + courseId;
 	}
 	
 	@RequestMapping("list")
