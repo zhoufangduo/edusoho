@@ -132,9 +132,9 @@ public class UpDownController extends BaseController{
 				 HttpURLConnection connection = (HttpURLConnection)url.openConnection();
 				bytes = readInputStream(connection.getInputStream());
 				
-				String newFileName = FileUtil.save(bytes, UPLOAD_LOGO_DIR, fileName);
+				String newFileName = FileUtil.save(bytes, UPLOAD_FILE_DIR, fileName);
 				
-				logger.info("生成的文件:" + UPLOAD_LOGO_DIR + newFileName);
+				logger.info("生成的文件:" + UPLOAD_FILE_DIR + newFileName);
 				
 				write(newFileName);
 				

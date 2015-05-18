@@ -35,7 +35,7 @@
 						</div>
 						&nbsp;&nbsp;<span style="color: #31708f;">点击按钮后，会弹出一个编写代码的框,可以直接进行代码编写</span>
 						<br />&nbsp;
-						<pre style="min-height: 100px;"><code id="codeCtx"  style="font-family: '微软雅黑';"></code></pre>
+						<pre style="min-height: 100px;max-height: 200px;overflow:auto;"><code id="codeCtx"  style="font-family: '微软雅黑';"></code></pre>
 				   </div>
 			   </div>
 		</div>

@@ -158,8 +158,8 @@ public class MenuTagSupport extends TagSupport {
 			
 			buffer.append(name).append("<span class='caret'></span></a>");
 			buffer.append("<ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>");
-			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'>&nbsp;我的主页</a></li>");
-			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'>&nbsp;个人中心</a></li>"); 
+			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'></span>&nbsp;&nbsp;我的主页</a></li>");
+			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;个人中心</a></li>"); 
 			buffer.append("<li role='presentation' class='divider'></li>");
 			
 			if (hasAdmin(user.getRoles())) {
@@ -168,7 +168,7 @@ public class MenuTagSupport extends TagSupport {
 			
 			buffer.append("<li role='presentation'><a role='menuitem' href='");
 			buffer.append(context).append("/logout");
-			buffer.append("'><span class='glyphicon glyphicon-off'>&nbsp;退出</a></li>");
+			buffer.append("'><span class='glyphicon glyphicon-off'></span>&nbsp;&nbsp;退出</a></li>");
 			
 		}else {
 			buffer.append("<li><a href='").append(context).append("/").append("search").append("'>");
@@ -199,7 +199,7 @@ public class MenuTagSupport extends TagSupport {
 	private void addAdminMenu(StringBuffer buffer) {
 		buffer.append("<li role='presentation'><a role='menuitem' href='").append(context);
 		buffer.append("/").append("admin").append("'>");
-		buffer.append("<span class='glyphicon glyphicon-cog'>&nbsp;后台管理</a></li>");
+		buffer.append("<span class='glyphicon glyphicon-cog'></span>&nbsp;&nbsp;后台管理</a></li>");
 		buffer.append("<li role='presentation' class='divider'></li>");
 	}
 

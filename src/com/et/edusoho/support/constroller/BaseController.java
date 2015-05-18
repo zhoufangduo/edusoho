@@ -48,7 +48,7 @@ public abstract class BaseController {
 	
 	protected String dirPath ;
 	
-	protected final String UPLOAD_LOGO_DIR;
+	protected final String UPLOAD_FILE_DIR;
 	
 	private static Logger logger = Logger.getLogger(BaseController.class);
 	
@@ -58,7 +58,7 @@ public abstract class BaseController {
 	
 	protected BaseController(String dirPath , String uploadDir){
 		this.dirPath = dirPath;
-		this.UPLOAD_LOGO_DIR = PathUtil.getPath() + uploadDir;
+		this.UPLOAD_FILE_DIR = PathUtil.getPath() + uploadDir;
 	}
 	
 	protected BaseController(){
@@ -194,15 +194,14 @@ public abstract class BaseController {
 	}
 	
 	
-	public String upload(@RequestParam("file") Object uploadFile,
-			@RequestParam("fileName") String fileName) {
+	public String upload(Object uploadFile,String fileName) {
 
 		if (uploadFile instanceof MultipartFile) {
 
 			String newFileName = FileUtil.save((MultipartFile) uploadFile,
-					UPLOAD_LOGO_DIR, fileName);
+					UPLOAD_FILE_DIR, fileName);
 			
-			logger.info("上传文件的路径: " + UPLOAD_LOGO_DIR);
+			logger.info("上传文件的路径: " + UPLOAD_FILE_DIR + newFileName);
 			
 			try {
 				newFileName = new String(newFileName.getBytes("UTF-8"), "ISO-8859-1");
@@ -216,12 +215,28 @@ public abstract class BaseController {
 		return "";
 	}
 	
+	public String upload(Object uploadFile) {
+
+		if (uploadFile instanceof MultipartFile) {
+			
+			String fileName = ((MultipartFile) uploadFile).getOriginalFilename();
+			
+			String newFileName = FileUtil.save((MultipartFile) uploadFile,this.UPLOAD_FILE_DIR + fileName);
+			
+			logger.info("上传文件的路径: " + UPLOAD_FILE_DIR  +  newFileName);
+			
+			return newFileName;
+		}
+		
+		return "";
+	}
+	
 	public void download(@RequestParam Map<String, String> params) {
 
 		String fileName = params.get("file");
 		if (StringUtils.isNotEmpty(fileName)) {
 			
-			FileUtil.download(response, this.UPLOAD_LOGO_DIR + fileName);
+			FileUtil.download(response, this.UPLOAD_FILE_DIR + fileName);
 		}
 	}
 }

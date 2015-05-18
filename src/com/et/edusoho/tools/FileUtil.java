@@ -49,6 +49,32 @@ public abstract class FileUtil {
 		return "";
 	}
 	
+	public static String save(final MultipartFile uploadFile,String fileName) {
+		if (uploadFile != null) {
+			try {
+				
+				File file = new File(fileName);
+				
+				String parentDir = file.getParent();
+				
+				File dir = new File(parentDir);
+				
+				if (!dir.exists()) {
+					dir.mkdirs();
+				}
+				
+				return transferToFile(uploadFile, file);
+				
+			} catch (IllegalStateException e) {
+				logger.warn("保存文件出现错误!", e);
+			} catch (IOException e) {
+				logger.warn("保存文件出现错误!", e);
+			} 
+		}
+		
+		return "";
+	}
+	
 	@SuppressWarnings("resource")
 	public static String save(final byte[] bytes,String parentDir, String newFileName) {
 		if (bytes != null) {

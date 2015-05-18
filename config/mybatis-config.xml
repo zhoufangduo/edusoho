@@ -13,6 +13,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="course" type="com.et.edusoho.course.bean.Course"/>
 		<typeAlias alias="lesson" type="com.et.edusoho.course.bean.Lesson"/>
 		<typeAlias alias="chapter" type="com.et.edusoho.course.bean.Chapter"/>
+		<typeAlias alias="courseFile" type="com.et.edusoho.course.bean.CourseFile"/>
 	</typeAliases>
 	
 	<mappers>
@@ -25,5 +26,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="course.xml"/>
 		<mapper resource="lesson.xml"/>
 		<mapper resource="chapter.xml"/>
+		<mapper resource="course_file.xml"/>
 	</mappers>
 </configuration>

@@ -44,7 +44,7 @@
 							<span id="auPlayer"></span>				
 						</span>
 					</div>
-					<div id="pill2" style="height: 200px;display: none;overflow:auto;">
+					<div id="pill2" style="height: 150px;display: none;overflow:auto;">
 					</div>
 					<div id="pill3" style="display: none;">
 						输入下载的音频文件的网络的地址，点击导入即可:<p/>

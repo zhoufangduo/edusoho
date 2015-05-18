@@ -54,7 +54,12 @@
 				  	<c:otherwise>class="list-group-item"</c:otherwise>
 			  	</c:choose>
 			  >课时管理</a>
-			  <a href="#" class="list-group-item">文件管理</a>
+			  <a href="<%=basePath%>/course/fileMrg/toList?active=file&id=${course.id}"
+			  	<c:choose>
+				  	<c:when test="${param.active == 'file'}">class="list-group-item active"</c:when>
+				  	<c:otherwise>class="list-group-item"</c:otherwise>
+			  	</c:choose>
+			  >文件管理</a>
 			</div>
 				
 			<div class="list-group" style="width: 99%;">

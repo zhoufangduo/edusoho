@@ -32,9 +32,7 @@
 					<div class="alert alert-info" role="alert">
 						<ul>
 							<li>支持<strong>mp4</strong>格式的视频文件上传，文件大小不能超过<strong>2.0MB
-							</strong>。MP4文件的视频编码格式，请使用AVC(H264)编码，否则浏览器无法播放。
-							</li>
-							<li>视频将上传到<strong>网站服务器</strong>，如需使用云视频，请联系EduSoho官方购买。使用云视频，将获得更好的播放体验。
+							</strong>。视频将上传到<strong>网站服务器</strong>
 							</li>
 						</ul>
 					</div>

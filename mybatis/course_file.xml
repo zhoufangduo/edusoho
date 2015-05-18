@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Course_File">
+	<insert id="addFile" parameterType="map">
+		INSERT INTO `COURSE_FILE`(`COURSEID`,`NAME`,`TYPE`,`FILETYPE`,`CREATEDTIME`,`CREATEDER`,`FILESIZE`)
+		VALUES(#{courseId},#{name},#{type},#{fileType},NOW(),#{creater},#{fileSize})
+	</insert>
+	
+	<select id="getFiles" parameterType="map" resultType="courseFile">
+		SELECT * FROM `COURSE_FILE`
+		<where>
+			<if test="type != null">
+				`TYPE` = #{type} AND
+			</if>
+			<if test="id != null">
+				`COURSEID` = #{id}
+			</if>
+		</where>
+	</select>
+</mapper>
