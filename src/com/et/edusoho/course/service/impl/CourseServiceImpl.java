@@ -1,5 +1,6 @@
 package com.et.edusoho.course.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,6 +48,15 @@ public class CourseServiceImpl implements CourseService {
 		params.put("id", id);
 		
 		return courseDao.view(params);
+	}
+
+	public List<Course> getMy(Map<String, String> params) {
+		
+		List<Course> courses = new ArrayList<Course>(courseDao.getAll(params));
+		
+		courses.addAll(courseDao.getMy(params));
+		
+		return courses;
 	}
 
 }

@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.et.edusoho.admin.system.service.SettingService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
+import com.et.edusoho.web.context.ApplicationContextLoader;
 
 @Controller
 @RequestMapping("/admin/system/setting/*")
@@ -46,6 +47,8 @@ public class SettingController extends BaseController {
 			
 			if (params.size() > 0) {
 				settingService.save(params);
+				
+				ApplicationContextLoader.INSTANCE.onSiteUpdateEvent(request);
 			}
 			
 		} catch (Exception e) {

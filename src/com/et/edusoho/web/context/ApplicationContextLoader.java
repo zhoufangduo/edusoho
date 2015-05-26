@@ -3,6 +3,7 @@ package com.et.edusoho.web.context;
 import java.util.List;
 
 import javax.servlet.ServletContext;
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.context.ApplicationEvent;
 import org.springframework.context.ApplicationListener;
@@ -18,8 +19,17 @@ import com.et.edusoho.tools.CONSTANTCONTEXT;
 public final class ApplicationContextLoader implements ApplicationListener<ApplicationEvent> {
 
 	private List<Menu> menus;
+	
+	public static ApplicationContextLoader INSTANCE;
+	
+	private ApplicationContextService appCtxService;
 
 	private ServletContext context;
+	
+	
+	public ApplicationContextLoader(){
+		INSTANCE = this;
+	}
 
 	public void onApplicationEvent(ApplicationEvent event) {
 		
@@ -31,11 +41,20 @@ public final class ApplicationContextLoader implements ApplicationListener<Appli
 				this.context = webAppCtx.getServletContext();
 			}
 			
-			ApplicationContextService appCtxService = (ApplicationContextService) 
-					webAppCtx.getBean("applicationContextServiceImpl");
+			
+			this.appCtxService =  getApplicationContextService(webAppCtx);
 			
 			initAppConfiguration(appCtxService);
 		}
+	}
+
+	private ApplicationContextService getApplicationContextService(
+			WebApplicationContext webAppCtx) {
+		
+		ApplicationContextService appCtxService = (ApplicationContextService) 
+				webAppCtx.getBean("applicationContextServiceImpl");
+		
+		return appCtxService;
 	}
 
 	private void initAppConfiguration(ApplicationContextService appCtxService) {
@@ -47,5 +66,14 @@ public final class ApplicationContextLoader implements ApplicationListener<Appli
 		this.context.setAttribute(CONSTANTCONTEXT.USER_MENU, this.menus);
 		
 		this.context.setAttribute(CONSTANTCONTEXT.SITE_INFO, site);
+	}
+	
+	
+	public void onSiteUpdateEvent(HttpServletRequest request){
+		if (this.context == null) {
+			request.getSession().getServletContext();
+		}
+		
+		initAppConfiguration(this.appCtxService);
 	}
 }

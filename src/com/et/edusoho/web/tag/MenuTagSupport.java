@@ -77,9 +77,11 @@ public class MenuTagSupport extends TagSupport {
 	private void initNavbarHead(StringBuffer buffer){
 		
 		Site site = (Site) pageContext.getServletContext().getAttribute(CONSTANTCONTEXT.SITE_INFO);
-		String navbarImage = "";
+		String navbarInfo = "";
 		if (site != null && StringUtils.isNotEmpty(site.getLogoImage())) {
-			 navbarImage = "<img src='" + context + "/admin/system/setting/download?file=" + site.getLogoImage()+"'/>";
+			 navbarInfo = "<img src='" + context + "/admin/system/setting/download?file=" + site.getLogoImage()+"'/>";
+		}else if (site != null && StringUtils.isNotEmpty(site.getTitle())) {
+			navbarInfo = "<label> "+ site.getTitle() +" </label>";
 		}
 		
 		buffer.append("<div class='navbar-inverse'><div class='container-fluid'><div class='navbar-header'>");
@@ -87,7 +89,7 @@ public class MenuTagSupport extends TagSupport {
 		buffer.append("<span class='sr-only'>Toggle navigation</span> <span class='icon-bar'></span>");
 		buffer.append("<span class='icon-bar'></span> <span class='icon-bar'></span></button>");
 		
-		buffer.append("<a class='navbar-brand' href='").append(context).append("'>").append(navbarImage).append("</a></div>");
+		buffer.append("<a class='navbar-brand' href='").append(context).append("'>").append(navbarInfo).append("</a></div>");
 		buffer.append("<div class='collapse navbar-collapse' id='bs-example-navbar-collapse-1'>");
 		buffer.append("<ul class='nav navbar-nav'>");
 		
@@ -143,7 +145,7 @@ public class MenuTagSupport extends TagSupport {
 		
 		buffer.append("<ul class='nav navbar-nav navbar-right'>");
 		if (user != null) {
-			buffer.append("<li><a href='search.jsp'>&nbsp;我的课程</a></li>");
+			buffer.append("<li><a href='").append(context).append("/course/myCourse'>&nbsp;我的课程</a></li>");
 			buffer.append("<li><a href='").append(context).append("/").append("search").append("'>");
 			buffer.append("<span class='glyphicon glyphicon-search'></span>&nbsp;搜索</a></li>");
 			buffer.append("<li><a href='search.jsp'><span class='glyphicon glyphicon-bullhorn'></span>&nbsp;通知</a></li>");

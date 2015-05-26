@@ -22,9 +22,10 @@
  		 <br>
   	 </span>
  	 <span style="float: right;margin-top: 8px;">
- 	 	<a class="btn btn-default" href="#" role="button">返回课程列表</a>&nbsp;
- 	 	<a class="btn btn-info" href="#" role="button">预览</a>&nbsp;
- 	 	<a class="btn btn-primary" href="#" role="button">上课</a>&nbsp;
+ 	 	<a class="btn btn-default" href="<%=basePath%>/course/myCourse?active=list"
+ 	 		 role="button">&nbsp;返&nbsp;回&nbsp;</a>&nbsp;
+ 	 	<a class="btn btn-info" href="#" role="button">&nbsp;预&nbsp;览&nbsp;</a>&nbsp;
+ 	 	<a class="btn btn-primary" href="#" role="button">&nbsp;上&nbsp;课&nbsp;</a>&nbsp;
  	 </span>
   </div>
 </div>

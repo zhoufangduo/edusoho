@@ -12,7 +12,18 @@
 	</insert>
 	
 	<select id="getAll" parameterType="map" resultType="course">
-		SELECT * FROM COURSE
+		SELECT * FROM COURSE 
+		<where>
+			<if test="userId != null and userId != ''">
+				`CREATER` = #{userId}
+			</if>
+		</where>
+	</select>
+	
+	<select id="getMy" parameterType="map" resultType="course">
+		SELECT C.* FROM COURSE C RIGHT JOIN USER_COURSE U
+		ON U.COURSEID = C.ID
+		WHERE U.USERID = #{userId}
 	</select>
 	
 	<update id="update" parameterType="map">

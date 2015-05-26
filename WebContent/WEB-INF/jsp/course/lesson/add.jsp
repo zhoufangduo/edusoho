@@ -9,7 +9,7 @@
 		padding: 3px 10px;
 	}
 </style>
-<div class="modal fade" id="myModal" role="dialog" aria-hidden="true" data-backdrop="static" aria-labelledby="exampleModalLabel">
+<div class="modal fade" id="myModal" role="dialog" data-backdrop="static">
 	<div class="modal-dialog  modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">

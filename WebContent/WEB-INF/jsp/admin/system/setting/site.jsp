@@ -143,30 +143,34 @@
 		
 		$(function(){
 			$("#logoFile").change(function(){
-				$("#logoForm").ajaxSubmit({
-					dataType	: "text",
-					type        : "POST",
-					cache       : false,
-					success		: function(data){	
-						var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
-						$("#logoImage").attr("src",url);
-						$("input[name=logoImage]").val(data);
-					}
-				});
+				if($(this).val()){
+					$("#logoForm").ajaxSubmit({
+						dataType	: "text",
+						type        : "POST",
+						cache       : false,
+						success		: function(data){	
+							var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
+							$("#logoImage").attr("src",url);
+							$("input[name=logoImage]").val(data);
+						}
+					});
+				}
 			});
 			
 			$("#icoFile").change(function(){
-				$("#icoForm").ajaxSubmit({
-					dataType	: "text",
-					type        : "POST",
-					cache       : false,
-					success		: function(data){	
-						var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
-						$("#icoImage").attr("src",url);
-						$("input[name=icoImage]").val(data);
-					}
-				});
-			 });
+				if($(this).val()){
+					$("#icoForm").ajaxSubmit({
+						dataType	: "text",
+						type        : "POST",
+						cache       : false,
+						success		: function(data){	
+							var url = "<%=basePath%>/admin/system/setting/download?file=" + data;
+							$("#icoImage").attr("src",url);
+							$("input[name=icoImage]").val(data);
+						}
+					});
+				}
+			});
 		});
 	</script>
 </body>

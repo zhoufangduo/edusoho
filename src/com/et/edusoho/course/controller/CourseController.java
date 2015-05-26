@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.et.edusoho.admin.curriculum.service.CategoryService;
+import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.course.bean.Course;
 import com.et.edusoho.course.service.CourseService;
 import com.et.edusoho.support.constroller.BaseController;
@@ -31,6 +32,9 @@ public class CourseController extends BaseController {
 
 	@Autowired
 	private CategoryService categoryService;
+	
+	@Autowired
+	private UserService userService;
 
 	public CourseController() {
 		super("course/", CONSTANTCONTEXT.LOGO_DIR);
@@ -46,6 +50,25 @@ public class CourseController extends BaseController {
 		modelMap.addAttribute("courses", courses);
 
 		return getContext("list");
+	}
+	
+	
+	@RequestMapping("myCourse")
+	public String toMyCourse(final ModelMap modelMap,
+			@RequestParam Map<String, String> params,
+			HttpServletRequest request, HttpServletResponse response) {
+		
+		setWebContext(request, response);
+		
+		params.put("userId", getUserId());
+		
+		List<Course> courses = courseService.getMy(params);
+
+		modelMap.addAttribute("categorys", categoryService.list(null));
+		modelMap.addAttribute("courses", courses);
+		modelMap.addAttribute("users",userService.getList(null));
+
+		return getContext("my/list");
 	}
 
 	@RequestMapping("toAdd")
@@ -203,6 +226,21 @@ public class CourseController extends BaseController {
 			logger.warn(e.getMessage(), e);
 			write("");
 		}
+	}
+	
+	@RequestMapping("preview")
+	public String preview(final ModelMap modelMap,
+			@RequestParam Map<String, String> params){
+		
+		
+		
+		return getContext("preview");
+	}
+	
+	@RequestMapping("goClass")
+	public String goClass(){
+		
+		return "";
 	}
 
 }

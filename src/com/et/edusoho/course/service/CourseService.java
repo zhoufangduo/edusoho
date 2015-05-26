@@ -21,5 +21,7 @@ public interface CourseService {
 	
 	public Course viewById(String id);
 
+	public List<Course> getMy(Map<String, String> params);
+
 
 }

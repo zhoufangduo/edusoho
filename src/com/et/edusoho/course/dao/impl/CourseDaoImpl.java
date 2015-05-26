@@ -35,4 +35,8 @@ public class CourseDaoImpl extends BaseDaoSupport implements CourseDao {
 	public void updateSeq(String id) {
 		update("Course.updateSeq",id);
 	}
+
+	public List<Course> getMy(Map<String, String> params) {
+		return getList("Course.getMy", params);
+	}
 }
