@@ -13,6 +13,13 @@
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
+	<script type="text/javascript">
+		function delById(id,name){
+			if(window.confirm("你确定删除此课程:" + name + "?")){
+				window.location = "<%=basePath%>/course/delete?id=" + id;
+			}
+		}
+	</script>
 </head>
 <body>
 	<nav:menu/>
@@ -43,10 +50,21 @@
   							<tr>
   								<td title="${course.title}">
   									<a href="<%=basePath%>/course/view?id=${course.id}" class="nameTip">
-  										<img alt="${course.title}" src="<%=basePath%>/course/download?file=${course.logoImage}" 
-  										style="width: 100px;height: 56px;">
+  										<img alt="${course.title}" 
+  										<c:choose>
+											<c:when test="${course.logoImage == null}">
+												src="<%=basePath%>/resource/images/et-logo.png" 
+											</c:when>
+											<c:otherwise>
+												 src="<%=basePath%>/course/download?file=${course.logoImage}"
+											</c:otherwise>
+										</c:choose>
+  										
+  										style="width: 100px;height: 56px;"></a>
   									
-  									${course.title}</a>
+  									&nbsp;&nbsp;
+  									<a href="<%=basePath%>/course/view?id=${course.id}" class="nameTip">${course.title}</a>
+  									
   									<c:if test="${course.recommended == 1}">
   										<span class="badge" style="background-color: red;">推荐</span>
   									</c:if>
@@ -85,14 +103,30 @@
 											    <li><a href="<%=basePath%>/course/fileMrg/toList?active=file&id=${course.id}">
 											    	<span class="glyphicon glyphicon-file"></span>&nbsp;文件管理
 											    </a></li>
-											     <li><a href="<%=basePath%>/admin/curriculum/update?recommended=1&id=${course.id}">
+											    <li><a href="<%=basePath%>/course/number/list?active=number&id=${course.id}">
 											    	<span class="glyphicon glyphicon-user"></span>&nbsp;学员管理
 											    </a></li>
+											    <li role="presentation" class="divider"></li>
+											    <c:if test="${course.status == 'PUBLISHED'}">
+												    <li><a href="<%=basePath%>/course/updateState?status=CLOSED&id=${course.id}">
+												    	<span class="glyphicon glyphicon-ban-circle"></span>&nbsp;关闭课程
+												    </a></li>
+											    </c:if>
+											    <c:if test="${course.status == 'DRAFT' || course.status == 'CLOSED'}">
+												    <li><a href="<%=basePath%>/course/updateState?status=PUBLISHED&id=${course.id}">
+												    	<span class="glyphicon glyphicon-ok-circle"></span>&nbsp;发布课程
+												    </a></li>
+											    </c:if>
+											    <c:if test="${course.status == 'DRAFT'}">
+												    <li><a href="javascript:delById('${course.id}','${course.title}')">
+												    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除课程
+												    </a></li>
+											    </c:if>
 											  </ul>
 											</div>
 										</c:when>
 										<c:otherwise>
-											<a class="btn btn-sm btn-default"  href="<%=basePath%>/course/toAdd">
+											<a class="btn btn-sm btn-default"  href="<%=basePath%>/course/preview?courseId=${course.id}">
 					 							<span class="glyphicon glyphicon-search"></span>&nbsp;查看课程
 					 						</a>
 										</c:otherwise>

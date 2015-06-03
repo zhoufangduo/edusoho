@@ -34,7 +34,7 @@
 			  	</c:choose>
 		  	>在教课程</a>
 		  	
-		  <a href="<%=basePath%>/course/detail?active=detail&id=${course.id}" 
+		  <a href="#" 
 			  	<c:choose>
 				  	<c:when test="${param.active == 'detail'}">class="list-group-item active"</c:when>
 				  	<c:otherwise>class="list-group-item"</c:otherwise>
@@ -44,6 +44,9 @@
 			
 		<div class="list-group" style="width: 99%;">
 		  <span class="list-group-item head">我的学习</span>
+		  <a href="#" class="list-group-item">收藏</a>
+		  <a href="#" class="list-group-item">学习中</a>
+		  <a href="#" class="list-group-item">已学完</a>
 		  <a href="#" class="list-group-item">我的问答</a>
 		  <a href="#" class="list-group-item">我的笔记</a>
 		</div>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Number">
+	
+	<select id="getNumberById" parameterType="string" resultType="number">
+		SELECT C.*, U.`AVATAR`,U.`USERNAME`,U.`NAME` FROM COURSE_NUMBER C LEFT JOIN `USER` U
+			ON C.USERID = U.ID
+		WHERE C.COURSEID = #{courseId}
+	</select>
+	
+	<insert id="add" parameterType="map">
+		INSERT INTO COURSE_NUMBER(`COURSEID`,`USERID`,`JOINTIME`,`COMMENT`)
+		VALUES(#{courseId},#{userId},NOW(),#{comment})
+	</insert>
+	
+	<delete id="deleteById" parameterType="map">
+		DELETE FROM COURSE_NUMBER WHERE `COURSEID`= #{courseId} and `USERID`= #{userId}
+	</delete>
+	
+	<select id="getAddNumbers" parameterType="map" resultType="number">
+		SELECT U.USERNAME,U.NAME, U.ID AS USERID FROM `USER` U WHERE U.`ROLE` = 'STUDENT' AND  U.ID NOT IN
+		(SELECT USERID FROM COURSE_NUMBER WHERE `COURSEID` = #{courseId})
+		
+	</select>
+	
+</mapper>

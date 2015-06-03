@@ -21,9 +21,9 @@
 	</select>
 	
 	<select id="getMy" parameterType="map" resultType="course">
-		SELECT C.* FROM COURSE C RIGHT JOIN USER_COURSE U
-		ON U.COURSEID = C.ID
-		WHERE U.USERID = #{userId}
+		SELECT C.* FROM COURSE C RIGHT JOIN COURSE_NUMBER U
+			ON U.COURSEID = C.ID
+		WHERE U.USERID = #{userId}  AND C.STATUS != 'DRAFT'
 	</select>
 	
 	<update id="update" parameterType="map">
@@ -89,6 +89,10 @@
 		 	LEFT OUTER JOIN  `USER` U
 		 		ON C.CREATER = U.ID
 		   WHERE C.ID = #{id}
+	</select>
+	
+	<select id="getById" parameterType="string" resultType="course">
+		SELECT * FROM COURSE WHERE ID = #{id}
 	</select>
 	
 </mapper>

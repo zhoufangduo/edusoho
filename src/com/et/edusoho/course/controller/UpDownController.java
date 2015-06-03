@@ -81,7 +81,7 @@ public class UpDownController extends BaseController{
 			
 			String callback = params.get("CKEditorFuncNum");  
 			if(StringUtils.isNotEmpty(callback)){
-				String path = PathUtil.getHttpPath(request) + "/admin/course/lesson/downloadFile?file=" + newFileName ;
+				String path = PathUtil.getHttpPath(request) + "/course/lesson/downloadFile?file=" + newFileName ;
 				write("<script type=\'text/javascript\'>window.parent.CKEDITOR.tools.callFunction(" 
 						+ callback + ",'"+path+ "','')</script>");
 			}else{

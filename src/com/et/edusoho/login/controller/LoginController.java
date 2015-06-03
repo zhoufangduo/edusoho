@@ -13,8 +13,8 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.user.bean.User;
 import com.et.edusoho.admin.user.service.LogService;
-import com.et.edusoho.login.bean.User;
 import com.et.edusoho.login.service.LoginService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;

@@ -36,49 +36,61 @@
 						</ol>
 					</div>
 				    <form action="<%=basePath%>/admin/user?active=user" method="post">
-						<div class="input-group" style="float: left;width: 80%;">
-							  <span class="input-group-addon">搜索项 </span>
-							  <select class="form-control" name="role" style="width: 110px;">
-								  <option value="" <c:if test="${param.role == ''}">selected="selected"</c:if>>所有角色</option>
-								  <option value="STUDENT" <c:if test="${param.role == 'STUDENT'}">selected="selected"</c:if> >
-								  	学员
-								  </option>
-								  <option value="TEACHER" <c:if test="${param.role == 'TEACHER'}">selected="selected"</c:if>>
-								  	教师
-								  </option>
-								  <option value="ADMIN" <c:if test="${param.role == 'ADMIN'}">selected="selected"</c:if>>
-								 	管理员
-								 </option>
-								  <option value="SUPERADMIN" <c:if test="${param.role == 'SUPERADMIN'}">selected="selected"</c:if>>
-								 	超级管理员
-								  </option>
-							  </select>
-							  
-							  <select class="form-control" name="colname" style="width: 125px;margin-left: 3px;">
-								  <option value="" <c:if test="${param.colname == ''}">selected="selected"</c:if>>
-								 	 关键字类型
-								  </option>
-								  <option value="USERNAME" <c:if test="${param.colname == 'USERNAME'}">selected="selected"</c:if>>
-								  	登录账号
-								  </option>
-								  <option value="EMAIL" <c:if test="${param.colname == 'EMAIL'}">selected="selected"</c:if>>
-								  	邮件
-								  </option>
-								  <option value="NAME" <c:if test="${param.colname == 'NAME'}">selected="selected"</c:if>>
-								  	姓名
-								  </option>
-							  </select>
-							  <input type="text" class="form-control" name="keys" placeholder="关键字"
-							  value="${param.keys}" style="width: 240px;">
-							  
-							  <span class="input-group-btn" style="float: left;">
-        						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
-      						  </span>
-						</div>
-						<span style="margin-left: 65px;">
-      						  <a href="javascript:showModel('#model','<%=basePath%>/admin/user/toAdd')"
-      						   class="btn btn-info" >添加用户</a>
-      					</span>
+				    	<div class="row">
+				    		<div class="col-md-8">
+				    			<div class="input-group">
+									  <span class="input-group-addon">搜索项 </span>
+									  <select class="form-control" name="role" style="width: 120px;">
+										  <option value="" <c:if test="${param.role == ''}">selected="selected"</c:if>>所有角色</option>
+										  <option value="STUDENT" <c:if test="${param.role == 'STUDENT'}">selected="selected"</c:if> >
+										  	学员
+										  </option>
+										  <option value="TEACHER" <c:if test="${param.role == 'TEACHER'}">selected="selected"</c:if>>
+										  	教师
+										  </option>
+										  <option value="ADMIN" <c:if test="${param.role == 'ADMIN'}">selected="selected"</c:if>>
+										 	管理员
+										 </option>
+										  <option value="SUPERADMIN" <c:if test="${param.role == 'SUPERADMIN'}">selected="selected"</c:if>>
+										 	超级管理员
+										  </option>
+									  </select>
+									  
+									  <select class="form-control" name="colname" style="width: 120px;margin-left: 3px;">
+										  <option value="" <c:if test="${param.colname == ''}">selected="selected"</c:if>>
+										 	 关键字类型
+										  </option>
+										  <option value="USERNAME" <c:if test="${param.colname == 'USERNAME'}">selected="selected"</c:if>>
+										  	登录账号
+										  </option>
+										  <option value="EMAIL" <c:if test="${param.colname == 'EMAIL'}">selected="selected"</c:if>>
+										  	邮件
+										  </option>
+										  <option value="NAME" <c:if test="${param.colname == 'NAME'}">selected="selected"</c:if>>
+										  	姓名
+										  </option>
+									  </select>
+									  <input type="text" class="form-control" name="keys" placeholder="关键字"
+									  value="${param.keys}" style="width: 250px;">
+									  
+									  <span class="input-group-btn" style="float: left;">
+		        						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
+		      						  </span>
+								</div>
+				    		</div>
+				    		<div class="col-md-4">
+				    			<div class="btn-group" style="float: right;">
+	      						<a href="javascript:showModel('#model','<%=basePath%>/admin/user/toAdd')"
+	      						   class="btn btn-info" >添加用户</a>
+					    		<button class="btn btn-info">
+					    			导入用户
+					    		</button>
+					    		<button class="btn btn-info">
+					    			导出用户
+					    		</button>
+	      					</div>
+				    		</div>
+				    	</div>
 				    </form>
 				    <br/>
 				    <table class="table table-hover">

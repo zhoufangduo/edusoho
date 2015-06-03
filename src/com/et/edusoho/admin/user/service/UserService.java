@@ -3,7 +3,7 @@ package com.et.edusoho.admin.user.service;
 import java.util.List;
 import java.util.Map;
 
-import com.et.edusoho.login.bean.User;
+import com.et.edusoho.admin.user.bean.User;
 
 public interface UserService {
 

@@ -110,7 +110,7 @@ public class LessonController extends BaseController {
 			
 			if (course !=  null) {
 				
-				String courseId = course.getId();
+				String courseId = String.valueOf(course.getId());
 				
 				List<Lesson> lessons = lessonService.getListByCourseId(courseId);
 				List<Chapter> chapters = chapterService.getListByCourseId(courseId);

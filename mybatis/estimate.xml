@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+	PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="Estimate">
+	
+	<insert id="save" parameterType="map">
+		INSERT INTO `COURSE_ESTIMATE`(`COURSEID`,`USERID`,`GRADE`,`CREATETIME`,`COMMENT`)
+			VALUES(#{courseId},#{userId},#{grade},NOW(),#{comment})
+	</insert>
+	
+	<select id="getBycourserId" parameterType="map" resultType="estimate">
+		SELECT C.*,U.USERNAME,U.AVATAR FROM `COURSE_ESTIMATE` C RIGHT JOIN `USER` U
+			ON C.USERID = U.ID
+		WHERE `COURSEID` = #{courseId} 
+	</select>
+	
+	<update id="update" parameterType="map" >
+		UPDATE `COURSE_ESTIMATE`
+		<set>
+			<if test="grade != null and grade != ''">
+				`GRADE` = #{grade},
+			</if>
+			<if test="comment != null and comment != ''">
+				`COMMENT` = #{comment}
+			</if>
+		</set>
+		WHERE `USERID` = #{userId} AND `COURSEID` = #{courseId}
+	</update>
+	
+</mapper>

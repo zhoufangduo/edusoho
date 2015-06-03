@@ -14,5 +14,7 @@ public interface CurriculumService {
 	public void update(Map<String, String> params);
 
 	public void delete(Map<String, String> params);
+	
+	public Course view(Map<String, String> params);
 
 }

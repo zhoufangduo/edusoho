@@ -21,4 +21,6 @@ public interface CourseDao {
 
 	public List<Course> getMy(Map<String, String> params);
 
+	public Course getById(String courseId);
+
 }

@@ -11,9 +11,9 @@ import javax.servlet.jsp.tagext.TagSupport;
 import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 
-import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.menu.Menu;
 import com.et.edusoho.admin.system.bean.Site;
-import com.et.edusoho.login.bean.User;
+import com.et.edusoho.admin.user.bean.User;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 
 public class MenuTagSupport extends TagSupport {

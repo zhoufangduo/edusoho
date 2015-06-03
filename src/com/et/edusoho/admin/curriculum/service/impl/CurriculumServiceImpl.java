@@ -32,4 +32,8 @@ public class CurriculumServiceImpl implements CurriculumService {
 	public void delete(Map<String, String> params) {
 		courseDao.delete(params);
 	}
+
+	public Course view(Map<String, String> params) {
+		return courseDao.view(params);
+	}
 }

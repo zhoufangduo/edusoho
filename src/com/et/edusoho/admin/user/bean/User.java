@@ -1,4 +1,4 @@
-package com.et.edusoho.login.bean;
+package com.et.edusoho.admin.user.bean;
 
 public class User {
 
@@ -9,6 +9,10 @@ public class User {
 	private String password; // 用户登录的密码
 
 	private String name; // 用户姓名
+
+	private String signature; // 个性签名
+
+	private String introduction; // 自我介绍
 
 	private String sex; // 用户性别
 
@@ -131,4 +135,21 @@ public class User {
 	public void setPromotedTime(String promotedTime) {
 		this.promotedTime = promotedTime;
 	}
+
+	public String getSignature() {
+		return signature;
+	}
+
+	public void setSignature(String signature) {
+		this.signature = signature;
+	}
+
+	public String getIntroduction() {
+		return introduction;
+	}
+
+	public void setIntroduction(String introduction) {
+		this.introduction = introduction;
+	}
+
 }

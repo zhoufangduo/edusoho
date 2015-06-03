@@ -1,9 +1,10 @@
 package com.et.edusoho.course.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
+import java.util.TreeSet;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -50,13 +51,17 @@ public class CourseServiceImpl implements CourseService {
 		return courseDao.view(params);
 	}
 
-	public List<Course> getMy(Map<String, String> params) {
+	public Set<Course> getMy(Map<String, String> params) {
 		
-		List<Course> courses = new ArrayList<Course>(courseDao.getAll(params));
+		Set<Course> courses = new TreeSet<Course>(courseDao.getAll(params));
 		
 		courses.addAll(courseDao.getMy(params));
 		
 		return courses;
+	}
+
+	public Course getById(String courseId) {
+		return courseDao.getById(courseId);
 	}
 
 }

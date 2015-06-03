@@ -5,8 +5,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 <configuration>
 
 	<typeAliases>
-		<typeAlias alias="menu" type="com.et.edusoho.admin.menu.bean.Menu"/>
-		<typeAlias alias="user" type="com.et.edusoho.login.bean.User"/>
+		<typeAlias alias="menu" type="com.et.edusoho.admin.menu.Menu"/>
+		<typeAlias alias="user" type="com.et.edusoho.admin.user.bean.User"/>
 		<typeAlias alias="category" type="com.et.edusoho.admin.curriculum.bean.Category"/>
 		<typeAlias alias="loginLog" type="com.et.edusoho.admin.user.bean.LoginLog"/>
 		<typeAlias alias="site" type="com.et.edusoho.admin.system.bean.Site"/>
@@ -14,6 +14,8 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="lesson" type="com.et.edusoho.course.bean.Lesson"/>
 		<typeAlias alias="chapter" type="com.et.edusoho.course.bean.Chapter"/>
 		<typeAlias alias="courseFile" type="com.et.edusoho.course.bean.CourseFile"/>
+		<typeAlias alias="estimate" type="com.et.edusoho.course.bean.Estimate"/>
+		<typeAlias alias="number" type="com.et.edusoho.course.bean.Number" />
 	</typeAliases>
 	
 	<mappers>
@@ -27,5 +29,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="lesson.xml"/>
 		<mapper resource="chapter.xml"/>
 		<mapper resource="course_file.xml"/>
+		<mapper resource="estimate.xml"/>
+		<mapper resource="number.xml"/>
 	</mappers>
 </configuration>

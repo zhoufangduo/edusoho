@@ -3,10 +3,12 @@ package com.et.edusoho.course.controller;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Set;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,7 +19,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.et.edusoho.admin.curriculum.service.CategoryService;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.course.bean.Course;
+import com.et.edusoho.course.service.ChapterService;
 import com.et.edusoho.course.service.CourseService;
+import com.et.edusoho.course.service.EstimateService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
 
@@ -34,7 +38,13 @@ public class CourseController extends BaseController {
 	private CategoryService categoryService;
 	
 	@Autowired
+	private ChapterService chapterService;
+	
+	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private EstimateService esService;
 
 	public CourseController() {
 		super("course/", CONSTANTCONTEXT.LOGO_DIR);
@@ -62,7 +72,7 @@ public class CourseController extends BaseController {
 		
 		params.put("userId", getUserId());
 		
-		List<Course> courses = courseService.getMy(params);
+		Set<Course> courses = courseService.getMy(params);
 
 		modelMap.addAttribute("categorys", categoryService.list(null));
 		modelMap.addAttribute("courses", courses);
@@ -113,9 +123,27 @@ public class CourseController extends BaseController {
 
 		return "redirect:view?active=base&id=" + params.get("id");
 	}
+	
+	@RequestMapping("updateState")
+	public String updateState(@RequestParam Map<String, String> params) {
+		try {
+			
+			if (params.size() > 0) {
+				courseService.update(params);
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		
+		return "redirect:myCourse";
+	}
+	
 
-	@RequestMapping("course/delete")
+	@RequestMapping("delete")
 	public String delete(@RequestParam Map<String, String> params) {
+		
 		try {
 
 			if (params.size() > 0) {
@@ -126,7 +154,7 @@ public class CourseController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return "redirect:?active=course";
+		return "redirect:myCourse";
 
 	}
 
@@ -214,7 +242,7 @@ public class CourseController extends BaseController {
 	}
 
 	@RequestMapping("download")
-	public void download(@RequestParam Map<String, String> params,
+	public  synchronized void  download(@RequestParam Map<String, String> params,
 			HttpServletRequest request, HttpServletResponse response) {
 		try {
 
@@ -232,10 +260,46 @@ public class CourseController extends BaseController {
 	public String preview(final ModelMap modelMap,
 			@RequestParam Map<String, String> params){
 		
-		
+		String courseId = params.get("courseId");
+		if (StringUtils.isNotEmpty(courseId)) {
+			
+			Course course = courseService.getById(courseId);
+			modelMap.addAttribute("course", course);
+			modelMap.addAttribute("chapters",chapterService.getListByCourseId(courseId));
+			modelMap.addAttribute("estimates",esService.getBycourserId(courseId));
+			
+			params.put("id", course.getCreater());
+			
+			modelMap.addAttribute("teacher",userService.get(params));
+		}
 		
 		return getContext("preview");
 	}
+	
+	@RequestMapping("toSaveEstimate")
+	public String toSaveEstimate(final ModelMap modelMap,
+			@RequestParam Map<String, String> params){
+		
+		try {
+			
+			if (params.size() > 0) {
+				
+				params.put("userId", getUserId());
+				
+				if ("0".equals(params.get("mark"))) {
+					esService.save(params);
+				}else {
+					esService.update(params);
+				}
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		return "redirect:preview?courseId=" + params.get("courseId");
+	}
+	
 	
 	@RequestMapping("goClass")
 	public String goClass(){

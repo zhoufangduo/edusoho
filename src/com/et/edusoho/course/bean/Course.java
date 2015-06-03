@@ -1,8 +1,8 @@
 package com.et.edusoho.course.bean;
 
-public class Course {
+public class Course implements Comparable<Course>{
 
-	private String id;
+	private long id;
 
 	private String title;
 
@@ -34,11 +34,11 @@ public class Course {
 
 	private String maxSeq;
 
-	public String getId() {
+	public long getId() {
 		return id;
 	}
 
-	public void setId(String id) {
+	public void setId(long id) {
 		this.id = id;
 	}
 
@@ -160,5 +160,9 @@ public class Course {
 
 	public void setMaxSeq(String maxSeq) {
 		this.maxSeq = maxSeq;
+	}
+
+	public int compareTo(Course o) {
+		return (int) (this.id - o.id);
 	}
 }

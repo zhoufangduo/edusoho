@@ -24,7 +24,8 @@
  	 <span style="float: right;margin-top: 8px;">
  	 	<a class="btn btn-default" href="<%=basePath%>/course/myCourse?active=list"
  	 		 role="button">&nbsp;返&nbsp;回&nbsp;</a>&nbsp;
- 	 	<a class="btn btn-info" href="#" role="button">&nbsp;预&nbsp;览&nbsp;</a>&nbsp;
+ 	 	<a class="btn btn-info" href="<%=basePath%>/course/preview?courseId=${course.id}"  target="_blank"
+ 	 		role="button">&nbsp;预&nbsp;览&nbsp;</a>&nbsp;
  	 	<a class="btn btn-primary" href="#" role="button">&nbsp;上&nbsp;课&nbsp;</a>&nbsp;
  	 </span>
   </div>

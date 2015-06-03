@@ -3,7 +3,7 @@ package com.et.edusoho.web.tag;
 
 import java.util.List;
 
-import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.menu.Menu;
 
 public class MenuItem {
 

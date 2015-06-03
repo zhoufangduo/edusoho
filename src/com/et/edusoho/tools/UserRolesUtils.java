@@ -2,7 +2,7 @@ package com.et.edusoho.tools;
 
 import java.util.List;
 
-import com.et.edusoho.login.bean.User;
+import com.et.edusoho.admin.user.bean.User;
 
 public class UserRolesUtils {
 	

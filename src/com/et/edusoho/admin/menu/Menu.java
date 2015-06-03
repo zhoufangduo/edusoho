@@ -1,4 +1,4 @@
-package com.et.edusoho.admin.menu.bean;
+package com.et.edusoho.admin.menu;
 
 public class Menu {
 

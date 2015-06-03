@@ -27,4 +27,8 @@ public class CurriculumDaoImpl extends BaseDaoSupport implements CurriculumDao {
 	public void delete(Map<String, String> params) {
 		delete("Course.delete", params);
 	}
+
+	public Course view(Map<String, String> params) {
+		return get("Course.view", params);
+	}
 }

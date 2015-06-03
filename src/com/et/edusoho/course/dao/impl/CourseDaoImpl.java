@@ -39,4 +39,8 @@ public class CourseDaoImpl extends BaseDaoSupport implements CourseDao {
 	public List<Course> getMy(Map<String, String> params) {
 		return getList("Course.getMy", params);
 	}
+
+	public Course getById(String courseId) {
+		return get("Course.getById", courseId);
+	}
 }

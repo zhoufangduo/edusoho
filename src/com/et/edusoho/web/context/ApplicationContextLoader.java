@@ -10,7 +10,7 @@ import org.springframework.context.ApplicationListener;
 import org.springframework.stereotype.Component;
 import org.springframework.web.context.WebApplicationContext;
 
-import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.menu.Menu;
 import com.et.edusoho.admin.system.bean.Site;
 import com.et.edusoho.context.service.ApplicationContextService;
 import com.et.edusoho.tools.CONSTANTCONTEXT;

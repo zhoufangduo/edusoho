@@ -5,6 +5,7 @@ import java.util.Map;
 
 
 
+
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -31,7 +32,11 @@ public class CurriculumController extends BaseController {
 	private CategoryService categoryService;
 
 	public CurriculumController() {
-		super("admin/curriculum", CONSTANTCONTEXT.LOGO_DIR);
+		super("admin/curriculum/", CONSTANTCONTEXT.LOGO_DIR);
+	}
+	
+	public CurriculumController(String path, String filePath) {
+		super(path, filePath);
 	}
 
 	@RequestMapping("list")
@@ -58,7 +63,7 @@ public class CurriculumController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return "redirect:view?active=base&id=" + params.get("id");
+		return "redirect:list?active=base&id=" + params.get("id");
 	}
 
 	@RequestMapping("delete")
@@ -73,8 +78,22 @@ public class CurriculumController extends BaseController {
 			logger.warn(e.getMessage(), e);
 		}
 
-		return "redirect:?active=course";
-
+		return "redirect:list?active=course";
 	}
 
+	@RequestMapping("view")
+	public String toView(final ModelMap modelMap,
+			@RequestParam Map<String, String> params) {
+		try {
+
+			if (params.size() > 0) {
+				modelMap.addAttribute("course", courseService.view(params));
+				modelMap.addAttribute("categorys", categoryService.list(null));
+			}
+
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		return "redirect:?active=course";
+	}
 }

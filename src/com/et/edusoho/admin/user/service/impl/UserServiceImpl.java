@@ -6,9 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.et.edusoho.admin.user.bean.User;
 import com.et.edusoho.admin.user.dao.UserDao;
 import com.et.edusoho.admin.user.service.UserService;
-import com.et.edusoho.login.bean.User;
 import com.et.edusoho.tools.UserRolesUtils;
 
 @Service

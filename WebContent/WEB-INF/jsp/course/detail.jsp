@@ -6,7 +6,7 @@
 <html>
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-		<title>课程管理-课程管理-易通软件教育后台管理</title>
+		<title>课程管理-课程管理-${site.title}-${site.subtitle}-Power By 易通软件教育</title>
 		<link href="<%=basePath%>/admin/system/setting/download?file=${site.icoImage}" rel="shortcut icon" />
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 		<link href="<%=basePath%>/resource/bootstrap/css/bootstrap.min.css" rel="stylesheet" type="text/css">
@@ -144,7 +144,7 @@
 			'<input type="hidden" name="goalsName" value="'+ context+ '"</a>';
 		}
 		 
-		 function getAudiencesTemp(context){
+		function getAudiencesTemp(context){
 			return '<a class="list-group-item"><span class="glyphicon glyphicon-user"></span>&nbsp;'+ context+ 
 			'<span class="glyphicon glyphicon-remove" style="float: right;" onclick="del2(this)"></span>'+
 			'<input type="hidden" name="audiencesName" value="'+ context+ '"</a>';

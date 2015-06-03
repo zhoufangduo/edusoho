@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.et.edusoho.admin.menu.bean.Menu;
+import com.et.edusoho.admin.menu.Menu;
 import com.et.edusoho.admin.system.bean.Site;
 import com.et.edusoho.admin.system.service.SettingService;
 import com.et.edusoho.context.dao.ApplicationContextDao;
