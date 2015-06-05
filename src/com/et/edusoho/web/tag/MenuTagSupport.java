@@ -160,8 +160,12 @@ public class MenuTagSupport extends TagSupport {
 			
 			buffer.append(name).append("<span class='caret'></span></a>");
 			buffer.append("<ul class='dropdown-menu' role='menu' aria-labelledby='dropdownMenu1'>");
-			buffer.append("<li role='presentation' ><a role='menuitem' href='#'><span class='glyphicon glyphicon-home'></span>&nbsp;&nbsp;我的主页</a></li>");
-			buffer.append("<li role='presentation'><a role='menuitem' href='#'><span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;个人中心</a></li>"); 
+			buffer.append("<li role='presentation' ><a role='menuitem' href='#'>");
+			buffer.append("<span class='glyphicon glyphicon-home'></span>&nbsp;&nbsp;我的主页</a></li>");
+			
+			buffer.append("<li role='presentation'><a role='menuitem' href='");
+			buffer.append(context).append("/personal/basic?active=basic'>");
+			buffer.append("<span class='glyphicon glyphicon-user'></span>&nbsp;&nbsp;个人中心</a></li>"); 
 			buffer.append("<li role='presentation' class='divider'></li>");
 			
 			if (hasAdmin(user.getRoles())) {

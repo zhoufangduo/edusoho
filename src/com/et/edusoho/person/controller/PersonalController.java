@@ -16,10 +16,10 @@ public class PersonalController extends BaseController {
 		super("personal/");
 	}
 	
-	@RequestMapping("")
+	@RequestMapping("basic")
 	public String personal(){
 		
-		return "";
+		return getContext("basic");
 	}
 	
 	

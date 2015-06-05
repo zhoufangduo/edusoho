@@ -24,52 +24,27 @@
 <div class="panel panel-default">
   <div class="panel-body">
     <div class="list-group" style="width: 99%;">
-      <span class="list-group-item head">课程信息</span>
-      
-	  <a href="<%=basePath%>/course/view?active=base&id=${course.id}" 
+      <span class="list-group-item head">个人中心</span>
+	  <a href="<%=basePath%>/course/view?active=basic" 
 	  		<c:choose>
-			  	<c:when test="${param.active == 'base' || param.active == null}">class="list-group-item active"</c:when>
+			  	<c:when test="${param.active == 'basic' || param.active == null}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
-	  	>基本信息</a>
+	  	><span class="glyphicon glyphicon-user"></span>&nbsp;基本信息</a>
 	  	
-	  <a href="<%=basePath%>/course/detail?active=detail&id=${course.id}" 
+	  <a href="#" 
 		  	<c:choose>
 			  	<c:when test="${param.active == 'detail'}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
-	  >详细信息</a>
+	  ><span class="glyphicon glyphicon-picture"></span>&nbsp;头像设置</a>
 	  
-	  <a href="<%=basePath%>/course/toLogoImage?active=logoImage&id=${course.id}"
+	  <a href="#"
 	  		<c:choose>
 			  	<c:when test="${param.active == 'logoImage'}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
-	  >课程图片</a>
-	  
-	  <a href="<%=basePath%>/course/lesson/list?active=lesson&id=${course.id}" 
-	  	<c:choose>
-		  	<c:when test="${param.active == 'lesson'}">class="list-group-item active"</c:when>
-		  	<c:otherwise>class="list-group-item"</c:otherwise>
-	  	</c:choose>
-	  >课时管理</a>
-	  <a href="<%=basePath%>/course/fileMrg/toList?active=file&id=${course.id}"
-	  	<c:choose>
-		  	<c:when test="${param.active == 'file'}">class="list-group-item active"</c:when>
-		  	<c:otherwise>class="list-group-item"</c:otherwise>
-	  	</c:choose>
-	  >文件管理</a>
-	</div>
-		
-	<div class="list-group" style="width: 99%;">
-	  <span class="list-group-item head">课程设置</span>
-	  <a href="#" class="list-group-item">教师设置</a>
-	  <a href="<%=basePath%>/course/number/list?active=number&id=${course.id}" 
-	  	<c:choose>
-		  	<c:when test="${param.active == 'number'}">class="list-group-item active"</c:when>
-		  	<c:otherwise>class="list-group-item"</c:otherwise>
-	  	</c:choose>
-	  >学员设置</a>
+	  ><span class="glyphicon glyphicon-lock"></span>&nbsp;安全设置</a>
 	</div>
    </div>
 </div>
