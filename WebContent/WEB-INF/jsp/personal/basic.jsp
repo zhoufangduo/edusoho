@@ -54,13 +54,16 @@
 							    <label for="sex" class="col-sm-2 control-label">性别</label>
 							    <div class="col-sm-9">
 							    	<div style="padding:6px 12px;">
-								    	<input type="radio" value="MALE" name="sex"> 男
+								    	<input type="radio" value="MALE" name="sex"
+								    		<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 男
 								    	&nbsp;&nbsp;&nbsp;&nbsp;
-								    	<input type="radio" value="FEMALE" name="sex"> 女
+								    	<input type="radio" value="FEMALE" name="sex"
+								    	<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 女
 								    	&nbsp;&nbsp;&nbsp;&nbsp;
-								    	<input type="radio" value="SCORI" name="sex"> 男
+								    	<input type="radio" value="SCORI" name="sex"
+								    		<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 保密
 							    	</div>
-							    </div>
+							    </div>${user.sex}
 						    </div>
 						    <div class="form-group">
 							    <label for="email" class="col-sm-2 control-label">姓名</label>
