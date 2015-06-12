@@ -14,7 +14,9 @@
 	<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<link href="<%=basePath%>/resource/iCheck/skins/all.css" rel="stylesheet">
 	<script src="<%=basePath%>/resource/iCheck/icheck.min.js"></script>
+	<script src="<%=basePath%>/resource/ckeditor/ckeditor.js"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
+	
 </head>
 <body>
 	<nav:menu/>
@@ -30,12 +32,12 @@
 		    			<label class="course-title2">基本信息</label>
 		    		</div>
 		  			<div class="panel-body">
-		  				<form action="" class="form-horizontal"  method="post">
+		  				<form action="<%=basePath%>/personal/save" class="form-horizontal"  method="post">
 		  					<div class="form-group">
 							    <label for="username" class="col-sm-2 control-label">用户名</label>
 							    <div class="col-sm-9">
-							    	<label  style="padding:6px 12px;">${user.username}
-							    		(&nbsp;<c:forEach items="${user.roles}"  var="role">
+							    	<label  style="padding:6px 12px;">${person.username}
+							    		(&nbsp;<c:forEach items="${person.roles}"  var="role">
 	  										<c:if test="${role == 'STUDENT' }">学员&nbsp;</c:if>
 	  										<c:if test="${role == 'TEACHER' }">教师&nbsp;</c:if>
 	  										<c:if test="${role == 'ADMIN' }">管理员&nbsp;</c:if>
@@ -47,7 +49,7 @@
 						    <div class="form-group">
 							    <label for="name" class="col-sm-2 control-label">姓名</label>
 							    <div class="col-sm-9">
-							    	<input type="text" name="name"  class="form-control" value="${user.name}">
+							    	<input type="text" name="name" id="name" class="form-control" value="${person.name}">
 							    </div>
 						    </div>
 						    <div class="form-group">
@@ -55,34 +57,55 @@
 							    <div class="col-sm-9">
 							    	<div style="padding:6px 12px;">
 								    	<input type="radio" value="MALE" name="sex"
-								    		<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 男
+								    		<c:if test="${person.sex == 'MALE'}">checked="checked"</c:if>> 男
 								    	&nbsp;&nbsp;&nbsp;&nbsp;
 								    	<input type="radio" value="FEMALE" name="sex"
-								    	<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 女
+								    	<c:if test="${person.sex == 'FEMALE'}">checked="checked"</c:if>> 女
 								    	&nbsp;&nbsp;&nbsp;&nbsp;
 								    	<input type="radio" value="SCORI" name="sex"
-								    		<c:if test="${user.sex == 'SCORI'}">checked="checked"</c:if>> 保密
+								    		<c:if test="${person.sex == 'SCORI'}">checked="checked"</c:if>> 保密
 							    	</div>
-							    </div>${user.sex}
+							    </div>
 						    </div>
 						    <div class="form-group">
-							    <label for="email" class="col-sm-2 control-label">姓名</label>
+							    <label for="email" class="col-sm-2 control-label">Email</label>
 							    <div class="col-sm-9">
-							    	<input type="text" name="email"  class="form-control" value="${user.email}">
+							    	<input type="text" name="email" id="email"  class="form-control" value="${person.email}">
+							    </div>
+						    </div>
+						    <div class="form-group">
+							    <label for="qq" class="col-sm-2 control-label">QQ</label>
+							    <div class="col-sm-9">
+							    	<input type="text" name="qq" id="qq" class="form-control" value="${person.qq}">
+							    </div>
+						    </div>
+						    <div class="form-group">
+							    <label for="mobile" class="col-sm-2 control-label">手机号码</label>
+							    <div class="col-sm-9">
+							    	<input type="text" name="mobile" id="mobile" class="form-control" value="${person.mobile}">
 							    </div>
 						    </div>
 						    <div class="form-group">
 							    <label for="signature" class="col-sm-2 control-label">个性签名</label>
 							    <div class="col-sm-9">
-							    	<input type="text" name="signature"  class="form-control" value="${user.signature}">
+							    	<input type="text" name="signature" id="signature"  class="form-control" value="${person.signature}">
 							    </div>
 						    </div>
 						    <div class="form-group">
 							    <label for="introduction" class="col-sm-2 control-label">自我介绍</label>
 							    <div class="col-sm-9">
-							    	<textarea rows="10"  class="form-control" name="introduction" >${user.introduction}</textarea>
+							    	<textarea rows="15"  class="form-control" id="introduction" name="introduction" >${person.introduction}</textarea>
 							    </div>
 						    </div>
+						    <br/>
+						    <div class="form-group">
+							    <div class="col-sm-10" style="text-align: center;">
+							    	<input type="submit" value="保&nbsp;&nbsp;存" class="btn btn-primary" style="width: 100px;" > 
+							    </div>
+						    </div>
+						    
+						    <input type="hidden" value="${person.id}" name="id">
+						    
 		  				</form>
 		  			</div>
 			  	</div>
@@ -90,6 +113,20 @@
 		</div>
 	</div>
 	<script type="text/javascript">
+		
+		CKEDITOR.replace('introduction',{
+	    	language: 'zh-cn',
+	   	 	skin:'bootstrapck',
+	   	    filebrowserImageUploadUrl: '<%=basePath%>/course/lesson/uploadFile',
+			    filebrowserImageBrowseUrl : '<%=basePath%>/course/lesson/Images',
+	   	 	toolbar :[
+	             ['Bold', 'Italic', 'Underline','TextColor','BGColor','-',
+	              'RemoveFormat','PasteText','NumberedList', 'BulletedList', '-',
+	              'Link','Unlink','Image','-','Source','Maximize','Preview'],
+	              ['Styles','Format','Font','FontSize']
+	        ]
+	    });
+	
 		$(function(){
 			$('input[name=sex]').iCheck({
 			    checkboxClass: 'icheckbox_flat-blue',

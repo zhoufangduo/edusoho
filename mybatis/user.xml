@@ -36,13 +36,34 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		UPDATE USER 
 		<set>
 			<if test="promoted != null and promoted != ''">
-				PROMOTED = #{promoted}
+				PROMOTED = #{promoted},
 			</if>
 			<if test="promoted == 1">
-				, PROMOTEDTIME = NOW()
+				PROMOTEDTIME = NOW(),
 			</if>
 			<if test="promoted == 0">
-				, PROMOTEDTIME = NULL
+				PROMOTEDTIME = NULL,
+			</if>
+			<if test="name != null and name != ''">
+				`NAME` = #{name},
+			</if>
+			<if test="sex != null and sex != ''">
+				SEX = #{sex},
+			</if>
+			<if test="email != null and email != ''">
+				EMAIL = #{email},
+			</if>
+			<if test="qq != null and qq != ''">
+				QQ = #{qq},
+			</if>
+			<if test="mobile != null and mobile != ''">
+				MOBILE = #{mobile},
+			</if>
+			<if test="signature != null and signature != ''">
+				SIGNATURE = #{signature},
+			</if>
+			<if test="introduction != null and introduction != ''">
+				INTRODUCTION = #{introduction}
 			</if>
 		</set>
 		

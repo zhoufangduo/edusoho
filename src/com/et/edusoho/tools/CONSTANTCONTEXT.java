@@ -29,4 +29,7 @@ public interface CONSTANTCONTEXT {
 	public String IMAGE_TYPE = "bmp,gif,jpg,psd,png,ico,tiff";
 	
 	public String AUDIO_TYPE = "mp3,wav";
+	
+	public String USER_IMGS = "upload" + File.separator + "user_images";
+	
 }

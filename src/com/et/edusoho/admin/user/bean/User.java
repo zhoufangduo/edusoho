@@ -22,6 +22,10 @@ public class User {
 
 	private String email; // 用户的email
 
+	private String qq; // 用户qq
+
+	private String mobile; // 用户手机
+
 	private String avatar; // 用户头像
 
 	private String locked; // 用户是否被锁
@@ -150,6 +154,22 @@ public class User {
 
 	public void setIntroduction(String introduction) {
 		this.introduction = introduction;
+	}
+
+	public String getQq() {
+		return qq;
+	}
+
+	public void setQq(String qq) {
+		this.qq = qq;
+	}
+
+	public String getMobile() {
+		return mobile;
+	}
+
+	public void setMobile(String mobile) {
+		this.mobile = mobile;
 	}
 
 }

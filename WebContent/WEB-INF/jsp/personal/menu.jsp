@@ -25,16 +25,16 @@
   <div class="panel-body">
     <div class="list-group" style="width: 99%;">
       <span class="list-group-item head">个人中心</span>
-	  <a href="<%=basePath%>/course/view?active=basic" 
+	  <a href="<%=basePath%>/personal/basic?active=basic&id=${user.id}" 
 	  		<c:choose>
 			  	<c:when test="${param.active == 'basic' || param.active == null}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
 	  	><span class="glyphicon glyphicon-user"></span>&nbsp;基本信息</a>
 	  	
-	  <a href="#" 
+	  <a href="<%=basePath%>/personal/toAvatar?acive=avatar&id=${user.id}" 
 		  	<c:choose>
-			  	<c:when test="${param.active == 'detail'}">class="list-group-item active"</c:when>
+			  	<c:when test="${param.active == 'avatar'}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
 	  ><span class="glyphicon glyphicon-picture"></span>&nbsp;头像设置</a>
