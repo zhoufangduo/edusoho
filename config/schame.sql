@@ -28,6 +28,8 @@ CREATE TABLE `USER`(
 	`ROLE` VARCHAR(64)  DEFAULT 'STUDENT' COMMENT '用户角色',
 	`SEX` CHAR(10) DEFAULT 'SCORI' COMMENT '用户性别',
 	`EMAIL` VARCHAR(64) DEFAULT NULL COMMENT '用户邮件地址',
+	`QQ` VARCHAR(64) DEFAULT NULL COMMENT '用户QQ',
+	`MOBILE` VARCHAR(32) DEFAULT NULL COMMENT '用户手机号码',
 	`AVATAR` VARCHAR(255) DEFAULT '/resource/images/deault_head.png' COMMENT '用户头像',
 	`LOCKED` INT(2) DEFAULT 0 COMMENT '是否被冻结',
 	`CREATETIME` VARCHAR(32) NOT NULL COMMENT '用户创建时间',
@@ -36,8 +38,9 @@ CREATE TABLE `USER`(
 	PRIMARY KEY  (`ID`)
 )ENGINE=INNODB DEFAULT CHARSET=UTF8 COMMENT='导航数据表';
 
-INSERT INTO `user` VALUES ('1', 'admin', '14e1b600b1fd579f47433b88e8d85291', 
-	'初始化管理员','我是管理员','自我介绍', 'SUPERADMIN','', 'admin@email.com', '/resource/images/deault_head.png', '0', NOW(),NULL,NULL);
+INSERT INTO `USER` VALUES ('1', 'admin', '14e1b600b1fd579f47433b88e8d85291', 
+	'初始化管理员','我是管理员','自我介绍', 'SUPERADMIN','SCORI', 'admin@email.com',NULL,NULL, '/resource/images/deault_head.png', '0', NOW(),NULL,NULL);
+
 DROP TABLE IF EXISTS `CATEGORY`;
 CREATE TABLE `CATEGORY`(
 	`ID` INT(11) UNSIGNED NOT NULL AUTO_INCREMENT COMMENT '分类ID',
