@@ -32,16 +32,16 @@
 		  	</c:choose>
 	  	><span class="glyphicon glyphicon-user"></span>&nbsp;基本信息</a>
 	  	
-	  <a href="<%=basePath%>/personal/toAvatar?acive=avatar&id=${user.id}" 
+	  <a href="<%=basePath%>/personal/toAvatar?active=avatar&id=${user.id}" 
 		  	<c:choose>
 			  	<c:when test="${param.active == 'avatar'}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
 	  ><span class="glyphicon glyphicon-picture"></span>&nbsp;头像设置</a>
 	  
-	  <a href="#"
+	  <a href="<%=basePath%>/personal/toSetPwd?active=setPwd&id=${user.id}"
 	  		<c:choose>
-			  	<c:when test="${param.active == 'logoImage'}">class="list-group-item active"</c:when>
+			  	<c:when test="${param.active == 'setPwd'}">class="list-group-item active"</c:when>
 			  	<c:otherwise>class="list-group-item"</c:otherwise>
 		  	</c:choose>
 	  ><span class="glyphicon glyphicon-lock"></span>&nbsp;安全设置</a>

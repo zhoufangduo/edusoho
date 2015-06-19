@@ -13,7 +13,7 @@
 	<script src="<%=basePath%>/resource/jquery/jquery-1.11.2.min.js" type="text/javascript"></script>
 	<script src="<%=basePath%>/resource/bootstrap/js/bootstrap.min.js" type="text/javascript"></script>
 	<link href="<%=basePath%>/resource/css/all.css" rel="stylesheet" type="text/css">
-	
+	<script src="<%=basePath%>/resource/jquery/jquery.form.js"  type="text/javascript"></script>
 </head>
 <body>
 	<nav:menu/>
@@ -29,22 +29,22 @@
 		    			<label class="course-title2">头像</label>
 		    		</div>
 		  			<div class="panel-body">
-		  				<form action="<%=basePath%>/personal/save" class="form-horizontal"  method="post">
+		  				<form action="<%=basePath%>/personal/upload" class="form-horizontal"  method="post" enctype="multipart/form-data">
 		  					<div class="form-group">
 							    <label for="username" class="col-sm-2 control-label">当前头像</label>
 							    <div class="col-sm-9">
 							    	<c:if test="${person.avatar == null}">
-							    		<img alt="" src="<%=basePath%>/resource/images/deault_head.png" style="width: 200px;height: 200px;">
+							    		<img src="<%=basePath%>/resource/images/deault_head.png" style="width: 200px;height: 200px;" id="image">
 							    	</c:if>
 							    	<c:if test="${person.avatar != null }">
-							    		<img alt="" src="<%=basePath%>/personal/download?file=${person.avatar}">
+							    		<img style="width: 200px;height: 200px;" src="<%=basePath%>/personal/download?file=${person.avatar}" id="image">
 							    	</c:if>
 							    </div>
 						    </div>
 						    <div class="form-group">
 							    <label for="name" class="col-sm-2 control-label">新头像</label>
 							    <div class="col-sm-9">
-							    	<input type="button" class="btn btn-default" value="选择图片">
+							    	<input type="button" class="btn btn-default" value="选择图片" id="uploadBtn">
 							    	<br/>
 							    	你可以上传JPG,GiF或PNG格式的文件，文件大小不能超过2.0MB.
 							    	<br/>
@@ -54,7 +54,8 @@
 						    <br/>
 						    <div class="form-group">
 							    <div class="col-sm-11" style="text-align: center;">
-							    	<input type="button" class="btn btn-primary" value="保&nbsp;存" style="width: 80px;">
+							    	<input type="button" id="submit" class="btn btn-primary disabled" value="保&nbsp;存"
+							    	 style="width: 80px;" data-loading-text="正在提交...">
 							    </div>
 						    </div>
 						    
@@ -69,7 +70,36 @@
 	<script type="text/javascript">
 	
 		$(function(){
+			 $("#uploadBtn").click(function(){
+				 $("input[name=file]").click();
+			 });
 			 
+			 var fileName;
+			 
+			 $("input[name=file]").change(function(){
+				 var imageUrl = $(this).val();
+				 if(imageUrl  != ""){
+					 	$("form").ajaxSubmit({
+							dataType	: "text",
+							type        : "POST",
+							cache       : false,
+							success		: function(data){	
+								var url = "<%=basePath%>/personal/download?file=" + data;
+								fileName = data;
+								$("#image").attr("src",url);
+							}
+						});
+					 
+					   $("#submit").attr("class","btn btn-primary");
+				 }
+			 });
+			 
+			 $("#submit").click(function(){
+				 var url = "<%=basePath%>/personal/saveAvatar";
+				 $.post(url,{'fileName':fileName,'id':'${person.id}'},function(){
+					 alert("修改头像成功!");
+				 });
+			 });
 		});
 	
 	</script>

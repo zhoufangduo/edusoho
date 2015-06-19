@@ -70,8 +70,29 @@ public class PersonalController extends BaseController {
 		return "redirect:basic?active=base";
 	}
 	
+	
+	@RequestMapping("saveAvatar")
+	public void saveAvatar(@RequestParam Map<String, String> params,
+			HttpServletRequest request,HttpServletResponse response){
+		
+		setWebContext(request, response);
+		
+		save(params);
+	}
+	
+	@RequestMapping("toSetPwd")
+	public String toSetPwd(final ModelMap modelMap,@RequestParam Map<String, String> params,
+			HttpServletRequest request,HttpServletResponse response){
+		
+		
+		modelMap.addAttribute("person", userService.get(params));
+		
+		return getContext("setPwd");
+		
+	}
+	
 	@RequestMapping("upload")
-	public void upload(@RequestParam("file") Object uploadFile,
+	public synchronized void upload(@RequestParam("file") Object uploadFile,
 			HttpServletRequest request, HttpServletResponse response){
 		
 		try {

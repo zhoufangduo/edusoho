@@ -30,6 +30,6 @@ public interface CONSTANTCONTEXT {
 	
 	public String AUDIO_TYPE = "mp3,wav";
 	
-	public String USER_IMGS = "upload" + File.separator + "user_images";
+	public String USER_IMGS = "upload" + File.separator + "user_images" + File.separator;
 	
 }
