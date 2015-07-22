@@ -86,6 +86,9 @@
 				"email": "邮箱格式不对,例如: admin@163.com"
 			},
 			submitHandler: function(form) {
+				$("#oldPwd").val($.md5($("#oldPwd").val()));
+				$("#confirmPassword").val($.md5($("#confirmPassword").val()));
+				
 				form.submit();
 			}
 		});

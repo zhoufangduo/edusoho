@@ -39,4 +39,8 @@ public class UserDaoImpl extends BaseDaoSupport implements UserDao {
 	public void update(Map<String, String> params) {
 		update("User.update", params);
 	}
+
+	public int validatePwd(Map<String, String> params) {
+		return get("User.validatePwd", params);
+	}
 }

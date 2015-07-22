@@ -19,4 +19,6 @@ public interface UserDao {
 
 	public void update(Map<String, String> params);
 
+	public int validatePwd(Map<String, String> params);
+
 }

@@ -53,7 +53,7 @@
 						    <div class="form-group">
 							    <label for="oldPwd" class="col-sm-2 control-label">旧密码</label>
 							    <div class="col-sm-9">
-							    	<input type="password" name="oldPwd" id="oldPwd"  class="form-control">
+							    	<input type="password" name="oldPwd" id="oldPwd" class="form-control">
 							    </div>
 						    </div>
 						    <br/>
@@ -92,7 +92,15 @@
 			rules:{
 				"oldPwd":{
 					required: true,
-					minlength: 6
+					minlength: 6,
+					remote:{
+						 url: "<%=basePath%>/personal/validatePwd",
+						 type: "post",
+						 dataType: "json",
+						 data: {oldPwd: function(){
+							 return $.md5($("#oldPwd").val());
+						 }} 
+					}
 				},
 				"password1" :{
 					required:true,
@@ -105,7 +113,7 @@
 				}
 			},
 			messages:{
-				"oldPwd": {required: "旧的密码不能为空!", minlength:"长度至少为6个字符!"},
+				"oldPwd": {required: "旧的密码不能为空!", minlength:"长度至少为6个字符!",remote:"旧的密码输入错误!"},
 				"password1": {required : "新的密码不能为空!", minlength:"长度至少为6个字符!"},
 				"password2": {required : "确认密码不能为空!", minlength:"长度至少为6个字符!",equalTo:"确认密码不一致!"}
 			},

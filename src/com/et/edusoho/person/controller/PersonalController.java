@@ -5,6 +5,7 @@ import java.util.Map;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.apache.commons.lang.StringUtils;
 import org.apache.log4j.Logger;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -12,6 +13,7 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.user.bean.User;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
@@ -88,6 +90,29 @@ public class PersonalController extends BaseController {
 		modelMap.addAttribute("person", userService.get(params));
 		
 		return getContext("setPwd");
+		
+	}
+	
+	@RequestMapping("validatePwd")
+	public void toValidatePwd(@RequestParam Map<String, String> params,
+			HttpServletRequest request,HttpServletResponse response){
+		
+		setWebContext(request, response);
+		
+		try {
+			
+			String oldPwd = params.get("oldPwd");
+			if (StringUtils.isNotEmpty(oldPwd)) {
+				params.put("id", getUserId());			
+				int result = userService.validatePwd(params);
+				
+			}
+			
+		} catch (Exception e) {
+			logger.warn(e.getMessage(), e);
+		}
+		
+		write("false");
 		
 	}
 	

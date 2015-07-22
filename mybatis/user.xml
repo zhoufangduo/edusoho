@@ -6,7 +6,7 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 	
 	<insert id="add" parameterType="map">
 		INSERT INTO USER(`USERNAME`,`PASSWORD`,`ROLE`,`EMAIL`,`CREATETIME`) 
-		VALUES(#{username},MD5(MD5(#{password})),#{role},#{email},NOW())
+		VALUES(#{username},MD5(#{password}),#{role},#{email},NOW())
 	</insert>
 	
 	<select id="list" parameterType="map" resultType="user">
@@ -72,5 +72,9 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		
 		WHERE ID = #{id}
 	</update>
+	
+	<select id="validatePwd" parameterType="map" resultType="int">
+		SELECT COUNT(ID) FROM USER WHERE ID = #{id} AND `PASSWORD` = MD5(#{password})
+	</select>
 	
 </mapper>

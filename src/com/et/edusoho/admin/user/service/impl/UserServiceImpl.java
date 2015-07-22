@@ -40,4 +40,8 @@ public class UserServiceImpl implements UserService {
 	public void update(Map<String, String> params) {
 		userDao.update(params);
 	}
+
+	public int validatePwd(Map<String, String> params) {
+		return userDao.validatePwd(params);
+	}
 }
