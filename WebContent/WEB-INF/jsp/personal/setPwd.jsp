@@ -109,7 +109,7 @@
 				"password2" :{
 					required:true,
 					minlength: 6,
-					equalTo:'password1'
+					equalTo:password1
 				}
 			},
 			messages:{
