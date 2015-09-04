@@ -124,7 +124,7 @@
 									    </a></li>
 								    </c:if>
 								    <c:if test="${course.status == 'DRAFT'}">
-									    <li><a href="#">
+									    <li><a href="<%=basePath%>/admin/curriculum/delete?id=${course.id}">
 									    	<span class="glyphicon glyphicon-trash"></span>&nbsp;删除课程
 									    </a></li>
 								    </c:if>
