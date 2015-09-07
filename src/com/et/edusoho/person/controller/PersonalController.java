@@ -13,7 +13,6 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import com.et.edusoho.admin.user.bean.User;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
@@ -104,6 +103,7 @@ public class PersonalController extends BaseController {
 			String oldPwd = params.get("oldPwd");
 			if (StringUtils.isNotEmpty(oldPwd)) {
 				params.put("id", getUserId());			
+				@SuppressWarnings("unused")
 				int result = userService.validatePwd(params);
 				
 			}

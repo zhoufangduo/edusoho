@@ -147,6 +147,8 @@
 			$('#remeber').on('ifUnchecked', function(event){
 				$('#remeber').attr("checked",false);
 			});
+			
+			$("#username").focus(); 
 		});
 	</script>
 </body>

@@ -12,6 +12,15 @@
 	</c:choose>
    
 	>用户管理</a>
+	
+	 <a href="<%=basePath%>/admin/user/clazz?active=user&menu=clazz" 
+   	<c:choose>
+		<c:when test="${param.menu == 'clazz'}">class="list-group-item active"</c:when>
+		<c:otherwise>
+			class="list-group-item"
+		</c:otherwise>
+	</c:choose> >班级管理</a>
+	
    <a href="<%=basePath%>/admin/user/promoted?active=user&menu=promoted" 
    	<c:choose>
 		<c:when test="${param.menu == 'promoted'}">class="list-group-item active"</c:when>

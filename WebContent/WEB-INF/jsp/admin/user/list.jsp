@@ -81,12 +81,12 @@
 				    		<div class="col-md-4">
 				    			<div class="btn-group" style="float: right;">
 	      						<a href="javascript:showModel('#model','<%=basePath%>/admin/user/toAdd')"
-	      						   class="btn btn-info" >添加用户</a>
+	      						   class="btn btn-info" >创建</a>
 					    		<button class="btn btn-info">
-					    			导入用户
+					    			导入
 					    		</button>
 					    		<button class="btn btn-info">
-					    			导出用户
+					    			导出
 					    		</button>
 	      					</div>
 				    		</div>

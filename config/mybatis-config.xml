@@ -16,6 +16,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<typeAlias alias="courseFile" type="com.et.edusoho.course.bean.CourseFile"/>
 		<typeAlias alias="estimate" type="com.et.edusoho.course.bean.Estimate"/>
 		<typeAlias alias="number" type="com.et.edusoho.course.bean.Number" />
+		<typeAlias alias="clazz" type="com.et.edusoho.admin.user.bean.Clazz"/>
 	</typeAliases>
 	
 	<mappers>
@@ -31,5 +32,6 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 		<mapper resource="course_file.xml"/>
 		<mapper resource="estimate.xml"/>
 		<mapper resource="number.xml"/>
+		<mapper resource="clazz.xml"/>
 	</mappers>
 </configuration>

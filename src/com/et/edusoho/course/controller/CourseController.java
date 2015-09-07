@@ -97,7 +97,7 @@ public class CourseController extends BaseController {
 
 			if (params.size() > 0) {
 
-				params.put("creater", getUser().getId());
+				params.put("creater", getUserId());
 
 				courseService.create(params);
 			}
