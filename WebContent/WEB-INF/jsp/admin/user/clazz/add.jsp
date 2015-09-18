@@ -6,14 +6,14 @@
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-	        <h4 class="modal-title" id="myModalLabel">添加班级</h4>
+	        <h4 class="modal-title" id="myModalLabel">添加用户组</h4>
 	      </div>
 	      <div class="modal-body">
 	      	<br/>
 	       		<div class="form-group">
-				    <label for="username" class="col-sm-2 control-label">班级名称</label>
+				    <label for="username" class="col-sm-2 control-label">用户组名</label>
 				    <div class="col-sm-9">
-				      <input type="text" class="form-control" name="name" placeholder="创建的班级名称">
+				      <input type="text" class="form-control" name="name" placeholder="创建的用户组名称">
 				    </div>
 			    </div>
 			    <div class="form-group">
@@ -49,7 +49,7 @@
 				}
 			},
 			messages:{
-				"name": {required: "班级名称不能为空!"},
+				"name": {required: "用户组名称不能为空!"},
 				"description": "长度不能超过200个字符!"
 			},
 			submitHandler: function(form) {

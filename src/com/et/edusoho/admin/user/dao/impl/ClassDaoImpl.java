@@ -23,4 +23,8 @@ public class ClassDaoImpl extends BaseDaoSupport implements ClazzDao {
 	public void deleteById(String id) {
 		delete("Clazz.deleteById", id);
 	}
+
+	public List<Clazz> getAll() {
+		return getList("Clazz.getAll");
+	}
 }

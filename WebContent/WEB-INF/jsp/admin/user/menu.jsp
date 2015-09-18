@@ -19,7 +19,7 @@
 		<c:otherwise>
 			class="list-group-item"
 		</c:otherwise>
-	</c:choose> >班级管理</a>
+	</c:choose> >用户组管理</a>
 	
    <a href="<%=basePath%>/admin/user/promoted?active=user&menu=promoted" 
    	<c:choose>

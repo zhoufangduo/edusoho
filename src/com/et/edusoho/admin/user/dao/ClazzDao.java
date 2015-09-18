@@ -13,4 +13,6 @@ public interface ClazzDao {
 
 	public void deleteById(String id);
 
+	public List<Clazz> getAll();
+
 }

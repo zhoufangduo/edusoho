@@ -13,4 +13,6 @@ public interface ClazzService {
 
 	public void deleteById(String id);
 
+	public List<Clazz> getAll();
+
 }

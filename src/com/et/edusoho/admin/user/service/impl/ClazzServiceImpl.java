@@ -28,4 +28,8 @@ public class ClazzServiceImpl implements ClazzService{
 	public void deleteById(String id) {
 		clazzDao.deleteById(id);
 	}
+
+	public List<Clazz> getAll() {
+		return clazzDao.getAll();
+	}
 }

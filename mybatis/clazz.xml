@@ -19,6 +19,10 @@ PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
 		</where>
 	</select>
 	
+	<select id="getAll" resultType="clazz">
+		SELECT ID,NAME FROM `CLAZZ` 
+	</select>
+	
 	<delete id="deleteById" parameterType="string">
 		DELETE  FROM `CLAZZ` WHERE ID = #{name}
 	</delete>

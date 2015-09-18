@@ -11,7 +11,9 @@ import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.et.edusoho.admin.user.bean.Clazz;
 import com.et.edusoho.admin.user.bean.User;
+import com.et.edusoho.admin.user.service.ClazzService;
 import com.et.edusoho.admin.user.service.UserService;
 import com.et.edusoho.support.constroller.BaseController;
 import com.et.edusoho.tools.CONSTANTCONTEXT;
@@ -24,6 +26,9 @@ public class UserController extends BaseController {
 	
 	@Autowired
 	private UserService userService;
+	
+	@Autowired
+	private ClazzService clazzService;
 	
 	public UserController(){
 		super("admin/user/");
@@ -46,7 +51,11 @@ public class UserController extends BaseController {
 	}
 	
 	@RequestMapping("user/toAdd")
-	public String toAdd(){
+	public String toAdd(final ModelMap modelMap){
+		
+		List<Clazz> list = clazzService.getAll();
+		
+		modelMap.addAttribute("clazzs", list);
 		
 		return getContext("add");
 	}

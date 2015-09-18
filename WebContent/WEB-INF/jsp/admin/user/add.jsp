@@ -1,8 +1,9 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%String basePath = request.getContextPath();%>
+<%@ taglib prefix="c"  uri="http://java.sun.com/jsp/jstl/core"%>
  <form action="<%=basePath%>/admin/user/add" class="form-horizontal" id="addForm" method="post">
 	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	  <div class="modal-dialog">
+	  <div class="modal-dialog modal-lg">
 	    <div class="modal-content">
 	      <div class="modal-header">
 	        <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
@@ -37,12 +38,35 @@
 				      <input type="text" class="form-control" id="email" name="email" placeholder="常用的邮箱的地址">
 				    </div>
 			    </div>
-			     <div class="form-group">
-				    <label for="email" class="col-sm-2 control-label">用户权限</label>
+			    <div class="form-group">
+				    <label class="col-sm-2 control-label">用户权限</label>
 				    <div class="col-sm-9">
 					    <input type="checkbox" name="role1" id="teacher" value="TEACHER">&nbsp;教师&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					    <input type="checkbox" name="role2" id="admin" value="ADMIN">&nbsp;管理员&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
 					    <input type="checkbox" name="role3" id="superAdmin" value="SUPERADMIN">&nbsp;超级管理员
+					</div>
+			    </div>
+			    
+			    <div class="form-group">
+				    <label class="col-sm-2 control-label" style="margin-top: 50px;">用户组</label>
+				    <div class="col-sm-9">
+				    	<div style="width:40%;float:left;">
+				    		<label class="control-label">所有组 </label>
+				    		<select multiple class="form-control"  id="unuse">  
+						   		<c:forEach items="${clazzs}" var="clazz">
+						   			 <option value="${clazz.id}">${clazz.name}</option>
+	  							</c:forEach>
+					   		</select>
+				    	</div>
+					   <div style="float:left;margin:40px 20px;">
+					   		<input type="button" class="btn btn-sm btn-default" value="&gt;&gt;" id="useBtn">
+					   		<p/>
+					   		<input type="button" class="btn btn-sm btn-default" value="&lt;&lt;" id="unuseBtn">
+					   </div>
+					   <div style="width:40%;float:left;">
+						   <label class="control-label">当前组</label>
+						   <select multiple class="form-control"  id="use"></select>
+					   </div>
 					</div>
 			    </div>
 	      </div>
@@ -93,6 +117,22 @@
 			}
 		});
 		
+		$("#useBtn").click(function(){
+			var seleteds = $("#unuse option:selected");
+			for(var i = 0; i < seleteds.length ;i ++){
+				$("#use").append(seleteds[i]);
+				$(seleteds[i]).attr("selected",false);
+			}
+		});
+		
+		$("#unuseBtn").click(function(){
+			var seleteds = $("#use option:selected");
+			for(var i = 0; i < seleteds.length ;i ++){
+				$("#unuse").append(seleteds[i]);
+				$(seleteds[i]).attr("selected",false);
+			}
+		});
+		 
 		$('input[type=checkbox]').iCheck({
 		    checkboxClass: 'icheckbox_flat-blue',
 		    radioClass: 'iradio_flat'

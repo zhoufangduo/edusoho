@@ -41,7 +41,7 @@
 				  	<div>
 						<ol class="breadcrumb">
 						  <li><a href="">用户</a></li>
-						  <li class="active">班级管理</li>
+						  <li class="active">用户组管理</li>
 						</ol>
 					</div>
 				    <form action="<%=basePath%>/admin/user/clazz?active=user&menu=clazz" method="post">
@@ -49,8 +49,8 @@
 				    		<div class="col-md-8">
 				    			<div class="input-group">
 									  <span class="input-group-addon">搜索项 </span>
-									  <input type="text" class="form-control" name="name" placeholder="班级名称"
-									  	value="${param.name}" style="width: 250px;">
+									  <input type="text" class="form-control" name="name" placeholder="用户组名称"
+									  	value="${param.name}" style="width:80%;">
 									  <span class="input-group-btn" style="float: left;">
 		        						<button class="btn btn-primary" type="submit">搜&nbsp;索</button>
 		      						  </span>
@@ -70,7 +70,7 @@
 				    <br/>
 				    <table class="table table-hover">
   						<tr>
-  							<th width="13%">班级名称</th>
+  							<th width="13%">用户组</th>
   							<th width="14%">创建人</th>
   							<th width="22%">创建时间</th>
   							<th >描述</th>
